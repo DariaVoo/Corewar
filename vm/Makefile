@@ -17,7 +17,7 @@ SRC_DIR_LOGIC = logic/
 SRC_DIR_OUTPUT = output/
 
 SRC_MAIN = main.c
-SRC_PARSE_FILES =
+SRC_PARSE_FILES = parse_champion.c
 SRC_LOGIC_FILES =
 SRC_OUTPUT_FILES =
 
