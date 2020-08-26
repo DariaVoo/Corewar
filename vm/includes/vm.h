@@ -3,4 +3,9 @@
 
 # include "libftprintf.h"
 
+typedef struct		s_champion
+{
+
+}					t_champion;
+
 #endif
