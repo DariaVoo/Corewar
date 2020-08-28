@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erodd <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 15:31:03 by snorcros          #+#    #+#             */
-/*   Updated: 2020/08/02 10:30:37 by erodd            ###   ########.fr       */
+/*   Updated: 2020/08/28 12:51:57 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void				ft_strdel(char **as);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strmap(char const *s, char (*f)(char));
+char				*ft_strmap(char const *s, int (*f)(int));
 char				*ft_strmapi(char const *s, char(*f)(unsigned int, char));
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);

@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 15:59:31 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/08/27 18:39:23 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/08/28 17:00:13 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,19 @@ void		ft_exit(char *str)
 
 void	champ_print(t_champion ptr)
 {
-	ft_printf("Magic header: %x\nNAME: %s\nProg size: %d\nComment: %s\nCode: %s\n", ptr.header.magic, ptr.header.prog_name, ptr.header.prog_size, ptr.header.comment, ptr.code);
+	unsigned int i;
+
+	i = 0;
+	ft_printf("Magic header: %x\nNAME: %s\nProg size: %x\nComment: %s\nCode:\n", ptr.header.magic, ptr.header.prog_name, ptr.header.prog_size, ptr.header.comment);
+	while (i < ptr.header.prog_size)
+	{
+		ft_printf("%.2x", (0xff & ptr.code[i]));
+		if (i % 2 != 0)
+			ft_putstr(" ");
+		if ((i + 1) % 16 == 0 && i != 0)
+			ft_putstr("\n");
+		i++;
+	}
 }
 
 int main(int argc, char **argv)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type_color.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snorcros <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 16:22:41 by snorcros          #+#    #+#             */
-/*   Updated: 2020/02/05 16:22:46 by snorcros         ###   ########.fr       */
+/*   Updated: 2020/08/28 12:50:50 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_colour(va_list ap)
 	size_t	i;
 
 	i = 0;
-	buf = ft_strmap(va_arg(ap, char *), (char (*)(char))ft_tolower);
+	buf = ft_strmap(va_arg(ap, char *), (int (*)(int))ft_tolower);
 	str = ft_strnew(10);
 	while (g_colors[i].color_name[0] != 'z')
 	{
