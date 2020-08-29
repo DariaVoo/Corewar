@@ -6,11 +6,11 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 15:59:25 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/08/28 17:44:43 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/08/29 17:51:41 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "vm.h"
+#include "vm.h"
 
 static void		swap_bit(char *byte)
 {
@@ -30,7 +30,6 @@ static void		swap_bit(char *byte)
 static t_header	init_header(int fd)
 {
 	t_header	champ;
-	int len;
 
 	if (read(fd, &champ.magic, 4) < 0)
 		ft_exit("ERROR: READ MAGIC HEADER");
@@ -38,27 +37,31 @@ static t_header	init_header(int fd)
 	if (read(fd, champ.prog_name, PROG_NAME_LENGTH) < 0)
 		ft_exit("ERROR: READ NAME");
 	lseek(fd, 4, SEEK_CUR);
-	if ((len = read(fd, &champ.prog_size, 4)) < 0)
+	if (read(fd, &champ.prog_size, 4) < 0)
 		ft_exit("ERROR: READ CHAMP SIZE");
 	swap_bit((char*)(&champ.prog_size));
-	if ((len = read(fd, champ.comment, COMMENT_LENGTH)) < 0)
+	if (read(fd, champ.comment, COMMENT_LENGTH) < 0)
 		ft_exit("ERROR: READ COMMENT");
 	lseek(fd, 4, SEEK_CUR);
-	return (champ);	
+	return (champ);
 }
 
-//TODO: implement this
-t_champion	parse_champion(char *chmp_file_name)
+t_champion		parse_champion(char *chmp_file_name)
 {
 	t_champion	champ;
 	int			fd;
 
 	fd = open(chmp_file_name, O_RDONLY);
 	champ.header = init_header(fd);
-	if ((champ.code = ft_memalloc(champ.header.prog_size + 8)) == NULL)
+	if (champ.header.prog_size > CHAMP_MAX_SIZE)
+	{
+		ft_printf("Error: File champs/barriere.cor has too large a code");
+		ft_printf("(%d bytes > 682 bytes)\n", champ.header.prog_size);
+		exit(0);
+	}
+	if ((champ.code = ft_memalloc(champ.header.prog_size + 1)) == NULL)
 		ft_exit("ERROR: MALLOC");
-	if ((read(fd, champ.code, champ.header.prog_size + 8)) < 0)
+	if ((read(fd, champ.code, champ.header.prog_size + 1)) < 0)
 		ft_exit("ERROR: READ CODE");
 	return (champ);
 }
-
