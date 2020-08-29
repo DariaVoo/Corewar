@@ -4,6 +4,8 @@
 # include "op.h"
 # include "libftprintf.h"
 
+# define BUFF 4096
+
 // ///"live", 1, {T_DIR}, 1, 10, "alive", 0, 0
 // typedef struct s_opt
 // {
@@ -26,6 +28,7 @@ typedef struct		s_op
 typedef struct		s_champion
 {
 	t_header	header;
+	
 	char		*code; // пока просто запиши весь код чемпиона сюда
 }					t_champion;
 
