@@ -1,5 +1,5 @@
 NAME = corewar
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -g
 
 LIBFT_DIR = libft/
 LIBFT = $(LIBFT_DIR)libft.a
@@ -16,8 +16,8 @@ SRC_DIR_PARSE = parse/
 SRC_DIR_LOGIC = logic/
 SRC_DIR_OUTPUT = output/
 
-SRC_MAIN = main.c
-SRC_PARSE_FILES = parse_champion.c
+SRC_MAIN = main.c init.c
+SRC_PARSE_FILES = parse_champion.c 
 SRC_LOGIC_FILES =
 SRC_OUTPUT_FILES =
 

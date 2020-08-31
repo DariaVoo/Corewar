@@ -1,5 +1,17 @@
-#ifndef ASM_H
-# define ASM_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vm.h                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
+/*   Updated: 2020/08/31 20:20:06 by qjosmyn          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef VM_H
+# define VM_H
 
 # include "op.h"
 # include "libftprintf.h"
@@ -15,28 +27,41 @@
 // 	int		op; // продумать представление операции
 // }				t_opt;
 
-typedef struct		s_op
+typedef struct s_op			t_op;
+typedef struct s_champion	t_champion;
+typedef struct s_vm			t_vm;
+
+struct						s_vm
 {
-	char			*name_oper;
-	int				col_arg;
-	int				*type_arg;
-	int				opcode;
-	int				cycle_to_die;
-	char			*comment;
-	int				change_carry;
-	int				code_type_arg;
-}					t_op;
+	uint8_t					arena[MEM_SIZE];
+	t_champion				*champs;
+	size_t					col_champs;
+};
 
 
-typedef struct		s_champion
+struct						s_op
 {
-	t_header		header;
-	char			*code; // пока просто запиши весь код чемпиона сюда
-}					t_champion;
+	char	*name_oper;
+	int		col_arg;
+	int		*type_arg;
+	int		opcode;
+	int		cycle_to_die;
+	char	*comment;
+	int		change_carry;
+	int		code_type_arg;
+};
 
+struct						s_champion
+{
+	t_header	header;
+	int			id;
+	uint8_t		*code; // пока просто запиши весь код чемпиона сюда
+	t_champion	*next;
+};
 
-void		ft_exit(char *str);
-
-t_champion parse_champion(char *chmp_file_name);
+void						ft_exit(char *str);
+t_champion					*parse_champion(char *chmp_file_name, t_champion *champ);
+t_champion					*init_champ(int id);
+t_vm						*init_vm(size_t col_champs);
 
 #endif
