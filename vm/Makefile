@@ -40,7 +40,7 @@ all: lib $(NAME)
 lib:
 	make -sC $(LIBFT_DIR)
 
-$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
+$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ) Makefile
 	gcc $(CFLAGS) $(OBJ) $(INCLUDES) $(LIB_FLAG) -o $(NAME)
 
 $(OBJ_DIR):

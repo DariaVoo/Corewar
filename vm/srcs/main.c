@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 15:59:31 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/08/31 21:20:46 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/09/02 17:59:47 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		ft_exit(char *str)
 {
-	ft_putstr(str);
+	perror(str);
 	exit (EXIT_FAILURE);
 }
 
@@ -35,33 +35,51 @@ void	champ_print(t_champion *ptr)
 	}
 }
 
+void	arena_print(uint8_t *arena)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < MEM_SIZE)
+	{
+		ft_printf("%.2x", (0xff & arena[i]));
+		if (i % 2 != 0)
+			ft_putstr(" ");
+		if ((i + 1) % 64 == 0 && i != 0)
+			ft_putstr("\n");
+		i++;
+	}
+}
+
+//remake with valide order champ
 t_champion	*valid_champions(char **chmp_file_name, size_t col_champs)
 {
 	t_champion	*champs;
 	t_champion	*head;
 
-	head = parse_champion(chmp_file_name[col_champs], init_champ(col_champs));
+	head = parse_champion(chmp_file_name[col_champs - 1], col_champs);
 	champs = head;
-	while (--col_champs > 0)
+	while (--col_champs != 0)
 	{
-		champs->next = parse_champion(chmp_file_name[col_champs], init_champ(col_champs));
+		champs->next = parse_champion(chmp_file_name[col_champs - 1], col_champs);
+		champs = champs->next;
 	}
+	return (head);
 }
 
 int main(int argc, char **argv)
 {
-	t_champion	*champ;
+	char *files[2] = {"Car.cor" , "maxidef.cor"}; // for debug
+	// char *files[2] = {"Car.cor" , "maxidef.cor"};
 	t_vm		*vm;
 	size_t		col_champs = (size_t)argc - 1;
 	
-	ft_printf("HI!!! \n");
+	col_champs = 2;
 	vm = init_vm(col_champs);
-	while (col_champs--)
-	{
-		champ = init_champ(1);
-	}
-	champ = parse_champion(argv[1], champ);
-	vm->champs = champ;
-	champ_print(vm->champs);
+	argv[0]++;
+	vm->champs = valid_champions(files, col_champs);
+	ft_printf("HI!!! \n");
+	init_arena(vm);
+	arena_print(vm->arena);
 	return (0);
 }
