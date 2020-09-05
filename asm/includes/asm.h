@@ -40,6 +40,7 @@ typedef struct s_arg
 typedef struct s_championstr
 {
 	char *name;
+	char *label;
 	int bc;
 	int number; // порядковый номер инструкции, нужен для подсчета лейбла
 	int id;
