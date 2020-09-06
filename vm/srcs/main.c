@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 15:59:31 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/08/31 21:20:46 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/09/01 12:48:28 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ void	champ_print(t_champion *ptr)
 			ft_putstr("\n");
 		i++;
 	}
+	ft_putstr("\n");
 }
 
+//valid champions at order
 t_champion	*valid_champions(char **chmp_file_name, size_t col_champs)
 {
 	t_champion	*champs;
@@ -44,9 +46,13 @@ t_champion	*valid_champions(char **chmp_file_name, size_t col_champs)
 	champs = head;
 	while (--col_champs > 0)
 	{
-		champs->next = parse_champion(chmp_file_name[col_champs], init_champ(col_champs));
+		champs->next = parse_champion(chmp_file_name[col_champs],\
+													init_champ(col_champs));
+		champs = champs->next;
 	}
+	return (head);
 }
+
 
 int main(int argc, char **argv)
 {
@@ -54,14 +60,11 @@ int main(int argc, char **argv)
 	t_vm		*vm;
 	size_t		col_champs = (size_t)argc - 1;
 	
-	ft_printf("HI!!! \n");
 	vm = init_vm(col_champs);
-	while (col_champs--)
-	{
-		champ = init_champ(1);
-	}
-	champ = parse_champion(argv[1], champ);
+	champ = valid_champions(argv, col_champs);
+	ft_printf("HI!!! \n");
 	vm->champs = champ;
-	champ_print(vm->champs);
+	init_arena(vm);
+	ft_printf("%x", vm->arena);
 	return (0);
 }

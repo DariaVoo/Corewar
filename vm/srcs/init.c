@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 17:00:59 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/08/31 20:27:48 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/09/01 12:43:33 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,12 @@ t_vm		*init_vm(size_t col_champs)
 
 void		init_arena(t_vm *vm)
 {
-	
+	t_champion	*ptr;
+	size_t		i;
+
+	i = vm->col_champs;
+	ptr = vm->champs;
+	while (i > 0)
+		ft_memmove(&(vm->arena[MEM_SIZE / i--]), ptr->code, \
+										ptr->header.prog_size);
 }

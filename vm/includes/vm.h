@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/08/31 20:20:06 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/09/01 12:48:55 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void						ft_exit(char *str);
 t_champion					*parse_champion(char *chmp_file_name, t_champion *champ);
 t_champion					*init_champ(int id);
 t_vm						*init_vm(size_t col_champs);
+void						init_arena(t_vm *vm);
 
 #endif
