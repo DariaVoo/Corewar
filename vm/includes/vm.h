@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/09/02 16:51:24 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/09/07 20:23:31 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,16 @@
 typedef struct s_op			t_op;
 typedef struct s_champion	t_champion;
 typedef struct s_vm			t_vm;
+typedef struct s_carriage	t_carriage;
+
+struct s_carriage
+{
+	int						regs[REG_NUMBER];
+	int						cycle_to_die;
+	int						command;
+	uint8_t					*position;
+	t_carriage				*next;
+};
 
 struct						s_vm
 {

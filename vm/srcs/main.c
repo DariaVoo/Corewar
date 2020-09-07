@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 15:59:31 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/09/02 17:59:47 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/09/07 15:35:10 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ t_champion	*valid_champions(char **chmp_file_name, size_t col_champs)
 
 int main(int argc, char **argv)
 {
-	char *files[2] = {"Car.cor" , "maxidef.cor"}; // for debug
+	char *files[3] = {"Car.cor" ,"Car.cor" , "maxidef.cor"}; // for debug
 	// char *files[2] = {"Car.cor" , "maxidef.cor"};
 	t_vm		*vm;
 	size_t		col_champs = (size_t)argc - 1;
 	
-	col_champs = 2;
+	col_champs = 3;
 	vm = init_vm(col_champs);
 	argv[0]++;
 	vm->champs = valid_champions(files, col_champs);
