@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 15:59:25 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/08/29 17:51:41 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/09/02 16:52:55 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,39 @@ static t_header	init_header(int fd)
 	return (champ);
 }
 
-t_champion		parse_champion(char *chmp_file_name)
+static void		check_champion(t_header head, char *filename)
 {
-	t_champion	champ;
+	if (head.magic != COREWAR_EXEC_MAGIC)
+	{
+		ft_printf("Error: File %s has an invalid header\n", filename);
+		exit(1);
+	}
+	if (head.prog_size > CHAMP_MAX_SIZE)
+	{
+		ft_printf("Error: File %s has too large ", filename);
+		ft_printf("a code (%d bytes > 682 bytes)\n", head.prog_size);
+		exit(1);
+	}
+}
+
+t_champion		*parse_champion(char *chmp_file_name, int id)
+{
 	int			fd;
+	t_champion	*champ;
 
 	fd = open(chmp_file_name, O_RDONLY);
-	champ.header = init_header(fd);
-	if (champ.header.prog_size > CHAMP_MAX_SIZE)
+	if (fd < 0)
 	{
-		ft_printf("Error: File champs/barriere.cor has too large a code");
-		ft_printf("(%d bytes > 682 bytes)\n", champ.header.prog_size);
-		exit(0);
+		perror(chmp_file_name);
+		exit(1);	
 	}
-	if ((champ.code = ft_memalloc(champ.header.prog_size + 1)) == NULL)
+	champ = init_champ(id);
+	champ->header = init_header(fd);
+	check_champion(champ->header, chmp_file_name);
+	if ((champ->code = ft_memalloc(champ->header.prog_size + 1)) == NULL)
 		ft_exit("ERROR: MALLOC");
-	if ((read(fd, champ.code, champ.header.prog_size + 1)) < 0)
+	if ((read(fd, champ->code, champ->header.prog_size + 1)) < 0)
 		ft_exit("ERROR: READ CODE");
+	close(fd);
 	return (champ);
 }
