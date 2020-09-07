@@ -106,4 +106,20 @@ typedef struct s_label
 t_champion *parse_champion(char *chmp_file_name);
 int		check_label(char *label);
 
+typedef struct	s_flags
+{
+	int		aff; //print source file (-a in original asm for refenece)
+	int		help; //print help (usage analog)
+	int		joke; //print random joke from defined jokes
+}				t_flags;
+
+typedef struct 	s_body
+{
+	int line_number;
+	t_championstr champion_str[CH_STR];
+	t_label *label;
+	t_instr instr[16];
+	char *file;
+}				t_body;
+
 #endif
