@@ -6,6 +6,11 @@
 
 int     ft_parse_header(char **split, int i)
 {
-
+    while (split && *split != NULL)
+    {
+        ft_printf("%s\n", *split);
+        split++;
+        i++;
+    }
     return (i);
 }

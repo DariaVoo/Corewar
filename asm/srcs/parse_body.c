@@ -6,5 +6,10 @@
 
 void ft_parse_body(char **split, int i)
 {
-
+    while (split && *split != NULL)
+    {
+        ft_printf("%s\n", *split);
+        split++;
+        i++;
+    }
 }
