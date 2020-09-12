@@ -1,8 +1,13 @@
 #ifndef ASM_H
 # define ASM_H
 
+
+# include <stdio.h> // JUST FOR TESTS
 # include "op.h"
 # include "libftprintf.h"
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 # define BUFF 4096
 
@@ -113,13 +118,22 @@ typedef struct	s_flags
 	int		joke; //print random joke from defined jokes
 }				t_flags;
 
+# define CH_STR 26
+
 typedef struct 	s_body
 {
 	int line_number;
-	t_championstr champion_str[CH_STR];
+	t_championstr champion_str[CH_STR]; // CH_STR?????
 	t_label *label;
 	t_instr instr[16];
 	char *file;
 }				t_body;
+
+// VP BRANCH
+void    ft_init_structs(t_header *header, t_body *body);
+int     ft_parse_header(char **split, int i);
+void    ft_parse_body(char **split, int i);
+void    ft_check_flags(char *str);
+void    ft_check_filename(char *str);
 
 #endif

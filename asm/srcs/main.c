@@ -33,10 +33,11 @@ void	ft_check_filename(char *name)
         ft_printf("File: %s\n", name);
 }
 
-void	ft_check_flags(char *flag)
-{
-	//проверка флагов, если не флаг, то exit
-}
+//void	ft_check_flags(char *flag)
+//{
+//	//проверка флагов, если не флаг, то exit
+//
+//}
 
 void    ft_check_hfile()
 {
@@ -79,7 +80,11 @@ int		main(int ac, char **av)
 //	We have one important question: how much champs we want to process. If only 1:
     char	**split;
     split = NULL;
+    int i;
+    t_header 	*header = NULL;
+    t_body		*body = NULL;
 
+    i = 0;
     ft_check_hfile();
     ft_check_args(av, ac);
     split = ft_file_read(split, av[1]);
@@ -90,12 +95,10 @@ int		main(int ac, char **av)
         split++;
     }
 
-	t_header 	*header;
-	t_body		*body;
-	ft_init_structs(*header, *body);
-	int i = ft_parse_header(split, );
+	ft_init_structs(header, body);
+	i = ft_parse_header(split, i);
 	ft_parse_body(split, i);
-	ft_create_body
+//	ft_create_body
 
 	return (0);
 }
