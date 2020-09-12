@@ -11,6 +11,7 @@ char	**ft_file_read(char **split, char *filename)
     char	*str2;
     int		len;
 
+    ft_printf("KUKU\n");
     str = "";
     str2 = "";
     int fd = open(filename, O_RDONLY);

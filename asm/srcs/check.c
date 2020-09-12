@@ -18,7 +18,7 @@ void	ft_check_args(char **av, int ac)
 
     if (ac == 1)
         ft_exit("Usage: bla-bla-bla\n");
-    while (av && *av)
+    while (i < ac)
     {
         if (i == ac - 1)
             ft_check_filename(av[i]);
@@ -36,3 +36,13 @@ void	ft_check_filename(char *name)
         ft_printf("File: %s\n", name);
 }
 
+void    ft_check_flags(char *str)
+{
+    if (*str == '-')
+    {
+        str++;
+        if (ft_strchr(str, 'a'))
+            ft_printf("Нужно передавать структуру и инициализировать флаг А\n");
+    }
+    ft_printf("%s\n", str);
+}

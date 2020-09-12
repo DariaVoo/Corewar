@@ -135,6 +135,11 @@ typedef struct 	s_body
 // VP
 
 /*
+ ** util functions
+ */
+void    ft_exit(char *str);
+
+/*
  ** init functions
  */
 void    ft_init_structs(t_header *header, t_body *body);
