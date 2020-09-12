@@ -8,6 +8,9 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <stdlib.h>
+# include <unistd.h>
+
 
 # define BUFF 4096
 
@@ -129,11 +132,31 @@ typedef struct 	s_body
 	char *file;
 }				t_body;
 
-// VP BRANCH
+// VP
+
+/*
+ ** init functions
+ */
 void    ft_init_structs(t_header *header, t_body *body);
+
+/*
+ ** read functions
+ */
+char	**ft_file_read(char **split, char *filename);
+
+/*
+ ** parse functions
+ */
 int     ft_parse_header(char **split, int i);
 void    ft_parse_body(char **split, int i);
-void    ft_check_flags(char *str);
+
+/*
+ ** check functions
+ */
+void    ft_check_header_file(void);
+void	ft_check_args(char **av, int ac);
 void    ft_check_filename(char *str);
+void    ft_check_flags(char *str);
+
 
 #endif

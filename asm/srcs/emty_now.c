@@ -6,6 +6,12 @@
 
 void    ft_check_flags(char *str)
 {
+    if (*str == '-')
+    {
+        str++;
+        if (ft_strchr(str, 'a'))
+            ft_printf("Нужно передавать структуру и инициализировать флаг А\n");
+    }
     ft_printf("%s\n", str);
 }
 
