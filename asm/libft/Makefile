@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = libft.a
-CFLAGS := -o2 -Wall -Wextra -Werror
+CFLAGS := -o2
 INCLUDES := includes/
 
 HEADERS_LST = colors.h  funfortypes.h libft.h libftprintf.h unixtime.h header_double.h

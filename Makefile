@@ -1,5 +1,5 @@
 NAME =
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := O2
 
 DIR_ASM = asm/
 DIR_VM = vm/
