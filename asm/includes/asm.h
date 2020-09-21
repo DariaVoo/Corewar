@@ -124,13 +124,21 @@ typedef struct	s_flags
 
 # define CH_STR 26
 
-typedef struct 	s_body
+typedef struct 	s_corewar //переименовала из body в corewar
 {
 	int line_number;
 	t_championstr champion_str[CH_STR]; // CH_STR?????
 	t_label *label;
 	t_instr instr[16];
 	char *file;
+}				t_corewar;
+
+typedef struct 	s_body
+{
+	char *name;
+	char *label;
+	int label_num;
+	t_arg *args;
 }				t_body;
 
 // VP
@@ -154,7 +162,7 @@ char	**ft_file_read(char **split, char *filename);
  ** parse functions
  */
 int     ft_parse_header(char **split, int i);
-void    ft_parse_body(char **split, int i);
+void    ft_parse_body(char **split, int i, int all_lines);
 
 /*
  ** check functions
