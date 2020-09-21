@@ -95,7 +95,7 @@ int		main(int ac, char **av)
 	ft_init_structs(*header, *body);
 	int i = ft_parse_header(split, );
 	ft_parse_body(split, i);
-	ft_create_body
+	// ft_create_body
 
 	return (0);
 }
