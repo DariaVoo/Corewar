@@ -11,6 +11,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+#define FUNC {live, };
 
 # define BUFF 4096
 
@@ -139,6 +140,7 @@ typedef struct 	s_body
 	char *label;
 	int label_num;
 	t_arg *args;
+	int line_num;
 }				t_body;
 
 // VP
