@@ -11,7 +11,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-#define FUNC {live, };
 
 # define BUFF 4096
 
