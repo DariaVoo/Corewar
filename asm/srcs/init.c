@@ -13,9 +13,9 @@ void    ft_init_structs(t_header *header, t_body *body)
     ft_bzero(header->prog_name, 129);
     header->prog_size = 0;
 
-//    body->champion_str = 0;
-    body->file = NULL;
-//    body->instr = 0;
+    body->name = NULL;
     body->label = NULL;
-    body->line_number = 0;
+    body->label_num = 0;
+    body->args = NULL;
+    body->line_num = 0;
 }
