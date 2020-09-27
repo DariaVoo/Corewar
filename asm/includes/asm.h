@@ -36,6 +36,7 @@ typedef struct		s_op
 //структура для аргумента
 typedef struct s_arg
 {
+	char *type
 	int direct; //аргумент direct - 1 или indirect - 0
 	int size; //размер аргумента (2 или 4) нужен для получения значения
 	int value; //значение, для label рассчитывается при ВТОРОМ проходе
@@ -138,7 +139,7 @@ typedef struct 	s_body
 	char *name;
 	char *label;
 	int label_num;
-	t_arg *args;
+	t_arg args[3];
 	int line_num;
 }				t_body;
 

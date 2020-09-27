@@ -68,13 +68,57 @@ void ft_parse_function(char *split, int *i, t_body body)
 	}
 }
 
+int massiv_len(char **args)
+{
+	int i;
+
+	i = 0;
+	while (args[i])
+		i++;
+	return (i);
+}
+void parse_one_arg(char *arg, t_body body, int num_arg)
+{
+	int i;
+
+	i = 0;
+	if (arg[0] == 'r' && ft_isdigit(arg[1]))
+		body.args[num_arg].type = "T_REG";
+	else if (ft_strchr(arg, DIRECT_CHAR))
+		body.args[num_arg].type = "T_DIR";
+	else if (ft_isdigit(arg[1]))
+		body.args[num_arg].type = "T_IND";
+}
+
 void ft_parse_args(char *split, int *i, t_body body)
 {
 	char **args;
+	int args_num;
+	int j;
 
+	args_num = 0;
 	args = NULL;
-	args = ft_strsplit(split, ',');
+	j = 0;
+	args = ft_strsplit(split, SEPARATOR_CHAR);//что будет возвращать, если нет запятых
+	//надо предусмотреть, чтобы все равно передавалась строка, если запятых нет
+	//считаем количество аргументов
+	if (args != NULL)
+		args_num = massiv_len(args);
+	//неверное количество аргументов в функции или их нет
+	if (args_num  > 3 || args == NULL)
+		exit(1);
+	while (j < args_num)
+	{
+		parse_one_arg(args[j], body, j);
+		j++;
+	}
 
+	//парсим аргументы, а потом их валидируем
+	//аргументы можно спарсить в массив из трех элементов
+	//1) аргументов меньше
+	//2) аргументов больше
+	//3) аргументы не того типа
+	//4) аргументы правильного типа но не в том порядке
 }
 
 t_body ft_parse_line(char *split, int line_num, t_label *labels)
