@@ -36,7 +36,8 @@ typedef struct		s_op
 //структура для аргумента
 typedef struct s_arg
 {
-	char *type
+	char *type;
+	char *label;
 	int direct; //аргумент direct - 1 или indirect - 0
 	int size; //размер аргумента (2 или 4) нужен для получения значения
 	int value; //значение, для label рассчитывается при ВТОРОМ проходе
@@ -67,6 +68,15 @@ typedef struct		s_champion
 	t_championstr   *championstr;// пока просто запиши весь код чемпиона сюда
 }					t_champion;
 
+//аргументы операций
+typedef struct  s_name_args
+{
+	int    		t_reg;
+	int    		t_dir;
+	int			t_ind;
+//    t_name_args	*next;
+}               t_name_args;
+
 //инструкции, данные в задании (Операции и их аргументы)
 typedef struct s_instr
 {
@@ -75,17 +85,9 @@ typedef struct s_instr
     int id; //id инструкции и связующее звено между массивом считываемых инструкций и данной структуры
     //здесь нужно прописать возможный размер, количество аргументов и тп, все то, что дано в таблице
     int num_args; //номер строки
+    t_name_args type[3];
 
 }               t_instr;
-
-//аргументы операций
-typedef struct  s_name_args
-{
-    int    		t_reg;
-    int    		t_dir;
-    int			t_ind;
-//    t_name_args	*next;
-}               t_name_args;
 
 //считанные лейблы
 //список
@@ -141,6 +143,7 @@ typedef struct 	s_body
 	int label_num;
 	t_arg args[3];
 	int line_num;
+	int id_instr;
 }				t_body;
 
 // VP
