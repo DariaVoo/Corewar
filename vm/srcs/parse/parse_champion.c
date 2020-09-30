@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 15:59:25 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/08/31 17:06:48 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/09/02 16:52:55 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,18 @@ static void		check_champion(t_header head, char *filename)
 	}
 }
 
-t_champion		*parse_champion(char *chmp_file_name, t_champion *champ)
+t_champion		*parse_champion(char *chmp_file_name, int id)
 {
 	int			fd;
+	t_champion	*champ;
 
 	fd = open(chmp_file_name, O_RDONLY);
+	if (fd < 0)
+	{
+		perror(chmp_file_name);
+		exit(1);	
+	}
+	champ = init_champ(id);
 	champ->header = init_header(fd);
 	check_champion(champ->header, chmp_file_name);
 	if ((champ->code = ft_memalloc(champ->header.prog_size + 1)) == NULL)

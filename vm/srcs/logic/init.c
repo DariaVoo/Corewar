@@ -6,7 +6,7 @@
 /*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 17:00:59 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/09/01 12:43:33 by dima             ###   ########.fr       */
+/*   Updated: 2020/09/06 20:27:07 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_champion	*init_champ(int id)
 	if ((champ = (t_champion*)ft_memalloc(sizeof(t_champion))) == NULL)
 		ft_exit("ERROR: MALLOC");
 	champ->code = NULL;
-	champ->id = id;
+	champ->id = -id;
 	champ->next = NULL;
 	return (champ);
 }
@@ -32,18 +32,22 @@ t_vm		*init_vm(size_t col_champs)
 		ft_exit("ERROR: MALLOC\n");
 	vm->champs = NULL;;
 	vm->col_champs = col_champs;
-	ft_memset(vm->arena, '0', MEM_SIZE);
+	ft_memset(vm->arena, 0, MEM_SIZE);
 	return (vm);
 }
 
 void		init_arena(t_vm *vm)
 {
-	t_champion	*ptr;
+	t_champion	*champ;
 	size_t		i;
 
-	i = vm->col_champs;
-	ptr = vm->champs;
-	while (i > 0)
-		ft_memmove(&(vm->arena[MEM_SIZE / i--]), ptr->code, \
-										ptr->header.prog_size);
+	champ = vm->champs;
+	i = 0;
+	while (champ)
+	{
+		ft_memmove(&(vm->arena[i * MEM_SIZE / vm->col_champs]), champ->code, \
+													champ->header.prog_size);
+		champ = champ->next;
+		i++;
+	}
 }
