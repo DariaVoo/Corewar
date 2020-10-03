@@ -166,7 +166,7 @@ char	**ft_file_read(char **split, char *filename);
 /*
  ** parse functions
  */
-int     ft_parse_header(char **split, int i, t_header *header);
+int     ft_parse_header(char **split, t_header *header);
 void    ft_parse_body(char **split, int i, int all_lines);
 
 /*

@@ -4,8 +4,9 @@
 #include "../includes/asm.h"
 #include "../libft/includes/libftprintf.h"
 
-int     ft_parse_header(char **split, int i, t_header *header)
+int     ft_parse_header(char **split, t_header *header)
 {
+    int i = 0;
 //    header->prog_size = 800;
     while (*split != NULL)
     {

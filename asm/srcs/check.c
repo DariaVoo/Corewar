@@ -9,6 +9,7 @@ void    ft_check_header_file(void)
     if (COMMENT_CHAR == '\n' || LABEL_CHAR == '\n' || ALT_COMMENT_CHAR == '\n' || DIRECT_CHAR == '\n' || SEPARATOR_CHAR == '\n')
     {
         ft_exit("Wrong chars in header\n");
+        //проверить на ОдИнАкОвОсТь всех этих символов
     }
 }
 
