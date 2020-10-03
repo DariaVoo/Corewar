@@ -6,11 +6,28 @@
 
 void    ft_check_header_file(void)
 {
-    if (COMMENT_CHAR == '\n' || LABEL_CHAR == '\n' || ALT_COMMENT_CHAR == '\n' || DIRECT_CHAR == '\n' || SEPARATOR_CHAR == '\n')
-    {
-        ft_exit("Wrong chars in header\n");
-        //проверить на ОдИнАкОвОсТь всех этих символов
-    }
+	int i = 0;
+
+	char all_ch[] = {COMMENT_CHAR, LABEL_CHAR, ALT_COMMENT_CHAR, DIRECT_CHAR, SEPARATOR_CHAR};
+	while (i < 5)
+	{
+		int k = i + 1;
+		if (all_ch[i] == '\n')
+			ft_exit("Wrong chars in header\n");
+		while (k < 5)
+		{
+			if ( all_ch[k] == '\n' || all_ch[i] == all_ch[k])
+				ft_exit("Wrong chars in header\n");
+			k++;
+		}
+		i++;
+	}
+//    if (COMMENT_CHAR == '\n' || LABEL_CHAR == '\n' || ALT_COMMENT_CHAR == '\n' || DIRECT_CHAR == '\n' || SEPARATOR_CHAR == '\n')
+//    {
+//        ft_exit("Wrong chars in header\n");
+//
+//        //проверить на ОдИнАкОвОсТь всех этих символов
+//    }
 }
 
 void	ft_check_args(char **av, int ac)
