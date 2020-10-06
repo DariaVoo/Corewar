@@ -12,7 +12,7 @@ int		main(int ac, char **av)
     i = 0;
     split = NULL;
 
-    ft_check_header_file();  //добавить проверить на ОдИнАкОвОсТь всех этих символов
+    ft_check_header_file();
     ft_check_args(av, ac);
     split = ft_file_read(split, av[ac - 1]);
     // split = file_comment_trim сделать сплит по COMMENT_CHAR и ALT_COMMENT_CHAR
@@ -25,7 +25,8 @@ int		main(int ac, char **av)
 
 	ft_init_structs(&header, &body);
 	i = ft_parse_header(split, &header);
-	ft_printf("%d - %s\n", header.prog_size, header.prog_name);
+	ft_printf("line_number == %d | header.prog_size == %d | header.prog_name == %s\n", i, header.prog_size, header.prog_name);
+
 
 	// TODO Заменить заглушку
 	ft_parse_body(split, i, 1000);
