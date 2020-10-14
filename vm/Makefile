@@ -1,3 +1,4 @@
+
 NAME = corewar
 CFLAGS := -Wall -Wextra -Werror -g
 
@@ -18,8 +19,9 @@ SRC_DIR_OUTPUT = output/
 
 SRC_MAIN = main.c
 SRC_PARSE_FILES = parse_champion.c 
-SRC_LOGIC_FILES = init.c
+SRC_LOGIC_FILES = init.c validation.c
 SRC_OUTPUT_FILES =
+
 
 SRC_PARSE = $(addprefix $(SRC_DIR_PARSE), $(SRC_PARSE_FILES))
 SRC_VALIDATE = $(addprefix $(SRC_DIR_VALIDATE), $(SRC_VALIDATE_FILES))

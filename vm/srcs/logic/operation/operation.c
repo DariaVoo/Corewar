@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op.c                                               :+:      :+:    :+:   */
+/*   operation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/04 11:43:01 by zaz               #+#    #+#             */
-/*   Updated: 2020/08/31 13:10:38 by qjosmyn          ###   ########.fr       */
+/*   Created: 2020/10/10 14:48:38 by qjosmyn           #+#    #+#             */
+/*   Updated: 2020/10/10 19:30:24 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-t_op    op_tab[17] =
+t_op    g_op_tab[17] =
 {
-	{"live", 1, {T_DIR}, 1, 10, "alive", 0, 0},
+	{"live", 1, {T_DIR}, 1, 10, "alive", 0, 0, },
 	{"ld", 2, {T_DIR | T_IND, T_REG}, 2, 5, "load", 1, 0},
 	{"st", 2, {T_REG, T_IND | T_REG}, 3, 5, "store", 1, 0},
 	{"add", 3, {T_REG, T_REG, T_REG}, 4, 10, "addition", 1, 0},
@@ -38,3 +38,19 @@ t_op    op_tab[17] =
 	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0},
 	{0, 0, {0}, 0, 0, 0, 0, 0}
 };
+
+int		load_op(t_vm *vm, t_carriage *cursor)
+{
+	
+	if (*(cursor->position) < 0x01 || *(cursor->position) > 0x10)
+	{
+		cursor->command = 0;
+		//invalide operation. Count byte shift
+	}
+	else
+	{
+		cursor->cycle_to_die = g_op_tab[cursor->command].cycle_to_die;
+		cursor->command = *(cursor->position);
+	}
+	
+}

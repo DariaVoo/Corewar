@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/09/07 20:23:31 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/10/10 16:30:55 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ typedef struct s_carriage	t_carriage;
 
 struct s_carriage
 {
-	int						regs[REG_NUMBER];
+	int32_t					regs[REG_NUMBER];
 	int						cycle_to_die;
-	int						command;
+	uint8_t					command;
+	int						carry;
 	uint8_t					*position;
 	t_carriage				*next;
 };
@@ -44,8 +45,11 @@ struct s_carriage
 struct						s_vm
 {
 	uint8_t					arena[MEM_SIZE];
+	uint32_t				dump_cycle_to_die;
+	
 	t_champion				*champs;
 	size_t					col_champs;
+	t_carriage				*cursor;
 };
 
 
@@ -59,6 +63,7 @@ struct						s_op
 	char	*comment;
 	int		change_carry;
 	int		code_type_arg;
+	int		(*func)(uint32_t arg1, uint32_t arg2, uint32_t arg3, t_vm *vm);
 };
 
 struct						s_champion
@@ -70,9 +75,12 @@ struct						s_champion
 };
 
 void						ft_exit(char *str);
-t_champion					*parse_champion(char *chmp_file_name, int id);
 t_champion					*init_champ(int id);
 t_vm						*init_vm(size_t col_champs);
 void						init_arena(t_vm *vm);
+t_carriage					*init_carrige(int id);
+t_champion					*parse_champion(char *chmp_file_name, int id);
+t_champion					*valid_champions(char **chmp_file_name, size_t col_champs);
+t_carriage					*valid_cursor(t_champion *players);
 
 #endif
