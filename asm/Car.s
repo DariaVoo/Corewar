@@ -1,6 +1,10 @@
 #deassembler par msa 1.8, made by joe
 #deassembler par msa 1.8, made by joe
-.name "Tching tching(Intercepteur), Bouh!Bouh!(bruits d'anti-jeu)"
+
+
+    .name				    "Tching tching(Intercepteur), Bouh!Bouh!(bruits d'anti-jeu)"    fdbgdf hidufhv
+
+
 .comment ""
 
 	 fork  %:label00          		# 3,0,281
@@ -12,6 +16,8 @@
 	 ld    %0,r2              		# 7,28,253
 	 ld    %0,r4              		# 7,35,246
 	 zjmp  %:label03          		# 3,42,239
+
+
 
 label02: ld    %4,r2              		# 7,45,236
 	 ld    %0,r4              		# 7,52,229

@@ -2,22 +2,7 @@
 // Created by pbelo on 12.09.2020.
 //
 #include "asm.h"
-#include "libftprintf.h"
-#include "error.h"
-
-//size_t	ft_tablen(const char **tab)
-//{
-//	char	**str;
-//	size_t	i;
-//
-//	i = 0;
-//	str = tab;
-//	if (!str)
-//		return (0);
-//	while (str[i] != NULL)
-//		i++;
-//	return (i);
-//}
+#include "../libft/includes/libftprintf.h"
 
 int 	skip_invisible_character(char *str)
 {
@@ -51,6 +36,7 @@ int		parse_line_header(char *line_split, char *line)
 	while (line_split[j] != '"')
 	{
 		if (line_split[j] != ' ' && line_split[j] != '\t')
+
 			ft_exit(SYN_ERR);
 		j++;
 	}
@@ -70,7 +56,11 @@ int     ft_parse_header(char **split, t_header *header)
 		line_number++;
 		split++;
 	}
-	line_header = ft_strsplit(*split, '"');
+	line_header = ft_strmultsplit(*split, ' ', '\t');
+	ft_printf("seychas na %s\n", *split);
+	for (int i = 0; i < 7; ++i) {
+		ft_printf("{%s}\n", line_header[i]);
+	}
 	///
 	if (parse_line_header(*split, NAME_CMD_STRING) != 0)
 	{
@@ -94,7 +84,6 @@ int     ft_parse_header(char **split, t_header *header)
 	}
 
 	ft_printf("line_number = %d\n",line_number);
-	ft_printf("seychas na %s\n", *split);
 
 
 

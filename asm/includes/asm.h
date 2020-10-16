@@ -4,6 +4,7 @@
 
 # include <stdio.h> // JUST FOR TESTS
 # include "op.h"
+# include "error.h"
 # include "libftprintf.h"
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -168,6 +169,7 @@ char	**ft_file_read(char **split, char *filename);
  */
 int     ft_parse_header(char **split, t_header *header);
 void    ft_parse_body(char **split, int i, int all_lines);
+char	**ft_strmultsplit(char const *s, char c, char ch);
 
 /*
  ** check functions
@@ -177,6 +179,8 @@ void	ft_check_args(char **av, int ac);
 void    ft_check_filename(char *str);
 void    ft_check_flags(char *str);
 int		check_label(char *label);
+
+
 
 
 #endif
