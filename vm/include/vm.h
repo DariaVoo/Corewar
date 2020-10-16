@@ -14,8 +14,12 @@
 # define VM_H
 
 # include "op.h"
-# include "libftprintf.h"
+# include "parse_n.h"
+# include "../../lib/include/libft.h"
+# include "../../lib/include/ft_printf.h"
+# include "../../lib/include/get_next_line.h"
 
+# include <stdio.h> /* perror */
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <fcntl.h>
