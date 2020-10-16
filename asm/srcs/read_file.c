@@ -11,7 +11,6 @@ char	**ft_file_read(char **split, char *filename)
     char	*str2;
     int		len;
 
-    ft_printf("KUKU\n");
     str = "";
     str2 = "";
     int fd = open(filename, O_RDONLY);
@@ -25,9 +24,9 @@ char	**ft_file_read(char **split, char *filename)
         str = str2;
     }
     if (len < 0)
-        ft_exit("ERROR: INPUT FILE NAME");
+        ft_exit("ERROR: INPUT FILE NAME\n");
     if ((split = ft_strsplit(str2, '\n')) == NULL)
-        ft_exit("ERROR: SPLIT ERROR");
+        ft_exit("ERROR: SPLIT ERROR\n");
     ft_strdel(&str2);
     return (split);
 }

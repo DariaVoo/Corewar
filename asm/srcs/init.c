@@ -16,6 +16,6 @@ void    ft_init_structs(t_header *header, t_body *body)
     body->name = NULL;
     body->label = NULL;
     body->label_num = 0;
-    body->args = NULL;
+    body->args;
     body->line_num = 0;
 }

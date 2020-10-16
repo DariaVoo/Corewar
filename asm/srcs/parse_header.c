@@ -3,6 +3,7 @@
 //
 #include "../includes/asm.h"
 #include "../libft/includes/libftprintf.h"
+#include "../includes/error.h"
 
 
 
