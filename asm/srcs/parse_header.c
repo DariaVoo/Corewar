@@ -1,32 +1,60 @@
 //
 // Created by pbelo on 12.09.2020.
 //
-#include "../includes/asm.h"
-#include "../libft/includes/libftprintf.h"
-#include "../includes/error.h"
+#include "asm.h"
+#include "libftprintf.h"
+#include "error.h"
 
+//size_t	ft_tablen(const char **tab)
+//{
+//	char	**str;
+//	size_t	i;
+//
+//	i = 0;
+//	str = tab;
+//	if (!str)
+//		return (0);
+//	while (str[i] != NULL)
+//		i++;
+//	return (i);
+//}
 
-
-int		parse_line_header(char *line_name, char *line)
+int 	skip_invisible_character(char *str)
 {
-	int i;
+	int		i;
 
 	i = 0;
-	ft_printf("vsya stroka %s\n", line_name);
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	return (i);
+}
+
+int		parse_line_header(char *line_split, char *line)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	ft_printf("vsya stroka %s\n", line_split);
+
+	while (line_split[j] == ' ' || line_split[j] == '\t')
+		j++;
 	while (line[i] != '\0')
 	{
-		if (line[i] != line_name[i]) {
+		if (line[i] != line_split[j]) {
 			ft_exit(LEX_ERR);
 		}
-			i++;
-	}
-	while (line_name[i] != '"')
-	{
-		if ((line_name[i] != ' ' && line_name[i] != '\t') || line_name[i] == COMMENT_CHAR || line_name[i] == ALT_COMMENT_CHAR)
-			ft_exit(SYN_ERR);
 		i++;
+		j++;
 	}
-	return (i);
+	while (line_split[j] != '"')
+	{
+		if (line_split[j] != ' ' && line_split[j] != '\t')
+			ft_exit(SYN_ERR);
+		j++;
+	}
+	return (j);
 }
 
 int     ft_parse_header(char **split, t_header *header)
@@ -37,21 +65,20 @@ int     ft_parse_header(char **split, t_header *header)
     line_number = 1;
     line_header = NULL;
 
-//    header->prog_size = 800;??
-	while (*split[0] == '#' || *split[0] == '\n') {
+
+	while (*split[0] == COMMENT_CHAR || *split[0] == '\n') {
 		line_number++;
 		split++;
 	}
 	line_header = ft_strsplit(*split, '"');
-//	if (line_header )
+	///
 	if (parse_line_header(*split, NAME_CMD_STRING) != 0)
 	{
 		ft_memcpy(header->prog_name, line_header[1], ft_strlen(line_header[1]));
 		split++;
 		line_number++;
 	}
-//	free_table(line_header,);
-	while (*split[0] == '#' || *split[0] == '\n') {
+	while (*split[0] == COMMENT_CHAR || *split[0] == '\n') {
 		line_number++;
 		split++;
 	}
@@ -60,7 +87,7 @@ int     ft_parse_header(char **split, t_header *header)
 		split++;
 		line_number++;
 	}
-	while (*split[0] == '#' || *split[0] == '\n')
+	while (*split[0] == COMMENT_CHAR || *split[0] == '\n')
 	{
 		line_number++;
 		split++;
