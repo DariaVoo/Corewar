@@ -49,7 +49,8 @@ struct						s_vm
 	
 	t_champion				*champs;
 	size_t					col_champs;
-	t_carriage				*cursor;
+	t_carriage				*carriages;
+	int 					count_alive;
 };
 
 
@@ -82,5 +83,12 @@ t_carriage					*init_carrige(int id);
 t_champion					*parse_champion(char *chmp_file_name, int id);
 t_champion					*valid_champions(char **chmp_file_name, size_t col_champs);
 t_carriage					*valid_cursor(t_champion *players);
+
+/** main loop - work vm*/
+int fighting();
+int check_carriage(t_carriage *carriage);
+int set_new_code();
+int reduce_cycle();
+int do_op();
 
 #endif

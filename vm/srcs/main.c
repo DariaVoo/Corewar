@@ -62,13 +62,13 @@ int main(int argc, char **argv)
 	vm = init_vm(col_champs);
 	argv[0]++;
 	vm->champs = valid_champions(files, col_champs);
-	vm->cursor = valid_cursor(vm->champs);
+	vm->carriages = valid_cursor(vm->champs);
 	init_arena(vm);
 	arena_print(vm->arena);
-	while (vm->cursor)
+	while (vm->carriages)
 	{
-		ft_printf("%d\n", vm->cursor->regs[0]);
-		vm->cursor = vm->cursor->next;
+		ft_printf("%d\n", vm->carriages->regs[0]);
+		vm->carriages = vm->carriages->next;
 	}
 	return (0);
 }

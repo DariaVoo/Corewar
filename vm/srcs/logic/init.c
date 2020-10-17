@@ -47,7 +47,7 @@ t_vm		*init_vm(size_t col_champs)
 	if ((vm = (t_vm*)ft_memalloc(sizeof(t_vm))) == NULL)
 		ft_exit("ERROR: MALLOC\n");
 	vm->champs = NULL;
-	vm->cursor = NULL;
+	vm->carriages = NULL;
 	vm->col_champs = col_champs;
 	ft_memset(vm->arena, 0, MEM_SIZE);
 	return (vm);
