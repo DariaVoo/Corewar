@@ -32,14 +32,20 @@ typedef struct s_champion	t_champion;
 typedef struct s_vm			t_vm;
 typedef struct s_carriage	t_carriage;
 
-struct s_carriage
+struct	s_carriage
 {
-	int32_t					regs[REG_NUMBER];
-	int						cycle_to_die;
-	uint8_t					command;
-	int						carry;
-	uint8_t					*position;
-	t_carriage				*next;
+	int32_t		regs[REG_NUMBER];
+	int			cycle_to_die;
+	int 		cycle_to_do;
+	int			check_now;
+	int			after_live; // count cycles after live
+	int			count_live;
+	int			count_check;
+
+	uint8_t		command;
+	int			carry;
+	uint8_t		*position;
+	t_carriage	*next;
 };
 
 struct						s_vm
@@ -90,5 +96,6 @@ int check_carriage(t_carriage *carriage);
 int set_new_code();
 int reduce_cycle();
 int do_op();
+int	delete_carriage(t_carriage **list_carriage, t_carriage *carriage);
 
 #endif
