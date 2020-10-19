@@ -12,10 +12,10 @@
 
 # include "vm.h"
 
-void		ft_exit(char *str)
+void		exit_error(const char *str)
 {
 	perror(str);
-	exit (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 void	champ_print(t_champion *ptr)
@@ -51,16 +51,24 @@ void	arena_print(uint8_t *arena)
 	}
 }
 
-int main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
-	// char *files[3] = {"vm/maxidef.cor", "vm/Car.cor" ,"vm/Car.cor" }; // for debug
-	char *files[2] = {"Car.cor" , "maxidef.cor"};
 	t_vm		*vm;
-	size_t		col_champs = (size_t)argc - 1;
-	
-	col_champs = 2;
-	vm = init_vm(col_champs);
+	char		*files[2] = {"Car.cor" , "maxidef.cor"};
+
+	if (argc < 2 || argc > 5)
+	{
+		printf("Usage: bla-bla-bla\n");
+		return (0);
+	}
+	vm = create_vm(argc - 1);
+
+	// for debug
+	// char *files[3] = {"vm/maxidef.cor", "vm/Car.cor" ,"vm/Car.cor" };
+	vm->count_champs = 2;
 	argv[0]++;
+
+
 	vm->champs = valid_champions(files, col_champs);
 	vm->cursor = valid_cursor(vm->champs);
 	init_arena(vm);

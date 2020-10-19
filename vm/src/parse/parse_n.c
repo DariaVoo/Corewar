@@ -39,11 +39,11 @@ static int		parse_position(int i, t_data *data, t_arg *arg, char **av)
 		is_not_dupl(data->arg, arg, arg->index) && arg->index >= 0)
 			arg->name = ft_strdup(av[i + 2]);
 		else
-			ft_exit("invalid options\n");
+			exit_error("invalid options\n");
 		return (2);
 	}
 	else
-		ft_exit("invalid options\n");
+		exit_error("invalid options\n");
 	return (0);
 }
 
@@ -99,7 +99,7 @@ char			**parse_n(int ac, char **av)
 
 	data = parse_options_n(ac, av);
 	if (!(str = (char **)ft_memalloc(sizeof(char *) * (data->len + 1))))
-		ft_exit("no memory\n");
+		exit_error("no memory\n");
 	while (data->arg)
 	{
 		tmp = data->arg->next;
