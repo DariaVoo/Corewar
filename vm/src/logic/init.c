@@ -3,58 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 17:00:59 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/22 14:12:43 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/09/30 14:28:17 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-t_carriage	*init_carrige(int col_champs, int id, uint8_t *arena)
+t_carriage			*init_carrige(int id)
 {
 	t_carriage	*cursor;
 
 	if ((cursor = (t_carriage*)ft_memalloc(sizeof(t_carriage))) == NULL)
-		ft_exit("ERROR: MALLOC");
-	cursor->opcode = 0;
+		exit_error("ERROR: MALLOC");
+	cursor->command = 0;
 	cursor->cycle_to_die = 0;
-	cursor->program_counter = arena + MEM_SIZE / col_champs * (id - 1);
+	cursor->position = NULL;
 	ft_memset(cursor->regs, 0, REG_NUMBER);
 	cursor->regs[0] = -id;
-	cursor->carry = 0;
-	cursor->live = 0;
 	cursor->next = NULL;
+	cursor->carry = 0;
 	return (cursor);
 }
 
-t_champion	*init_champ(int id)
+t_champion			*init_champ(int id)
 {
 	t_champion	*champ;
 
 	if ((champ = (t_champion*)ft_memalloc(sizeof(t_champion))) == NULL)
-		ft_exit("ERROR: MALLOC");
+		exit_error("ERROR: MALLOC");
 	champ->code = NULL;
 	champ->id = id;
 	champ->next = NULL;
 	return (champ);
 }
 
-t_vm		*init_vm(size_t col_champs)
+t_vm				*create_vm(int count_champs)
 {
 	t_vm	*vm;
 
-	if ((vm = (t_vm*)ft_memalloc(sizeof(t_vm))) == NULL)
-		ft_exit("ERROR: MALLOC\n");
+	vm = (t_vm*)ft_memalloc(sizeof(t_vm));
+	if (!vm)
+		exit_error(E_MALLOC);
 	vm->champs = NULL;
 	vm->cursor = NULL;
-	vm->col_champs = col_champs;
+	vm->count_champs = count_champs;
 	ft_memset(vm->arena, 0, MEM_SIZE);
 	return (vm);
 }
 
-void		init_arena(t_vm *vm)
+void				init_arena(t_vm *vm)
 {
 	t_champion	*champ;
 	size_t		i;
