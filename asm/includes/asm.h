@@ -145,7 +145,8 @@ typedef struct s_label
 {
     char *name;
     // t_championstr championstr;
-    // int label_id; //id лейбла
+    int label_id; //id лейбла
+    int label_row; // строка, на которой находится лейбл
     // int id; //id инструкции в t_instr заполняется при ВТОРОМ проходе
     // int number; //number в t_champinstr заполняется при ВТОРОМ проходе
     //t_arg *args;
@@ -157,11 +158,12 @@ typedef struct s_data
 	int			read_fd;
 	int			write_fd;
 	int			file_size;
-	int			line_count;
+	int			line_count; // 0 изначально 
 	char		*name;
 	char		*comment;
-	//t_instr		*instrs;
-	//t_label		*label;
+    //либо t_header;
+	t_instr		*instrs;
+	t_label		*label;
 }				t_data;
 
 

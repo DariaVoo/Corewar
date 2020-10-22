@@ -22,6 +22,8 @@ int		main(int ac, char **av)
     
 
     // ОБРАБОТКА ОШИБОК ОТКРЫТИЯ (НОМЕР ФД И КОЛ-ВО СЧИТАННЫХ БАЙТ)
+	if (all_data.read_fd < 3)
+		ft_exit("Bad file read");
 
     ft_read_file(&all_data);
     ft_check_all_data(&all_data);
