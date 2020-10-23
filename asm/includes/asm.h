@@ -190,7 +190,7 @@ char	**ft_file_read(char **split, char *filename);
 /*
  ** parse functions
  */
-int     ft_parse_header(char **split, t_header *header);
+int     ft_parse_header(t_header *header, char *line, int f, int num_line);
 void    ft_parse_body(char **split, int i, int all_lines);
 char	**ft_strmultsplit(char const *s, char c, char ch);
 // NEW LEAF
