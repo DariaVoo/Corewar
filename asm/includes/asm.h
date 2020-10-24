@@ -162,6 +162,7 @@ typedef struct s_data
 	char		*name;
 	char		*comment;
     //либо t_header;
+    t_header    *header;
 	t_instr		*instrs;
 	t_label		*label;
 }				t_data;
