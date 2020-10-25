@@ -23,13 +23,12 @@ void    ft_read_file(t_data *data)
 
 int		ft_line_parser(char *str, t_data *data)
 {
-	int f = 0; //удалить (для ВИОЛЕТТЫ)
 	if (ft_is_comment(str) == 1) //пропуск комментариев
 		return (-1); 
 	if (data->header->is_comment == 0 || data->header->is_name == 0)
-		ft_parse_header(data->header, str, f, data->line_count);
-	if (data->header->is_comment == 1 && data->header->is_name == 1)
-		ft_parse_body(str, data);
+		ft_parse_header(data->header, str, data->line_count);
+//	if (data->header->is_comment == 1 && data->header->is_name == 1)
+//		ft_parse_body(str, data);
 	return (1);
 }
 
