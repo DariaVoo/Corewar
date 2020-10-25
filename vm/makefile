@@ -6,7 +6,7 @@ EOC = "\e[0m"
 
 # COMPILER SETTINGS
 CC := clang
-CFLAGS := -Wall -Wextra -Werror -g
+# CFLAGS := -Wall -Wextra -Werror -g
 
 # LIB (LIBFT, GET_NEXT_LINE, PRINTF)
 L_DIR := ../lib/
@@ -20,7 +20,7 @@ PROG_NAME := corewar
 H_DIR := include/
 
 # HEADER NAME
-H_NAME = vm op parse_n
+H_NAME = vm op parse_args
 H_NAME := $(addprefix $(H_DIR), $(addsuffix .h, $(H_NAME)))
 
 # SOURCES DIR
@@ -29,22 +29,28 @@ SRC_PARSE_DIR = parse/
 SRC_PARSE_DIR := $(addprefix $(SRC_DIR), $(SRC_PARSE_DIR))
 SRC_LOGIC_DIR = logic/
 SRC_LOGIC_DIR := $(addprefix $(SRC_DIR), $(SRC_LOGIC_DIR))
+SRC_EXTRA_DIR = extra/
+SRC_EXTRA_DIR := $(addprefix $(SRC_DIR), $(SRC_EXTRA_DIR))
 
 # SOURCES
 SRC_MAIN = main
 SRC_MAIN := $(addsuffix .c, $(SRC_MAIN))
+
 SRC_PARSE = parse_champion \
-			parse_n_utils \
-			parse_n
+			parse_args parse_args_extra parse_args_flags
 SRC_PARSE := $(addsuffix .c, $(SRC_PARSE))
+
 SRC_LOGIC = init \
 			validation
 SRC_LOGIC := $(addsuffix .c, $(SRC_LOGIC))
+SRC_EXTRA = extra
+SRC_EXTRA := $(addsuffix .c, $(SRC_EXTRA))
 
 # FILE PATH TO LIB, PROGRAM SRC/OBJ FILES
 PROG_SRC := $(addprefix $(SRC_DIR), $(SRC_MAIN)) \
 			$(addprefix $(SRC_PARSE_DIR), $(SRC_PARSE)) \
-			$(addprefix $(SRC_LOGIC_DIR), $(SRC_LOGIC))
+			$(addprefix $(SRC_LOGIC_DIR), $(SRC_LOGIC)) \
+			$(addprefix $(SRC_EXTRA_DIR), $(SRC_EXTRA))
 L_NAME := $(addprefix $(L_DIR), $(L_NAME))
 
 all: $(L_RULE) $(PROG_NAME)
