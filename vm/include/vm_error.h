@@ -14,7 +14,11 @@
 # define VM_ERROR_H
 
 # define E_MALLOC "in malloc"
+# define E_SSPLIT "in ft_strsplit"
+# define E_STRSUB "in strsub"
+
 # define E_ERR "Error: "
+
 # define E_PAR_MAGIC_HEADER "Error magic header"
 # define E_PAR_NAME "Read name"
 # define E_PAR_CHAMP_SIZE "Read champ size"
