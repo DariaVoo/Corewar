@@ -12,71 +12,31 @@
 
 # include "vm.h"
 
-void		exit_error(const char *str)
+int			main(int argc, char **argv)
 {
-	perror(str);
-	exit(EXIT_FAILURE);
-}
+	t_vm	vm[1];
+	char	*champion_names[MAX_PLAYERS];
 
-void	champ_print(t_champion *ptr)
-{
-	unsigned int i;
-
-	i = 0;
-	ft_printf("Magic header: %x\nNAME: %s\nProg size: %x\nComment: %s\nCode:\n", ptr->header.magic, ptr->header.prog_name, ptr->header.prog_size, ptr->header.comment);
-	while (i < ptr->header.prog_size)
-	{
-		ft_printf("%.2x", (0xff & ptr->code[i]));
-		if (i % 2 != 0)
-			ft_putstr(" ");
-		if ((i + 1) % 16 == 0 && i != 0)
-			ft_putstr("\n");
-		i++;
-	}
-}
-
-void	arena_print(uint8_t *arena)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < MEM_SIZE)
-	{
-		ft_printf("%.2x", (0xff & arena[i]));
-		if (i % 2 != 0)
-			ft_putstr(" ");
-		if ((i + 1) % 64 == 0 && i != 0)
-			ft_putstr("\n");
-		i++;
-	}
-}
-
-int				main(int argc, char **argv)
-{
-	t_vm		*vm;
-	char		*files[2] = {"Car.cor" , "maxidef.cor"};
-
-	if (argc < 2 || argc > 5)
+	if (argc < MIN_ARGS_NUMBER + 1)
 	{
 		printf("Usage: bla-bla-bla\n");
-		return (0);
+		return (1);
 	}
-	vm = create_vm(argc - 1);
+	argc--;
+	argv++;
+	init_champion_names(champion_names);
+	init_vm(vm);
+	parse_args(vm, champion_names, argv);
 
-	// for debug
-	// char *files[3] = {"vm/maxidef.cor", "vm/Car.cor" ,"vm/Car.cor" };
-	vm->count_champs = 2;
-	argv[0]++;
-
-
-	vm->champs = valid_champions(files, col_champs);
-	vm->cursor = valid_cursor(vm->champs);
+	vm->count_champs = get_number_of_players(champion_names);
+	vm->champs = valid_champions(champion_names, vm->count_champs);
+	vm->carriage = valid_carriage(vm->champs, vm->count_champs);
 	init_arena(vm);
 	arena_print(vm->arena);
-	while (vm->cursor)
+	while (vm->carriage)
 	{
-		ft_printf("%d\n", vm->cursor->regs[0]);
-		vm->cursor = vm->cursor->next;
+		ft_printf("%d\n", vm->carriage->regs[0]);
+		vm->carriage = vm->carriage->next;
 	}
 	return (0);
 }
