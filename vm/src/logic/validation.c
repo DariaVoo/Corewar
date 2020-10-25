@@ -28,17 +28,17 @@ t_champion	*valid_champions(char **chmp_file_name, size_t col_champs)
 	return (head);
 }
 
-t_carriage	*valid_cursor(t_champion *players)
+t_carriage	*valid_carriage(t_champion *players, int col_champs)
 {
 	t_carriage	*cursor;
 	t_carriage	*head;
 	
-	head = init_carrige(players->id);
+	head = init_carriage(col_champs, players->id);
 	cursor = head;
 	players = players->next;
 	while (players != NULL)
 	{
-		cursor->next =  init_carrige(players->id);
+		cursor->next = init_carriage(col_champs, players->id);
 		cursor = cursor->next;
 		players = players->next;
 	}
