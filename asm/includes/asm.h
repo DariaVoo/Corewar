@@ -193,10 +193,11 @@ int		ft_is_comment(char *str);
  ** parse functions
  */
 int     ft_parse_header(t_header *header, char *line, int num_line);
-void    ft_parse_body(char **split, int i, int all_lines);
+// void    ft_parse_body(char **split, int i, int all_lines);
 char	**ft_strmultsplit(char const *s, char c, char ch);
 // NEW LEAF
 void    ft_read_file(t_data *data);
+void	ft_parse_body(char *str, t_data data);
 
 /*
  ** check functions
