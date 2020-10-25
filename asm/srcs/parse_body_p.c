@@ -2,13 +2,13 @@
 #include "../../vm/libft/includes/libftprintf.h"
 #include "../includes/error.h"
 
-void	ft_parse_body(char *str, t_data data)
+void	ft_parse_body(char *str, t_data *data)
 {
 	char **arr;
 	char *tmp;
 
 	tmp = epur_asm_str(str);
-	arr = w_count(str, ' ');
+	arr = ft_fill_words(tmp, w_count(tmp, ' ')); // Бьем на слова
 }
 
 
@@ -25,4 +25,9 @@ int		ft_wc(char const *s, char c)
 		s++;
 	}
 	return (q);
+}
+
+char	*epur_asm_str(char *str) // делаем строку с пробелами по символам типа % ; , 
+{
+
 }

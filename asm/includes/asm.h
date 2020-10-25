@@ -198,7 +198,7 @@ int     ft_parse_header(t_header *header, char *line, int num_line);
 char	**ft_strmultsplit(char const *s, char c, char ch);
 // NEW LEAF
 void    ft_read_file(t_data *data);
-void	ft_parse_body(char *str, t_data data);
+void	ft_parse_body(char *str, t_data *data);
 
 /*
  ** check functions
