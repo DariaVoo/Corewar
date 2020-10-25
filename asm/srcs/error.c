@@ -37,7 +37,7 @@ void	ft_error_length(int f)
 	}
 	else if (f == 1) {
 		ft_putstr_fd("Champion comment too long (Max length ", 2);
-		ft_putnbr_fd(PROG_NAME_LENGTH, 2);
+		ft_putnbr_fd(COMMENT_LENGTH, 2);
 		ft_putendl_fd(")", 2);
 	}
 	exit(1);
