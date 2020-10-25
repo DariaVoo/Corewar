@@ -6,3 +6,4 @@
 #define MALLOC_ERR      "Error: malloc error\n"
 
 void    ft_error(char *err, char *line, int num_str, int ind_str);
+void	ft_error_length(int f);
