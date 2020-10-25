@@ -9,7 +9,7 @@ void    ft_error(char *err, char *line, int num_str, int ind_str)
 {
 	int		i;
 
-	i = ind_str;
+	i = 0;
 	ft_printf("%s [%d:%d]", err, num_str, ind_str); // добавить принтф с фд
 	if (line) {
 		write(1, " INSTRUCTION \"", 14);
