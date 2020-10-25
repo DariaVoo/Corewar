@@ -182,6 +182,7 @@ void    ft_close_fd(int a, int b);
  ** init functions
  */
 // void    ft_init_structs(t_header *header, t_body *body);
+void	ft_init_structs(t_data *data);
 
 /*
  ** read functions

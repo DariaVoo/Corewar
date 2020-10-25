@@ -9,6 +9,8 @@ void    ft_read_file(t_data *data)
 	while (get_next_line(data->read_fd, &str))
 	{
 		data->line_count++; //номер строки для вывода ошибки
+		// ft_putnbr(data->line_count);
+		// ft_putchar('\n');
 		ft_line_parser(str, data);
 		//сама ошибка выводится и обрабатывается непосредственно внутри функций
 		/*
@@ -24,7 +26,7 @@ void    ft_read_file(t_data *data)
 int		ft_line_parser(char *str, t_data *data)
 {
 	if (ft_is_comment(str) == 1) //пропуск комментариев
-		return (-1); 
+		return (-1);
 	if (data->header->is_comment == 0 || data->header->is_name == 0)
 		ft_parse_header(data->header, str, data->line_count);
 //	if (data->header->is_comment == 1 && data->header->is_name == 1)
