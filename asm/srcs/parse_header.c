@@ -99,36 +99,35 @@
  * ind - индекс в строке
  */
 
- int     ft_parse_header(t_header *header, char *line, int num_line)
- {
- 	write(1, "AAAA\n", 5);
-	 int 	ind;
-	 int 	start;
+int     ft_parse_header(t_header *header, char *line, int num_line)
+{
+	write(1, "AAAA\n", 5);
+	int 	ind;
+	int 	start;
 
-	 ind = 0;
-	 start = 0;
-	 while (line[ind] == ' ' || line[ind] == '\t')
-		 ind++;
+	ind = 0;
+	start = 0;
+	while (line[ind] == ' ' || line[ind] == '\t')
+		ind++;
 
-	 if (!header->is_name && !ft_strncmp((line + ind),NAME_CMD_STRING, (sizeof(NAME_CMD_STRING) - 1)))
-	 {
-		 start = parse_line_header(line, NAME_CMD_STRING, (ind + sizeof(NAME_CMD_STRING)), num_line);
-		 if (ft_strlen_char((line + start), '"') > PROG_NAME_LENGTH)
-			 ft_error_length(0);
-		 ft_strncpy(header->prog_name, (line + start), ft_strlen_char((line + start), '"'));
-		 header->is_name = 1;
-	 }
-	 else if (!header->is_comment && !ft_strncmp((line + ind),COMMENT_CMD_STRING, sizeof(COMMENT_CMD_STRING)))
-	 {
-		 start = parse_line_header(line, COMMENT_CMD_STRING, (ind + sizeof(COMMENT_CMD_STRING)), num_line);
-		 if (ft_strlen_char((line + start), '"') > COMMENT_LENGTH)
-			 ft_error_length(1);
-		 ft_strncpy(header->comment, (line + start), ft_strlen_char((line + start), '"'));
-		 header->is_comment = 1;
-	 }
-	 else {
-		 ft_printf("AAAAAAA: %s-%d-size%zu\n", (line + ind), ft_strncmp((line + ind),COMMENT_CMD_STRING, sizeof(COMMENT_CMD_STRING)), sizeof(COMMENT_CMD_STRING));
-		 ft_error(LEX_ERR, NULL, num_line, ind);
-	 }
-	 return (0);
- }
+	if (!header->is_name && !ft_strncmp((line + ind),NAME_CMD_STRING, (sizeof(NAME_CMD_STRING) - 1)))
+	{
+		start = parse_line_header(line, NAME_CMD_STRING, (ind + sizeof(NAME_CMD_STRING)), num_line);
+		if (ft_strlen_char((line + start), '"') > PROG_NAME_LENGTH)
+			ft_error_length(0);
+		ft_strncpy(header->prog_name, (line + start), ft_strlen_char((line + start), '"'));
+		header->is_name = 1;
+	}
+	else if (!header->is_comment && !ft_strncmp((line + ind),COMMENT_CMD_STRING, sizeof(COMMENT_CMD_STRING) - 1))
+	{
+		start = parse_line_header(line, COMMENT_CMD_STRING, (ind + sizeof(COMMENT_CMD_STRING)), num_line);
+		if (ft_strlen_char((line + start), '"') > COMMENT_LENGTH)
+			ft_error_length(1);
+		ft_strncpy(header->comment, (line + start), ft_strlen_char((line + start), '"'));
+		header->is_comment = 1;
+	}
+	else {
+		ft_error(LEX_ERR, NULL, num_line, ind);
+	}
+	return (0);
+}

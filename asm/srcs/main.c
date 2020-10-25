@@ -14,6 +14,7 @@ int		main(int ac, char **av)
     if (ac == 1)
         ft_exit(USAGE);
     //all_data = 0;
+    ft_init_structs(&all_data);
     
     ft_printf("START: %s\n", av[ac - 1]);
 
@@ -70,7 +71,6 @@ int		main(int ac, char **av)
 //        split++;
 //    }
 
-	// ft_init_structs(&header, &body);
 	// i = ft_parse_header(split, &header);
 	// ft_printf("line_number == %d | header.prog_size == %d | header.prog_name == %s\n", i, header.prog_size, header.prog_name);
 
