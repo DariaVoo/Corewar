@@ -1,0 +1,19 @@
+#!/bin/sh
+
+BR1="vm"
+BR2="master"
+
+if [ "$1" = "$BR1" ]; then
+    git checkout virtual_machine
+    echo "\n"
+    git submodule init
+    git submodule update
+elif [ "$1" = "$BR2" ]; then
+    git checkout $BR2
+else
+    echo "wrong branch!"
+    echo "\n"
+    echo "branches:"
+    echo "\n"
+    git branch -a
+fi
