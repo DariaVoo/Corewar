@@ -2,8 +2,7 @@
 
 void		exit_error(const char *str)
 {
-	// perror(str);
-	ft_printf("%s%s\n", E_ERR, str);
+	ft_fprintf(STDERR_FILENO, "%s%s\n", E_ERR, str);
 	exit(0);
 	// exit(EXIT_FAILURE);
 }
