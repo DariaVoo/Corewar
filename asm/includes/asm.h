@@ -132,8 +132,12 @@ typedef struct s_instr
     char *name; //название инструкции
     int bc; //байткод, но надо подумать в чем его хранить (код операции)
     int id; //id инструкции и связующее звено между массивом считываемых инструкций и данной структуры
+	int		size;
     //здесь нужно прописать возможный размер, количество аргументов и тп, все то, что дано в таблице
-    int num_args; //номер строки
+	char	arguments[3];
+
+	int		labels_id[3]; // ИЛИ ВСЕ-ТАКИ 3?
+    int num_args; // КОЛ-ВО АРГУМЕНТОВ
     // t_name_args type[3];
 	struct s_instr		*next;
 
@@ -143,10 +147,11 @@ typedef struct s_instr
 //список
 typedef struct s_label
 {
-    char *name;
+    char	*name;
     // t_championstr championstr;
-    int label_id; //id лейбла
-    int label_row; // строка, на которой находится лейбл
+    int		label_id; //id лейбла
+    int		label_row; // строка, на которой находится лейбл
+	int		instr_id;
     // int id; //id инструкции в t_instr заполняется при ВТОРОМ проходе
     // int number; //number в t_champinstr заполняется при ВТОРОМ проходе
     //t_arg *args;
@@ -159,12 +164,13 @@ typedef struct s_data
 	int			write_fd;
 	int			file_size;
 	int			line_count; // 0 изначально 
-	char		*name;
-	char		*comment;
+	// char		*name;
+	// char		*comment;
     //либо t_header;
     t_header    *header;
-	t_instr		*instrs;
+	// t_instr		*instrs;
 	t_label		*label;
+	int			*instructions;
 }				t_data;
 
 
