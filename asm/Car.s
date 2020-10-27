@@ -1,8 +1,5 @@
-  #deassembler par msa 1.8, made by joe
-#deassembler par msa 1.8, made by joe
-#deassembler par msa 1.8, made by joe
-     .name rte"Tching tching(Intercepteur), Bouh!Bouh!(bruits d'anti-jeu)"
-
+.name "hello"
+.comment "world"
 
 
 	 fork  %:label00          		# 3,0,281

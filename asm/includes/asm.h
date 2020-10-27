@@ -35,20 +35,18 @@
 // }					t_op;
 
 // //структура для аргумента
-// typedef struct s_arg
-// {
-// 	char *type;
-// 	char *label;
-// 	int direct; //аргумент direct - 1 или indirect - 0
-// 	int size; //размер аргумента (2 или 4) нужен для получения значения
-// 	int value; //значение, для label рассчитывается при ВТОРОМ проходе
-// 	int arg_number; //порядковый номер аргумента, возможно, не нужен, но может пригодиться для валидации
-// 	int instr_num_curr; //порядковый номер текущей инструкции
-// 	int instr_num_to_go; //порядковый номер инструкции, к которой нужно перескачить (сложить размеры инструкций между двумя значениями)
-// 	int bc;
-// 	int reg; //если аргумент является регистром то здесь число, иначе - 0
-// 	int id_label;
-// }              t_arg;
+typedef struct s_arg
+{
+	char *type;
+	char *label;
+	int size; //размер аргумента (2 или 4) нужен для получения значения
+	int value; //значение, для label рассчитывается при ВТОРОМ проходе
+	int arg_number; //порядковый номер аргумента, возможно, не нужен, но может пригодиться для валидации
+	int instr_num_curr; //порядковый номер текущей инструкции
+	int instr_num_to_go; //порядковый номер инструкции, к которой нужно перескачить (сложить размеры инструкций между двумя значениями)
+	int bc;
+	int id_label;
+}              t_arg;
 
 // //инструкции считываемые из файла
 // typedef struct s_championstr
@@ -138,6 +136,10 @@ typedef struct s_instr
 
 	int		labels_id[3]; // ИЛИ ВСЕ-ТАКИ 3?
     int num_args; // КОЛ-ВО АРГУМЕНТОВ
+
+	t_arg args[3];
+	char *label;
+
     // t_name_args type[3];
 	struct s_instr		*next;
 
@@ -167,10 +169,13 @@ typedef struct s_data
 	// char		*name;
 	// char		*comment;
     //либо t_header;
-    t_header    *header;
-	// t_instr		*instrs;
-	t_label		*label;
+
 	int			*instructions;
+	t_label		*label;
+    t_header    *header;
+
+    t_instr		*instrs;
+	int			instr_num;
 }				t_data;
 
 
@@ -188,7 +193,7 @@ void    ft_close_fd(int a, int b);
  ** init functions
  */
 // void    ft_init_structs(t_header *header, t_body *body);
-void	ft_init_structs(t_data *data);
+void	ft_init_structs(t_data *data, int instr_num);
 
 /*
  ** read functions
