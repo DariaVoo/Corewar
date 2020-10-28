@@ -29,13 +29,14 @@
 
 typedef struct				s_carriage
 {
-	int32_t					regs[REG_NUMBER];
+	uint64_t				current_pos;
+	uint32_t				regs[REG_NUMBER];
 	int						cycle_to_die;
 	int						live;
-	uint8_t					opcode;
 	int						carry;
 	int						program_counter;
 	struct s_carriage		*next;
+	uint8_t					opcode;
 }							t_carriage;
 
 typedef struct				s_champion
@@ -48,11 +49,11 @@ typedef struct				s_champion
 
 typedef struct				s_vm
 {
-	t_champion				*champs;
+	t_champion				**champ;
 	struct s_carriage		*carriage;
+	int32_t					dump_cycle;
 	uint8_t					arena[MEM_SIZE];
 	uint8_t					count_champs;
-	uint8_t					dump_cycle_to_die;
 }							t_vm;
 
 typedef struct				s_op
@@ -69,33 +70,32 @@ typedef struct				s_op
 }							t_op;
 
 /* VIRTUAL MACHINE */
-void				init_vm(t_vm *vm);
+void				init_vm(t_vm *vm, t_champion *champ[], t_carriage *carriage);
+void				init_arena(t_vm *vm);
 
-/* PARSING ARGS */
-void				init_champion_names(char *champion_names[MAX_PLAYERS]);
-void				parse_args(t_vm *vm, \
-								char *champion_names[MAX_PLAYERS], \
-								char **argv);
-uint8_t				parse_dump_flag(t_vm *vm, char **splited_argv);
-uint8_t				is_dump_flag(const char *str);
-uint8_t				parse_n_flag(char **splited_argv);
-uint8_t				is_n_flag(const char *argv_str);
-int8_t				update_n_flag(const int8_t shift);
-void				parse_champion_name(const char *argv_name, \
-										char **champion_name);
-void				merge_champion_names(char *champion_names[MAX_PLAYERS],
-								char *unranking_champion_names[MAX_PLAYERS]);
-int8_t				get_number_of_players(char *champion_names[MAX_PLAYERS]);
+/* CARRIAGE */
+void				set_starter_kit_carriage(t_carriage **carriage, char *champ_names[]);
+void				add_carriage(t_carriage **carriage, uint8_t id);
 
 /* CHAMPIONS */
-t_champion			*init_champ(int id);
-void				init_arena(t_vm *vm);
-t_carriage			*init_carriage(int col_champs, int id);
-t_champion			*parse_champion(char *chmp_file_name, int id);
-t_champion			*valid_champions(char **chmp_file_name, size_t col_champs);
-t_carriage			*valid_carriage(t_champion *players, int col_champs);
+void				parse_files(t_champion *champ[], char *champ_names[]);
+t_champion			*parse_champ_file(const char *champ_name, uint8_t id);
+t_champion			*create_champ(int id);
+
+/* PARSING ARGS */
+void				parse_args(char *champ_names[], char **argv);
+uint8_t				parse_dump_flag(char *splited_argv[]);
+int32_t				update_dump_flag(const int32_t dump_flag);
+uint8_t				parse_n_flag(char **splited_argv);
+int8_t				update_n_flag(const int8_t shift);
+void				parse_champ_name(const char *argv_name, char *champ_name[]);
+
+
 
 /* EXTRA FUNC */
+uint8_t				get_number_of_players();
+void				init_arrptr(void **array, uint32_t size);
+void				*node_malloc(size_t size);
 void				exit_error(const char *str);
 void				champ_print(t_champion *ptr);
 void				arena_print(uint8_t *arena);

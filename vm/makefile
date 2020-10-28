@@ -6,7 +6,7 @@ EOC = "\e[0m"
 
 # COMPILER SETTINGS
 CC := clang
-# CFLAGS := -Wall -Wextra -Werror -g
+CFLAGS := -Wall -Wextra -Werror -g
 
 # LIB (LIBFT, GET_NEXT_LINE, PRINTF)
 L_DIR := ../lib/
@@ -33,15 +33,18 @@ SRC_EXTRA_DIR = extra/
 SRC_EXTRA_DIR := $(addprefix $(SRC_DIR), $(SRC_EXTRA_DIR))
 
 # SOURCES
-SRC_MAIN = main
+SRC_MAIN =  main \
+			champ \
+			carriage \
+			vm
 SRC_MAIN := $(addsuffix .c, $(SRC_MAIN))
 
-SRC_PARSE = parse_champion \
-			parse_args parse_args_extra parse_args_flags
+SRC_PARSE = parse_args \
+			parse_args_flags \
+			parse_files
 SRC_PARSE := $(addsuffix .c, $(SRC_PARSE))
 
-SRC_LOGIC = init \
-			validation
+SRC_LOGIC = 
 SRC_LOGIC := $(addsuffix .c, $(SRC_LOGIC))
 SRC_EXTRA = extra
 SRC_EXTRA := $(addsuffix .c, $(SRC_EXTRA))

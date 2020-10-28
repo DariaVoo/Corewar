@@ -18,12 +18,12 @@
 # define FLAG_N "-n"
 # define FLAG_DUMP "-dump"
 
-# define E_ARGV_DUMP_FLAG_NAN "-dump [not a number, or number is negative]"
+# define E_ARGV_DUMP_FLAG_NAN "-dump [not an INT_SIZE number or number is negative]"
 # define E_ARGV_DUMP_NOT_EXIST "-dump [number doesn't exist]"
 
 # define E_ARGV_N_FLAG_DUP "-n [duplicated number]"
 # define E_ARGV_N_FLAG_NO_CHAMP "-n [num] [no champion name]"
-# define E_ARGV_N_FLAG_NAN "-n [not a number, or number is gegative]"
+# define E_ARGV_N_FLAG_NAN "-n [not an INT_SIZE number or number is negative]"
 # define E_ARGV_N_FLAG_NOT_EXIST "-n [number doesn't exist]"
 # define E_ARGV_N_FLAG_RANGE "-n [number is out of range (1 - 4)]"
 
