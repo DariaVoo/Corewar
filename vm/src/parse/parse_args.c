@@ -1,6 +1,44 @@
 #include "vm.h"
 
-void		check_missed_pos_order(char *champion_names[MAX_PLAYERS])
+/*
+	возвращает начальное количество игроков
+*/
+
+uint8_t		get_number_of_players()
+{
+	uint8_t	i;
+	int8_t	n;
+
+	i = 0;
+	n = update_n_flag(-1);
+	while (n)
+	{
+		n = n & (n - 1);
+		i++;
+	}
+	return (i);
+}
+
+int32_t		update_dump_flag(const int32_t dump_flag)
+{
+	static int32_t	dump = 0;
+
+	if (dump_flag > -1)
+		dump = dump_flag;
+	return (dump);
+}
+
+int8_t		update_n_flag(const int8_t shift)
+{
+	static int8_t	n_positions = 0;
+
+	if (n_positions & 1 << shift)
+		return (-1);
+	n_positions = n_positions | 1 << shift;
+	return (n_positions);
+}
+
+static void	check_missed_pos_order()
 {
 	uint8_t	i;
 	int8_t	n;
@@ -17,8 +55,7 @@ void		check_missed_pos_order(char *champion_names[MAX_PLAYERS])
 	}
 }
 
-void		merge_champion_names(char *champion_names[MAX_PLAYERS],
-									char *unranking_champion_names[MAX_PLAYERS])
+static void	merge_champ_names(char **champ_names, char **unranking_champ_names)
 {
 	uint8_t	i;
 	uint8_t	n;
@@ -27,13 +64,13 @@ void		merge_champion_names(char *champion_names[MAX_PLAYERS],
 	n = 0;
 	while(i < MAX_PLAYERS)
 	{
-		if (!champion_names[i])
+		if (!champ_names[i])
 		{
 			while (n < MAX_PLAYERS)
 			{
-				if (unranking_champion_names[n])
+				if (unranking_champ_names[n])
 				{
-					champion_names[i] = unranking_champion_names[n];
+					champ_names[i] = unranking_champ_names[n];
 					update_n_flag(i);
 					n++;
 					break ;
@@ -58,9 +95,9 @@ void		merge_champion_names(char *champion_names[MAX_PLAYERS],
 	проверяем игрока (должно быть 'расширение' .cor)
 */
 
-void		parse_args(t_vm *vm, char *champion_names[MAX_PLAYERS], char **argv)
+void		parse_args(char *champ_names[], char **argv)
 {
-	char	*unranking_champion_names[MAX_PLAYERS];
+	char	*unranking_champ_names[MAX_PLAYERS + 1];
 	char	**splited_argv;
 	size_t	i;
 	uint8_t	n;
@@ -70,7 +107,7 @@ void		parse_args(t_vm *vm, char *champion_names[MAX_PLAYERS], char **argv)
 	i = 0;
 	n = 0;
 	limit = 0;
-	init_champion_names(unranking_champion_names);
+	init_arrptr((void *)unranking_champ_names, MAX_PLAYERS + 1);
 	if (argv[1])
 		splited_argv = argv;
 	else
@@ -79,7 +116,7 @@ void		parse_args(t_vm *vm, char *champion_names[MAX_PLAYERS], char **argv)
 		if (!splited_argv || !splited_argv[0])
 			exit_error(E_SSPLIT);
 	}
-	if (parse_dump_flag(vm, splited_argv))
+	if (parse_dump_flag(splited_argv))
 		i = 2;
 	while (splited_argv[i])
 	{
@@ -89,20 +126,18 @@ void		parse_args(t_vm *vm, char *champion_names[MAX_PLAYERS], char **argv)
 		if ((possible_pos = parse_n_flag(splited_argv + i)))
 		{
 			i = i + 2;
-			parse_champion_name(splited_argv[i], \
-			&champion_names[possible_pos - 1]);
+			parse_champ_name(splited_argv[i], &champ_names[possible_pos - 1]);
 		}
 		else
 		{
-			parse_champion_name(splited_argv[i], \
-			&unranking_champion_names[n]);
+			parse_champ_name(splited_argv[i], &unranking_champ_names[n]);
 			n++;
 		}
 		i++;
 		limit++;
 	}
-	merge_champion_names(champion_names, unranking_champion_names);
-	check_missed_pos_order(champion_names);
+	merge_champ_names(champ_names, unranking_champ_names);
+	check_missed_pos_order();
 	if (splited_argv != argv)
 		ft_arrdel((void ***)&splited_argv);
 }

@@ -1,5 +1,19 @@
 #include "vm.h"
 
+static uint8_t	is_n_flag(const char *argv_str)
+{
+	if (ft_strcmp(argv_str, FLAG_N) == 0)
+		return (1);
+	return (0);
+}
+
+static uint8_t	is_dump_flag(const char *str)
+{
+	if (ft_strcmp(str, FLAG_DUMP) == 0)
+		return (1);
+	return (0);
+}
+
 /*
     проверяем -dump флаг
     проверяем, есть ли за -dump число
@@ -11,7 +25,7 @@
         ./corewar -dump
 */
 
-uint8_t		parse_dump_flag(t_vm *vm, char **splited_argv)
+uint8_t			parse_dump_flag(char *splited_argv[])
 {
 	if (is_dump_flag(splited_argv[0]))
 	{
@@ -19,7 +33,7 @@ uint8_t		parse_dump_flag(t_vm *vm, char **splited_argv)
 		{
 			if (!ft_isnumber_int(splited_argv[1]) || splited_argv[1][0] == '-')
 				exit_error(E_ARGV_DUMP_FLAG_NAN);
-			vm->dump_cycle_to_die = ft_atoi(splited_argv[1]);
+			update_dump_flag(ft_atoi(splited_argv[1]));
 			return (1);
 		}
 		else
@@ -40,9 +54,9 @@ uint8_t		parse_dump_flag(t_vm *vm, char **splited_argv)
         ./corewar -n 2 A.cor B.cor -n 3
 */
 
-uint8_t		parse_n_flag(char **splited_argv)
+uint8_t			parse_n_flag(char **splited_argv)
 {
-    uint8_t	possible_pos;
+    uint8_t		possible_pos;
 
     possible_pos = 0;
 	if (is_n_flag(splited_argv[0]))
@@ -66,17 +80,22 @@ uint8_t		parse_n_flag(char **splited_argv)
 	return (0);
 }
 
-void		parse_champion_name(const char *argv_name, char **champion_name)
+/*
+	проверяем имя файла (чемпиона)
+	должно оканчиваться на ".cor"
+*/
+
+void			parse_champ_name(const char *argv_name, char *champ_name[])
 {
-	char	*substr;
+	char		*substr;
 
 	substr = ft_strstr(argv_name, DOTCOR);
 	if (!substr || substr == argv_name || substr[DOTCOR_SIZE] != '\0')
 		exit_error(E_ARGV_CHAMP_NAME);
 	else
 	{
-		*champion_name = ft_strdup(argv_name);
-		if (!*champion_name)
+		*champ_name = ft_strdup(argv_name);
+		if (!*champ_name)
 			exit_error(E_STRSUB);
 	}
 }
