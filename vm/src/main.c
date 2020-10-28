@@ -12,27 +12,42 @@
 
 # include "vm.h"
 
+void		game(t_vm *vm)
+{
+	t_carriage *current;
+
+	while (1)
+	{
+		current = vm->carriage;
+		while (current)
+		{
+
+			current = current->next;
+		}
+	}
+}
+
 int			main(int argc, char **argv)
 {
-	t_vm	vm[1];
-	char	*champion_names[MAX_PLAYERS];
+	char		*champ_names[MAX_PLAYERS + 1];
+	t_champion	*champ[MAX_PLAYERS + 1];
+	t_carriage	*carriage;
+	t_vm		vm[1];
 
 	if (argc < MIN_ARGS_NUMBER + 1)
-	{
-		printf("Usage: bla-bla-bla\n");
-		return (1);
-	}
-	argc--;
-	argv++;
-	init_champion_names(champion_names);
-	init_vm(vm);
-	parse_args(vm, champion_names, argv);
-
-	vm->count_champs = get_number_of_players(champion_names);
-	vm->champs = valid_champions(champion_names, vm->count_champs);
-	vm->carriage = valid_carriage(vm->champs, vm->count_champs);
+		exit_error(E_USAGE);
+	else
+		argv++;
+	init_arrptr((void *)champ_names, MAX_PLAYERS + 1);
+	init_arrptr((void *)champ, MAX_PLAYERS + 1);
+	carriage = NULL;
+	parse_args(champ_names, argv);
+	parse_files(champ, champ_names);
+	set_starter_kit_carriage(&carriage, champ_names);
+	init_vm(vm, champ, carriage);
 	init_arena(vm);
 	arena_print(vm->arena);
+	// game(vm);
 	while (vm->carriage)
 	{
 		ft_printf("%d\n", vm->carriage->regs[0]);

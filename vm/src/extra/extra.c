@@ -3,7 +3,7 @@
 void		exit_error(const char *str)
 {
 	ft_fprintf(STDERR_FILENO, "%s%s\n", E_ERR, str);
-	exit(0);
+	exit (0);
 	// exit(EXIT_FAILURE);
 }
 
@@ -31,11 +31,32 @@ void		arena_print(uint8_t *arena)
 	i = 0;
 	while (i < MEM_SIZE)
 	{
-		ft_printf("%.2x", (0xff & arena[i]));
+		if (arena[i])
+			ft_printf("{red}%.2x{eoc}", (0xff & arena[i]));
+		else
+			ft_printf("%.2x", (0xff & arena[i]));
 		if (i % 2 != 0)
 			ft_putstr(" ");
 		if ((i + 1) % 64 == 0 && i != 0)
 			ft_putstr("\n");
+		i++;
+	}
+}
+
+/*
+	функция для инициализации массива указателей на что-либо
+*/
+
+void			init_arrptr(void **array, uint32_t size)
+{
+	uint32_t	i;
+
+	i = 0;
+	if (!array)
+		return ;
+	while (i < size)
+	{
+		array[i] = NULL;
 		i++;
 	}
 }
