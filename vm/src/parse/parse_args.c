@@ -21,7 +21,7 @@ uint8_t		get_number_of_players()
 
 int32_t		update_dump_flag(const int32_t dump_flag)
 {
-	static int32_t	dump = 0;
+	static int32_t	dump = -1;
 
 	if (dump_flag > -1)
 		dump = dump_flag;

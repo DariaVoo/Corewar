@@ -31,7 +31,7 @@ typedef struct				s_carriage
 {
 	uint64_t				current_pos;
 	uint32_t				regs[REG_NUMBER];
-	int						cycle_to_die;
+	uint16_t				cycle_to_die;
 	int						live;
 	int						carry;
 	int						program_counter;
@@ -51,7 +51,7 @@ typedef struct				s_vm
 {
 	t_champion				**champ;
 	struct s_carriage		*carriage;
-	int32_t					dump_cycle;
+	int32_t					cycle_dump;
 	uint8_t					arena[MEM_SIZE];
 	uint8_t					count_champs;
 }							t_vm;
@@ -74,8 +74,9 @@ void				init_vm(t_vm *vm, t_champion *champ[], t_carriage *carriage);
 void				init_arena(t_vm *vm);
 
 /* CARRIAGE */
-void				set_starter_kit_carriage(t_carriage **carriage, char *champ_names[]);
-void				add_carriage(t_carriage **carriage, uint8_t id);
+void				set_starter_kit_carriage(t_carriage **carriage, t_champion *champ[]);
+void				add_carriage(t_carriage **carriage, t_champion *champ);
+// void				add_carriage(t_carriage **carriage, t_champion *champ[]);
 
 /* CHAMPIONS */
 void				parse_files(t_champion *champ[], char *champ_names[]);
@@ -99,5 +100,8 @@ void				*node_malloc(size_t size);
 void				exit_error(const char *str);
 void				champ_print(t_champion *ptr);
 void				arena_print(uint8_t *arena);
+
+/* VISUALIZATION */
+void				visualisation();
 
 #endif

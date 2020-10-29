@@ -46,11 +46,18 @@ SRC_PARSE := $(addsuffix .c, $(SRC_PARSE))
 
 SRC_LOGIC = 
 SRC_LOGIC := $(addsuffix .c, $(SRC_LOGIC))
+
 SRC_EXTRA = extra
 SRC_EXTRA := $(addsuffix .c, $(SRC_EXTRA))
 
+SRC_VISUAL = visual
+SRC_VISUAL := $(addsuffix .c, $(SRC_VISUAL))
+
+
+
 # FILE PATH TO LIB, PROGRAM SRC/OBJ FILES
 PROG_SRC := $(addprefix $(SRC_DIR), $(SRC_MAIN)) \
+			$(addprefix $(SRC_DIR), $(SRC_VISUAL)) \
 			$(addprefix $(SRC_PARSE_DIR), $(SRC_PARSE)) \
 			$(addprefix $(SRC_LOGIC_DIR), $(SRC_LOGIC)) \
 			$(addprefix $(SRC_EXTRA_DIR), $(SRC_EXTRA))
@@ -62,7 +69,7 @@ all: $(L_RULE) $(PROG_NAME)
 	@$(MAKE) -sC $(L_DIR)
 
 $(PROG_NAME) : $(PROG_SRC) $(H_NAME) $(L_NAME)
-	@$(CC) $(CFLAGS) $(PROG_SRC) $(L_NAME) -o $(PROG_NAME) -I $(H_DIR)
+	@$(CC) $(CFLAGS) $(PROG_SRC) $(L_NAME) -o $(PROG_NAME) -I $(H_DIR) -lncurses
 	@echo $(BLUE)"COREWAR COMPILED"$(EOC)
 
 clean:
