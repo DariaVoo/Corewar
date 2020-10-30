@@ -69,33 +69,21 @@ typedef struct				s_vm
 {
 	t_champion				**champ;
 	struct s_carriage		*carriage;
+	uint8_t					*arena;
 	int32_t					cycle_dump;
-	uint8_t					arena[MEM_SIZE];
 	uint8_t					count_champs;
 }							t_vm;
-
-// typedef struct				s_op
-// {
-// 	char					*name_oper;
-// 	int						col_arg;
-// 	int						*type_arg;
-// 	int						opcode;
-// 	int						cycle_to_die;
-// 	char					*comment;
-// 	int						change_carry;
-// 	int						code_type_arg;
-// 	int	(*func)(uint32_t arg1, uint32_t arg2, uint32_t arg3, t_vm *vm);
-// }							t_op;
 
 void				game(t_vm *vm);
 
 /* VIRTUAL MACHINE */
-void				init_vm(t_vm *vm, t_champion *champ[], t_carriage *carriage);
-void				init_arena(t_vm *vm);
+void				init_vm(t_vm *vm, t_champion *champ[], \
+							uint8_t *arena, t_carriage *carriage);
+void				init_arena(uint8_t *arena, t_champion *champ[]);
 
 /* CARRIAGE */
-void				set_starter_kit_carriage(t_carriage **carriage, t_champion *champ[]);
-void				add_carriage(t_carriage **carriage, t_champion *champ);
+void				set_starter_kit_carriage(t_carriage *carriage[], uint8_t *arena);
+void				add_carriage(t_carriage **carriage, uint8_t *arena, uint8_t id);
 
 /* CHAMPIONS */
 void				parse_files(t_champion *champ[], char *champ_names[]);
