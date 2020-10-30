@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 14:48:38 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/31 00:36:15 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/10/31 00:40:43 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,10 @@ int			execute_oper(uint8_t *arena, t_carriage *carriage)
 
 	shift = g_op_tab[carriage->opcode - 1].func(arena, carriage);
 	if (shift == 0)
+	{
 		ft_printf("PLOXA in execute_oper\n");
+		return (0);
+	}
 	carriage->program_counter += OPCODE_SIZE + shift;
+	return (1);
 }

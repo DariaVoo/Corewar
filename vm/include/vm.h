@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/31 00:36:48 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/10/31 00:40:05 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ typedef struct				s_vm
 {
 	t_champion				**champ;
 	struct s_carriage		*carriage;
+	uint8_t					*arena;
 	int32_t					cycle_dump;
-	uint8_t					arena[MEM_SIZE];
 	uint8_t					count_champs;
 }							t_vm;
 
@@ -91,12 +91,13 @@ typedef struct				s_op
 void				game(t_vm *vm);
 
 /* VIRTUAL MACHINE */
-void				init_vm(t_vm *vm, t_champion *champ[], t_carriage *carriage);
-void				init_arena(t_vm *vm);
+void				init_vm(t_vm *vm, t_champion *champ[], \
+							uint8_t *arena, t_carriage *carriage);
+void				init_arena(uint8_t *arena, t_champion *champ[]);
 
 /* CARRIAGE */
-void				set_starter_kit_carriage(t_carriage **carriage, t_champion *champ[]);
-void				add_carriage(t_carriage **carriage, t_champion *champ);
+void				set_starter_kit_carriage(t_carriage *carriage[], uint8_t *arena);
+void				add_carriage(t_carriage **carriage, uint8_t *arena, uint8_t id);
 
 /* CHAMPIONS */
 void				parse_files(t_champion *champ[], char *champ_names[]);

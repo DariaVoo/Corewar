@@ -44,7 +44,7 @@ void			debug_print_carriage(t_vm *vm)
 	while (copy)
 	{
 		for (int i = 0; i < REG_NUMBER; i++)
-			ft_printf("%d ", copy->regs[i]);
+			ft_printf("[%2d] ", copy->regs[i]);
 		ft_printf("\n");
 		ft_printf("current_pos: %d\n", copy->program_counter);
 		ft_printf("%.2x\n", copy->opcode);

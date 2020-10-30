@@ -12,24 +12,27 @@
 
 #include "vm.h"
 
-void		init_arena(t_vm *vm)
+void		init_arena(uint8_t *arena, t_champion *champ[])
 {
 	uint8_t	i;
+	uint8_t	count_champ;
 
 	i = 0;
-	while (vm->champ[i])
+	count_champ = get_number_of_players();
+	while (champ[i])
 	{
-		ft_memmove(&(vm->arena[i * MEM_SIZE / vm->count_champs]), vm->champ[i]->code, \
-													vm->champ[i]->header.prog_size);
+		ft_memmove(&(arena[i * MEM_SIZE / count_champ]), champ[i]->code, \
+					champ[i]->header.prog_size);
 		i++;
 	}
 }
 
-void		init_vm(t_vm *vm, t_champion *champ[], t_carriage *carriage)
+void		init_vm(t_vm *vm, t_champion *champ[], \
+					uint8_t *arena, t_carriage *carriage)
 {
 	vm->champ = champ;
+	vm->arena = arena;
 	vm->carriage = carriage;
-	ft_memset(vm->arena, 0, MEM_SIZE);
 	vm->count_champs = get_number_of_players();
 	vm->cycle_dump = get_number_dump_cycle();
 }
