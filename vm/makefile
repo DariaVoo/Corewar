@@ -6,7 +6,7 @@ EOC = "\e[0m"
 
 # COMPILER SETTINGS
 CC := clang
-CFLAGS := -Wall -Wextra -Werror -g
+# CFLAGS := -Wall -Wextra -Werror -g
 
 # LIB (LIBFT, GET_NEXT_LINE, PRINTF)
 L_DIR := ../lib/
@@ -25,15 +25,25 @@ H_NAME := $(addprefix $(H_DIR), $(addsuffix .h, $(H_NAME)))
 
 # SOURCES DIR
 SRC_DIR := src/
+
 SRC_PARSE_DIR = parse/
 SRC_PARSE_DIR := $(addprefix $(SRC_DIR), $(SRC_PARSE_DIR))
+
 SRC_LOGIC_DIR = logic/
 SRC_LOGIC_DIR := $(addprefix $(SRC_DIR), $(SRC_LOGIC_DIR))
+
+SRC_LOGIC_OP_DIR = operation/
+SRC_LOGIC_OP_DIR := $(addprefix $(SRC_LOGIC_DIR), $(SRC_LOGIC_OP_DIR))
+
 SRC_EXTRA_DIR = extra/
 SRC_EXTRA_DIR := $(addprefix $(SRC_DIR), $(SRC_EXTRA_DIR))
 
+SRC_DEBUG_DIR = debug/
+SRC_DEBUG_DIR := $(addprefix $(SRC_DIR), $(SRC_DEBUG_DIR))
+
 # SOURCES
 SRC_MAIN =  main \
+			game \
 			champ \
 			carriage \
 			vm
@@ -44,8 +54,13 @@ SRC_PARSE = parse_args \
 			parse_files
 SRC_PARSE := $(addsuffix .c, $(SRC_PARSE))
 
-SRC_LOGIC = 
+SRC_LOGIC = operation
 SRC_LOGIC := $(addsuffix .c, $(SRC_LOGIC))
+
+SRC_LOGIC_OP = ld \
+				live \
+				op
+SRC_LOGIC_OP := $(addsuffix .c, $(SRC_LOGIC_OP))
 
 SRC_EXTRA = extra
 SRC_EXTRA := $(addsuffix .c, $(SRC_EXTRA))
@@ -53,6 +68,8 @@ SRC_EXTRA := $(addsuffix .c, $(SRC_EXTRA))
 SRC_VISUAL = visual
 SRC_VISUAL := $(addsuffix .c, $(SRC_VISUAL))
 
+SRC_DEBUG = debug
+SRC_DEBUG := $(addsuffix .c, $(SRC_DEBUG))
 
 
 # FILE PATH TO LIB, PROGRAM SRC/OBJ FILES
@@ -60,7 +77,9 @@ PROG_SRC := $(addprefix $(SRC_DIR), $(SRC_MAIN)) \
 			$(addprefix $(SRC_DIR), $(SRC_VISUAL)) \
 			$(addprefix $(SRC_PARSE_DIR), $(SRC_PARSE)) \
 			$(addprefix $(SRC_LOGIC_DIR), $(SRC_LOGIC)) \
-			$(addprefix $(SRC_EXTRA_DIR), $(SRC_EXTRA))
+			$(addprefix $(SRC_LOGIC_OP_DIR), $(SRC_LOGIC_OP)) \
+			$(addprefix $(SRC_EXTRA_DIR), $(SRC_EXTRA)) \
+			$(addprefix $(SRC_DEBUG_DIR), $(SRC_DEBUG))
 L_NAME := $(addprefix $(L_DIR), $(L_NAME))
 
 all: $(L_RULE) $(PROG_NAME)

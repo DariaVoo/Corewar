@@ -12,10 +12,10 @@
 
 #include "vm.h"
 
-// carriage->opcode = *(champ->code + carriage->program_counter);
 static void			init_carriage(t_carriage *carriage, t_champion *champ)
 {
 	carriage->program_counter = MEM_SIZE / get_number_of_players() * (champ->id - 1);
+	carriage->opcode = 0;
 	ft_memset(carriage->regs, 0, REG_NUMBER);
 	carriage->regs[0] = -champ->id;
 	carriage->cycle_to_die = CYCLE_TO_DIE;
@@ -30,6 +30,9 @@ static t_carriage	*create_carriage()
 
 	carriage = (t_carriage*)ft_memalloc(sizeof(t_carriage));
 	if (!carriage)
+		exit_error(E_MALLOC);
+	carriage->args = (t_arg*)ft_memalloc(sizeof(t_arg) * MAX_ARGS);
+	if (!carriage->args)
 		exit_error(E_MALLOC);
 	return (carriage);
 }

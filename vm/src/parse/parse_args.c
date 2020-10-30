@@ -19,6 +19,14 @@ uint8_t		get_number_of_players()
 	return (i);
 }
 
+/*
+	возвращает номер цикла, на котором дампим память
+*/
+int32_t		get_number_dump_cycle()
+{
+	return (update_dump_flag(-1));
+}
+
 int32_t		update_dump_flag(const int32_t dump_flag)
 {
 	static int32_t	dump = -1;

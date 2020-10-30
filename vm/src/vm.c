@@ -31,5 +31,5 @@ void		init_vm(t_vm *vm, t_champion *champ[], t_carriage *carriage)
 	vm->carriage = carriage;
 	ft_memset(vm->arena, 0, MEM_SIZE);
 	vm->count_champs = get_number_of_players();
-	vm->cycle_dump = update_dump_flag(-1);
+	vm->cycle_dump = get_number_dump_cycle();
 }
