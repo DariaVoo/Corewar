@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 15:54:42 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/30 17:22:09 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/10/31 00:36:24 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,28 @@
 
 int		op_ld(uint8_t *arena, t_carriage *carriage)
 {
-	uint8_t		*ptr;
 	int32_t		shift;
 	t_arg		*args;
+	int32_t		i;
+	int32_t		address;
+	extern t_op	g_op_tab[17];
 
-	ptr = arena + carriage->program_counter + OPCODE_SIZE;
+	i = 0;
 	args = carriage->args;
-	ft_printf("args[0] = %d\nargs[1] = %d\n", args[0].value, args[1].value);
-	shift = get_args(&args, arena, carriage);
+	shift = get_args(&args, arena, carriage, g_op_tab);
 	if (shift == 0)
 		return (0);
+	// Сделать функцию для IND_CODE
+	while (i < g_op_tab[carriage->opcode - 1].col_args)
+	{
+		if (args[i].type == IND_CODE)
+		{
+			address = carriage->program_counter + args[i].value % IDX_MOD;
+			args[i].value = *(arena + address + (address > 0 ? 0 : MEM_SIZE));
+		}
+		i++;
+	}
 	carriage->regs[args[1].value] = args[0].value;
-	carriage->program_counter += OPCODE_SIZE + TYPE_ARGS_SIZE + shift;
-	return (1);
+	carriage->carry = carriage->regs[args[1].value] == 0 ? 1 : 0;
+	return (shift);
 }

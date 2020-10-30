@@ -6,11 +6,11 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 14:48:38 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/30 17:03:40 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/10/31 00:36:15 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operation.h"
+#include "vm.h"
 
 static int		kek(int kek)
 {
@@ -62,7 +62,7 @@ static int32_t	get_arg(uint8_t *ptr, uint8_t type)
 	return (arg);
 }
 
-int32_t		get_args(t_arg **args, uint8_t *arena, t_carriage *carriage)
+int32_t		get_args(t_arg **args, uint8_t *arena, t_carriage *carriage, const t_op *g_op_tab)
 {
 	int32_t i;
 	int32_t	shift;
@@ -71,37 +71,34 @@ int32_t		get_args(t_arg **args, uint8_t *arena, t_carriage *carriage)
 	ptr = arena + carriage->program_counter + OPCODE_SIZE;
 	shift = 1;
 	i = 0;
-	ft_printf("debug = %d\n", carriage->opcode);
 	while (i < g_op_tab[carriage->opcode - 1].col_args)
 	{
 		(*args)[i].type = (*ptr >> (CHAR_BIT - (i + 1) * 2)) & THR_BITS;
 		(*args)[i].value = get_arg(ptr + shift, (*args)[i].type);
-		if ((*args)[i].type == IND_CODE)
-		{
-			if ((carriage->program_counter + (*args)[i].value) < 0)
-				(*args)[i].value = *(arena + MEM_SIZE + 
-						carriage->program_counter + (*args)[i].value % IDX_MOD);	
-			else
-				(*args)[i].value = *(arena + carriage->program_counter + 
-													(*args)[i].value % IDX_MOD);
-		}
+		// if ((*args)[i].type == IND_CODE)
+		// {
+		// 	if ((carriage->program_counter + (*args)[i].value) < 0)
+		// 		(*args)[i].value = *(arena + MEM_SIZE + 
+		// 				carriage->program_counter + (*args)[i].value % IDX_MOD);	
+		// 	else
+		// 		(*args)[i].value = *(arena + carriage->program_counter + 
+		// 											(*args)[i].value % IDX_MOD);
+		// }
+		if (kek(3) == 1)
+			return (0);
 		shift += ft_size((*args)[i].type);
 		i++;
 	}
-	return (kek(3) == 1 ? 0 : shift);
+	return (shift);
 }
 
-// int		load_op(t_vm *vm, t_carriage *carrige)
-// {
-	
-// 	if (*(carrige->program_counter) < 0x01 || *(carrige->program_counter) > 0x10)
-// 	{
-// 		carrige->opcode = 0;
-// 		//invalide operation. Count byte shift
-// 	}
-// 	else
-// 	{
-// 		carrige->opcode = *(carrige->program_counter);
-// 		carrige->cycle_to_die = g_op_tab[carrige->opcode].cycle_to_die;
-// 	}
-// }
+int			execute_oper(uint8_t *arena, t_carriage *carriage)
+{
+	int32_t shift;
+	extern t_op g_op_tab[17];
+
+	shift = g_op_tab[carriage->opcode - 1].func(arena, carriage);
+	if (shift == 0)
+		ft_printf("PLOXA in execute_oper\n");
+	carriage->program_counter += OPCODE_SIZE + shift;
+}

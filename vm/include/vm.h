@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/10 16:30:55 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/10/31 00:36:48 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 
 # define THR_BITS		0x03
 
-# define INT_SIZE 4
+# define INT_SIZE		4
 
 typedef struct				s_arg
 {
@@ -74,18 +74,19 @@ typedef struct				s_vm
 	uint8_t					count_champs;
 }							t_vm;
 
-// typedef struct				s_op
-// {
-// 	char					*name_oper;
-// 	int						col_arg;
-// 	int						*type_arg;
-// 	int						opcode;
-// 	int						cycle_to_die;
-// 	char					*comment;
-// 	int						change_carry;
-// 	int						code_type_arg;
-// 	int	(*func)(uint32_t arg1, uint32_t arg2, uint32_t arg3, t_vm *vm);
-// }							t_op;
+
+typedef struct				s_op
+{
+	char					*name_oper;
+	int						col_args;
+	int						type_arg[MAX_ARGS];
+	int						opcode;
+	int						cycle_to_die;
+	char					*comment;
+	int						change_carry;
+	int						code_type_arg;
+	int						(*func)(uint8_t *arena, t_carriage *carriage);
+}							t_op;
 
 void				game(t_vm *vm);
 
@@ -127,7 +128,8 @@ void				visualisation();
 
 
 /* OPERATIONS */
-int32_t				get_args(t_arg **args, uint8_t *arena, t_carriage *carriage);
+int32_t				get_args(t_arg **args, uint8_t *arena, t_carriage *carriage, const t_op *g_op_tab);
+int					execute_oper(uint8_t *arena, t_carriage *carriage);
 int					op_live(uint8_t *arena, t_carriage *carriage);
 int					op_ld(uint8_t *arena, t_carriage *carriage);
 int					op_st(uint8_t *arena, t_carriage *carriage);
