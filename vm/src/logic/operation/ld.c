@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 15:54:42 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/31 00:36:24 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/10/31 15:37:26 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ int		op_ld(uint8_t *arena, t_carriage *carriage)
 	t_arg		*args;
 	int32_t		i;
 	int32_t		address;
-	extern t_op	g_op_tab[17];
+	extern t_op	g_optab[17];
 
 	i = 0;
 	args = carriage->args;
-	shift = get_args(&args, arena, carriage, g_op_tab);
+	shift = get_args(&args, arena, carriage, g_optab);
 	if (shift == 0)
 		return (0);
 	// Сделать функцию для IND_CODE
-	while (i < g_op_tab[carriage->opcode - 1].col_args)
+	while (i < g_optab[carriage->opcode - 1].col_args)
 	{
 		if (args[i].type == IND_CODE)
 		{

@@ -39,6 +39,7 @@ void		game(t_vm *vm)
 	}
 		debug_print_carriage(vm);
 		ft_printf("LOL\n");
-		op_ld(vm->arena, vm->carriage);
+		op_live(vm->arena, vm->carriage);
 		debug_print_carriage(vm);
+		// arena_print(vm->arena);
 }

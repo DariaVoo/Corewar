@@ -54,12 +54,12 @@ SRC_PARSE = parse_args \
 			parse_files
 SRC_PARSE := $(addsuffix .c, $(SRC_PARSE))
 
-SRC_LOGIC = operation
+SRC_LOGIC = operation \
+			op
 SRC_LOGIC := $(addsuffix .c, $(SRC_LOGIC))
 
 SRC_LOGIC_OP = ld \
-				live \
-				op
+				live 
 SRC_LOGIC_OP := $(addsuffix .c, $(SRC_LOGIC_OP))
 
 SRC_EXTRA = extra

@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/31 00:40:05 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/10/31 17:01:03 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct				s_arg
 
 typedef struct				s_carriage
 {
-	uint32_t				regs[REG_NUMBER];
+	int32_t					regs[REG_NUMBER];
 	uint16_t				cycle_to_die;
 	int						program_counter;
 	int						live;
@@ -83,10 +83,14 @@ typedef struct				s_op
 	int						opcode;
 	int						cycle_to_die;
 	char					*comment;
-	int						change_carry;
-	int						code_type_arg;
-	int						(*func)(uint8_t *arena, t_carriage *carriage);
+	int						bit_type;
+	int						tdir_size;
 }							t_op;
+
+typedef struct				s_op_func
+{
+	int						(*func)(uint8_t *arena, t_carriage *carriage);
+}							t_op_func;
 
 void				game(t_vm *vm);
 
@@ -129,7 +133,7 @@ void				visualisation();
 
 
 /* OPERATIONS */
-int32_t				get_args(t_arg **args, uint8_t *arena, t_carriage *carriage, const t_op *g_op_tab);
+int32_t				get_args(t_arg **args, uint8_t *arena, t_carriage *carriage, t_op *g_optab);
 int					execute_oper(uint8_t *arena, t_carriage *carriage);
 int					op_live(uint8_t *arena, t_carriage *carriage);
 int					op_ld(uint8_t *arena, t_carriage *carriage);
