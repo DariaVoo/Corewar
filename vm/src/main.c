@@ -38,6 +38,7 @@ const t_op    g_op_tab[17] =
 // 	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0, op_aff},
 // 	{0, 0, {0}, 0, 0, 0, 0, 0, NULL}
 };
+
 static void		initialization(char *champ_names[], t_champion *champ[], \
 								uint8_t *arena, t_carriage **carriage)
 {

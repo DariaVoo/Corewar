@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-static void			init_carriage(t_carriage *carriage, uint8_t *arena, uint8_t id)
+static void	init_carriage(t_carriage *carriage, uint8_t *arena, uint8_t id)
 {
 	carriage->program_counter = MEM_SIZE / get_number_of_players() * (id - 1);
 	carriage->opcode = *(arena + carriage->program_counter);
@@ -24,7 +24,7 @@ static void			init_carriage(t_carriage *carriage, uint8_t *arena, uint8_t id)
 	carriage->next = NULL;
 }
 
-static t_carriage	*create_carriage()
+t_carriage	*create_carriage()
 {
 	t_carriage	*carriage;
 
@@ -37,7 +37,7 @@ static t_carriage	*create_carriage()
 	return (carriage);
 }
 
-void				add_carriage(t_carriage **carriage, uint8_t *arena, uint8_t id)
+void		add_carriage(t_carriage **carriage, uint8_t *arena, uint8_t id)
 {
 	t_carriage	*new_carriage;
 
@@ -48,10 +48,10 @@ void				add_carriage(t_carriage **carriage, uint8_t *arena, uint8_t id)
 	*carriage = new_carriage;
 }
 
-void				set_starter_kit_carriage(t_carriage **carriage, uint8_t *arena)
+void		set_starter_kit_carriage(t_carriage **carriage, uint8_t *arena)
 {
-	uint8_t			i;
-	uint8_t			count_champ;
+	uint8_t	i;
+	uint8_t	count_champ;
 
 	i = 0;
 	count_champ = get_number_of_players();
