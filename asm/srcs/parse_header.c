@@ -35,10 +35,10 @@
 			 quotes++;
 		 i++;
 		 if (quotes != 2)
-			 ft_error(LEX_ERR, NULL, num_line, ind);
+			 ft_error(LEX_ERR, NULL, num_line, ind + 1);
 	 }
 	 else {
-		 ft_error(SYN_ERR, (line + i), num_line, i);
+		 ft_error(SYN_ERR, (line + i), num_line, i + 1);
 	 }
 	 /*
 	  * Проверка на символы после кавычек
@@ -46,7 +46,7 @@
 	 while (line[i] != COMMENT_CHAR && line[i] != ALT_COMMENT_CHAR && line[i] != '\0')
 	 {
 		 if (line[i] != ' ' && line[i] != '\t')
-			 ft_error(SYN_ERR, (line + i), num_line, i);
+			 ft_error(SYN_ERR, (line + i), num_line, i + 1);
 		 i++;
 	 }
 	 return (start);
@@ -82,14 +82,8 @@
 	 i = 0;
 	 j = valid_quotes(line, ind, num_line);
 	 str = NULL;
-	 ft_printf("vsya stroka %s\n", line);
-
-
 	 if (j != -1)
-	 {
-		 return (j);
-	 }
-
+	 	return (j);
 	 return (-1);
  }
 
@@ -101,7 +95,6 @@
 
 int     ft_parse_header(t_header *header, char *line, int num_line)
 {
-	write(1, "AAAA\n", 5);
 	int 	ind;
 	int 	start;
 
@@ -127,7 +120,7 @@ int     ft_parse_header(t_header *header, char *line, int num_line)
 		header->is_comment = 1;
 	}
 	else {
-		ft_error(LEX_ERR, NULL, num_line, ind);
+		ft_error(LEX_ERR, NULL, num_line, ind + 1);
 	}
 	return (0);
 }

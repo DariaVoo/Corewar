@@ -16,10 +16,13 @@
 void	ft_init_structs(t_data *data, int instr_num)
 {
 	data->header = (t_header*)malloc(sizeof(t_header));
-	data->instrs = (t_instr*)malloc(sizeof(t_instr)*instr_num);
-	data->label = (t_label*)malloc(sizeof(t_label));
+	ft_memset(data->header->prog_name, '\0', PROG_NAME_LENGTH + 1);
+	ft_memset(data->header->comment, '\0', COMMENT_LENGTH + 1);
 	data->header->is_comment = 0;
 	data->header->is_name = 0;
+	data->instrs = (t_instr*)malloc(sizeof(t_instr)*instr_num);
+	data->label = (t_label*)malloc(sizeof(t_label));
 	data->line_count = 0;
 	data->instr_num = 0;
 }
+
