@@ -54,6 +54,7 @@ typedef struct				s_carriage
 	int						carry;
 	struct s_arg			*args;
 	struct s_carriage		*next;
+	struct s_carriage		*prev;
 	uint8_t					opcode;
 }							t_carriage;
 
