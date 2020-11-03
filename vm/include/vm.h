@@ -123,6 +123,12 @@ int32_t				get_number_dump_cycle();
 void				init_arrptr(void **array, uint32_t size);
 void				exit_error(const char *str);
 
+/* FREE FUNC */
+void				free_arrptr(void *array[]);
+void				free_champ(t_champion *champ[]);
+void				free_carriage(t_carriage *carriage);
+void				free_carriage_list(t_carriage **head_carriage);
+
 /* DEBUG */
 void				debug_print_carriage(t_vm *vm);
 void				champ_print(t_champion *ptr);
