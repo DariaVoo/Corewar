@@ -22,6 +22,7 @@ static void	init_carriage(t_carriage *carriage, uint8_t *arena, uint8_t id)
 	carriage->carry = 0;
 	carriage->live = 0;
 	carriage->next = NULL;
+	carriage->prev = NULL;
 }
 
 t_carriage	*create_carriage()
@@ -44,7 +45,10 @@ void		add_carriage(t_carriage **carriage, uint8_t *arena, uint8_t id)
 	new_carriage = create_carriage();
 	init_carriage(new_carriage, arena, id);
 	if (*carriage)
+	{
+		(*carriage)->prev = new_carriage;
 		new_carriage->next = *carriage;
+	}
 	*carriage = new_carriage;
 }
 

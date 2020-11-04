@@ -1,39 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation.h                                        :+:      :+:    :+:   */
+/*   and.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 23:39:20 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/04 17:20:22 by qjosmyn          ###   ########.fr       */
+/*   Created: 2020/11/04 16:12:08 by qjosmyn           #+#    #+#             */
+/*   Updated: 2020/11/04 17:23:22 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATION_H
-# define OPERATION_H
+#include "vm.h"
 
-# include "vm.h"
-
-t_op_func	g_opfunc[17] = 
+int		op_and(uint8_t *arena, t_carriage *carriage)
 {
-	{op_live},
-	{op_ld},
-	{op_st},
-	{op_add},
-	{op_sub},
-	{op_and},
-	{op_or},
-	{op_xor},
-	{op_zjmp},
-	// {op_ldi},
-	// {op_sti},
-	// {op_fork},
-	// {op_lld},
-	// {op_lldi},
-	// {op_lfork},
-	// {op_aff},
-	// {NULL}
-};
-
-#endif
+	(void)arena;
+	(void)carriage;
+	return (0);
+}

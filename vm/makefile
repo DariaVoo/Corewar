@@ -6,7 +6,7 @@ EOC = "\e[0m"
 
 # COMPILER SETTINGS
 CC := clang
-CFLAGS := -Wall -Wextra -Werror -g
+# CFLAGS := -Wall -Wextra -Werror -g
 
 # LIB (LIBFT, GET_NEXT_LINE, PRINTF)
 L_DIR := ../lib/
@@ -59,7 +59,14 @@ SRC_LOGIC = operation \
 SRC_LOGIC := $(addsuffix .c, $(SRC_LOGIC))
 
 SRC_LOGIC_OP = ld \
-				live 
+				live \
+				st \
+				add \
+				sub \
+				and \
+				or \
+				xor \
+				zjmp
 SRC_LOGIC_OP := $(addsuffix .c, $(SRC_LOGIC_OP))
 
 SRC_EXTRA = extra

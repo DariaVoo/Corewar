@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 14:48:38 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/31 17:54:12 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/04 18:27:15 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int32_t	get_arg(uint8_t *ptr, uint8_t type, t_op params)
 	{
 		size = (params.type_arg[0] == T_REG) ? REG_SIZE_BYTE : 0;
 		size = (params.type_arg[0] == T_IND) ? IND_SIZE_BYTE : size;
-		size = (params.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE : size;
+		size = (params.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE * (1 - params.tdir_size * 0.5) : size;
 	}
 	else if ((size = ft_size(type, params.tdir_size)) == 0)
 		kek(1);
@@ -104,6 +104,7 @@ int			execute_oper(uint8_t *arena, t_carriage *carriage)
 		ft_printf("PLOXA in execute_oper\n");
 		return (0);
 	}
-	carriage->program_counter += OPCODE_SIZE + shift;
+	if (carriage->opcode != OPCODE_ZJMP)
+		carriage->program_counter += OPCODE_SIZE + shift;
 	return (1);
 }

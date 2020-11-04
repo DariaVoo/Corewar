@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ld.c                                               :+:      :+:    :+:   */
+/*   st.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/22 15:54:42 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/04 14:23:53 by qjosmyn          ###   ########.fr       */
+/*   Created: 2020/11/04 14:08:28 by qjosmyn           #+#    #+#             */
+/*   Updated: 2020/11/04 14:51:15 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int		op_ld(uint8_t *arena, t_carriage *carriage)
+int		op_st(uint8_t *arena, t_carriage *carriage)
 {
 	int32_t		shift;
 	t_arg		*args;
-	int32_t		i;
+	int32_t		*regs;
 	int32_t		address;
 	extern t_op	g_optab[17];
 
-	i = 0;
 	args = carriage->args;
+	regs = carriage->regs;
 	shift = get_args(&args, arena, carriage, g_optab);
 	if (shift == 0)
 		return (0);
-	while (i < g_optab[carriage->opcode - 1].col_args)
+	if (args[SECOND].type == IND_CODE)
 	{
-		if (args[i].type == IND_CODE)
-		{
-			address = carriage->program_counter + args[i].value % IDX_MOD;
-			args[i].value = *(arena + address + (address > 0 ? 0 : MEM_SIZE));
-		}
-		i++;
+		address = carriage->program_counter + args[SECOND].value % IDX_MOD;
+		*(arena + address) = regs[args[FIRST].value];
 	}
-	carriage->regs[args[1].value] = args[0].value;
-	carriage->carry = carriage->regs[args[1].value] == 0 ? 1 : 0;
+	else if (args[SECOND].type == REG_CODE)
+		regs[args[SECOND].value] = regs[args[FIRST].value];
 	return (shift);
 }

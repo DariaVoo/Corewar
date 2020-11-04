@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/31 17:01:03 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/04 17:27:06 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@
 # define DIR_SIZE_BYTE	4
 # define IND_SIZE_BYTE	2
 
+# define FIRST			0
+# define SECOND			1
+# define THIRD			2
+# define OPCODE_ZJMP	9
+
 # define THR_BITS		0x03
 
 # define INT_SIZE		4
@@ -54,6 +59,7 @@ typedef struct				s_carriage
 	int						carry;
 	struct s_arg			*args;
 	struct s_carriage		*next;
+	struct s_carriage		*prev;
 	uint8_t					opcode;
 }							t_carriage;
 
@@ -121,6 +127,12 @@ uint8_t				get_number_of_players();
 int32_t				get_number_dump_cycle();
 void				init_arrptr(void **array, uint32_t size);
 void				exit_error(const char *str);
+
+/* FREE FUNC */
+void				free_arrptr(void *array[]);
+void				free_champ(t_champion *champ[]);
+void				free_carriage(t_carriage *carriage);
+void				free_carriage_list(t_carriage **head_carriage);
 
 /* DEBUG */
 void				debug_print_carriage(t_vm *vm);

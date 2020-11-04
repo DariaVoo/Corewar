@@ -39,6 +39,11 @@ int				main(int argc, char **argv)
 	set_starter_kit_carriage(&carriage, arena);
 	init_vm(vm, champ, arena, carriage);
 	game(vm);
+
+	/* free */
+	free_arrptr((void *)champ_names);
+	free_champ(champ);
+	free_carriage_list(&carriage);
 	// visualisation();
 	return (0);
 }

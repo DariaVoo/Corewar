@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ld.c                                               :+:      :+:    :+:   */
+/*   add.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/22 15:54:42 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/04 14:23:53 by qjosmyn          ###   ########.fr       */
+/*   Created: 2020/11/04 15:06:49 by qjosmyn           #+#    #+#             */
+/*   Updated: 2020/11/04 16:01:18 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int		op_ld(uint8_t *arena, t_carriage *carriage)
+int		op_add(uint8_t *arena, t_carriage *carriage)
 {
 	int32_t		shift;
 	t_arg		*args;
-	int32_t		i;
-	int32_t		address;
+	int32_t		*regs;
 	extern t_op	g_optab[17];
 
-	i = 0;
 	args = carriage->args;
+	regs = carriage->regs;
 	shift = get_args(&args, arena, carriage, g_optab);
 	if (shift == 0)
 		return (0);
-	while (i < g_optab[carriage->opcode - 1].col_args)
-	{
-		if (args[i].type == IND_CODE)
-		{
-			address = carriage->program_counter + args[i].value % IDX_MOD;
-			args[i].value = *(arena + address + (address > 0 ? 0 : MEM_SIZE));
-		}
-		i++;
-	}
-	carriage->regs[args[1].value] = args[0].value;
-	carriage->carry = carriage->regs[args[1].value] == 0 ? 1 : 0;
+	regs[args[THIRD].value] = regs[args[FIRST].value] + regs[args[SECOND].value];
+	if (regs[args[THIRD].value] == 0)
+		carriage->carry = 1;
+	else
+		carriage->carry = 0;
 	return (shift);
 }
