@@ -25,7 +25,7 @@ static void	stop_game(uint8_t *arena)
 
 void		del_carriage(t_carriage **carriage)
 {
-	t_carriage *suka;
+	// t_carriage *suka;
 	*carriage = (*carriage)->next;
 }
 
@@ -54,5 +54,5 @@ void		game(t_vm *vm)
 		ft_printf("LOL\n");
 		op_live(vm->arena, vm->carriage);
 		debug_print_carriage(vm);
-		// arena_print(vm->arena);
+		arena_print(vm->arena);
 }
