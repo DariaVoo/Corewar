@@ -222,6 +222,12 @@ int		check_label(char *label);
 void    ft_check_all_data(t_data *data);
 void    ft_check_flags(char ***av, int ac);
 
+/*
+** write funcs
+*/
+
+char	*ft_cor_extension(char *file);
+
 
 
 

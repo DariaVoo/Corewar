@@ -31,6 +31,8 @@ int		main(int ac, char **av)
     saved_file = ft_saved_name(saved_file); // ДАЕМ ИМЯ НОВОМУ ФАЙЛУ
     
     // СОЗДАТЬ ФАЙЛ
+    int fd;
+    fd = open(ft_cor_extension(av[ac - 1]), O_CREAT | O_WRONLY);
 
 
     // ОБРАБОТАТЬ ОШИБКИ СОЗДАНИЯ (НОМЕР ФД)
