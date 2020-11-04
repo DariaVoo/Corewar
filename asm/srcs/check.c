@@ -45,13 +45,6 @@
 // 	}
 // }
 
-// void	ft_check_filename(char *name)
-// {
-//     if (ft_strlen(ft_strstr(name, ".s")) != 2)
-//         ft_exit("Bad file name\n");
-//     else
-//         ft_printf("File: %s\n", name);
-// }
 
 // void    ft_check_flags(char *str)
 // {

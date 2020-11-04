@@ -6,7 +6,7 @@
 /*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 23:00:36 by rretta            #+#    #+#             */
-/*   Updated: 2020/11/04 23:08:37 by rretta           ###   ########.fr       */
+/*   Updated: 2020/11/04 18:19:54 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,12 @@ char	*ft_cor_extension(char *file)
 	file = ft_strjoin(filename, ".cor");
 	ft_strdel(&filename);
 	return (file);
+}
+
+void	ft_check_filename(char *name)
+{
+	if (ft_strlen(ft_strstr(name, ".s")) != 2)
+		ft_exit("Bad file name\n");
+	else
+		ft_printf("File: %s\n", name);
 }
