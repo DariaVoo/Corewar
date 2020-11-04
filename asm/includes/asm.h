@@ -227,6 +227,10 @@ void    ft_check_flags(char ***av, int ac);
 */
 
 char	*ft_cor_extension(char *file);
+int 	writing_to_file(t_data *data, int fd);
+int 	writing_header_to_file(char *str, int size, int fd);
+void	write_magic_fd(long nb, int fd);
+void	write_hex_fd(long nbr, int fd);
 
 
 
