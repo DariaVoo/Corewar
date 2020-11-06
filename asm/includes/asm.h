@@ -188,6 +188,9 @@ void    ft_exit(char *str);
 // NEW LEAF
 char    *ft_saved_name(char *str);
 void    ft_close_fd(int a, int b);
+void 	skip_spaces(char *split, int *i);
+int		ft_is_number(char *name);
+int		massiv_len(char **args);
 
 /*
  ** init functions
@@ -210,6 +213,9 @@ char	**ft_strmultsplit(char const *s, char c, char ch);
 // NEW LEAF
 void    ft_read_file(t_data *data);
 void	ft_parse_body(char *str, t_data *data);
+char	*ft_parse_label(char *split, int *i, t_data *data);
+void	ft_parse_function(char *split, int *i, t_data *data);
+void	ft_parse_args(char *split, int *i, t_data *data);
 
 /*
  ** check functions
@@ -223,6 +229,10 @@ int		check_label(char *label);
 void    ft_check_all_data(t_data *data);
 void    ft_check_flags(char ***av, int ac);
 
+/*
+ ** free_functions
+ */
+void	free_massiv(char **massiv);
 
 
 
