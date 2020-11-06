@@ -109,8 +109,8 @@ void ft_parse_args(char *split, int *i, t_data *data)
 		j++;
 	}
 	t_instr instr[16]; //структура должна передаваться из мейна
-//	if (!valid_args(body, instr))
-//		exit(1);
+	if (!valid_args(data))
+		exit(1);
 
 	//парсим аргументы, а потом их валидируем
 	//аргументы можно спарсить в массив из трех элементов

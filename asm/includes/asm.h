@@ -229,6 +229,7 @@ int		check_label(char *label);
 // NEW LEAF
 void    ft_check_all_data(t_data *data);
 void    ft_check_flags(char ***av, int ac);
+int 	valid_args(t_data *data);
 
 /*
  ** free_functions

@@ -16,7 +16,7 @@ typedef struct				s_op
 
 
 
-int valid_args(t_data *data, t_instr instr[16])
+int		valid_args(t_data *data)
 {
 	t_op		g_op_tab[MAX_OP] =
 			{
@@ -49,14 +49,14 @@ int valid_args(t_data *data, t_instr instr[16])
 	int num_args;
 
 	i = 0;
-	num_args = g_op_tab[data->instrs[data->instr_num].id_instr];
+	num_args = g_op_tab[data->instrs[data->instr_num].id_instr].col_args;
 //	num_args = instr[body.id_instr].num_args;
 	//проверка количества аругументов
 	while (i < 3)
 	{
-		if ((num_args - 1) == i)
+		if ((num_args) == i)
 		{
-			if (i < 3 && body.args[i].type != NULL)
+			if (i < 3 && data->instrs[data->instr_num].args[i].type != NULL)
 			{
 				//количество аргументов больше, чем нужно
 				exit(1);
@@ -64,15 +64,15 @@ int valid_args(t_data *data, t_instr instr[16])
 			else
 				return (1);
 		}
-		if (body.args[i].type != NULL &&
-		!((ft_strcmp(body.args[i].type, "T_DIR") == 0) && instr[body.id_instr].type[i].t_dir == 1) &&
-		!((ft_strcmp(body.args[i].type, "T_IND") == 0) && instr[body.id_instr].type[i].t_ind == 1) &&
-		!((ft_strcmp(body.args[i].type, "T_REG") == 0) && instr[body.id_instr].type[i].t_reg == 1))
+		if (data->instrs[data->instr_num].args[i].type == NULL &&
+		!((ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_DIR") == 0) /*&& instr[body.id_instr].type[i].t_dir == 1*/) &&
+		!((ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_IND") == 0) /*&& instr[body.id_instr].type[i].t_dir == 1*/) &&
+		!((ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_REG") == 0) /*&& instr[body.id_instr].type[i].t_dir == 1*/))
 		{
 			//неправильный тип аргумента или аргументов слишком мало
 			exit(1);
 		}
 		i++;
 	}
-	return (0);
+	return (1);
 }
