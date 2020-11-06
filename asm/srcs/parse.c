@@ -43,7 +43,7 @@ int		ft_is_comment(char *str)
 	{
 		i++;
 	}
-	if (str[i] == COMMENT_CHAR || str[i] == ALT_COMMENT_CHAR)
+	if (str[i] == COMMENT_CHAR || str[i] == ALT_COMMENT_CHAR || str[i] == '\0')
 		return (1);
 	return (0);
 }

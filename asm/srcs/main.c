@@ -31,7 +31,9 @@ int		main(int ac, char **av)
     saved_file = ft_saved_name(saved_file); // ДАЕМ ИМЯ НОВОМУ ФАЙЛУ
     
     // СОЗДАТЬ ФАЙЛ
-
+    int fd;
+    if ((fd = open(ft_cor_extension(av[ac - 1]), O_RDWR | O_CREAT, 0666)) == -1)
+        return (-1);
 
     // ОБРАБОТАТЬ ОШИБКИ СОЗДАНИЯ (НОМЕР ФД)
 
@@ -40,7 +42,7 @@ int		main(int ac, char **av)
 
 
     // ЗАПИСАТЬ В СОЗДАННЫЙ ФАЙЛ
-
+    writing_to_file(&all_data, fd);
 
     // ОБРАБОТКА ФЛАГОВ
     if ((ac - 1) > 1)
