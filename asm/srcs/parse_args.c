@@ -1,13 +1,10 @@
 #include "asm.h"
 #include "../libft/includes/libftprintf.h"
 
-void parse_one_arg(char *arg_old, t_data *data, int num_arg)
+void	parse_register(char *arg, t_data *data, int num_arg)
 {
 	int number;
-	int i = 0;
 
-
-	char *arg = ft_strtrim(arg_old);
 	if (arg[0] == 'r' && arg[1] && ft_isdigit(arg[1]))
 	{
 		data->instrs[data->instr_num].args[num_arg].type = "T_REG";
@@ -17,7 +14,13 @@ void parse_one_arg(char *arg_old, t_data *data, int num_arg)
 			exit(1);
 		data->instrs[data->instr_num].args[num_arg].value = number;
 	}
-	else if (ft_strchr(arg, DIRECT_CHAR))
+}
+
+void	parse_direct(char *arg, t_data *data, int num_arg)
+{
+	int number;
+
+	if (ft_strchr(arg, DIRECT_CHAR))
 	{
 		data->instrs[data->instr_num].args[num_arg].type = "T_DIR";
 		if (ft_strchr(arg, LABEL_CHAR))
@@ -26,9 +29,7 @@ void parse_one_arg(char *arg_old, t_data *data, int num_arg)
 				exit(1);
 			//если есть label, то проверяем все ли стоит на своих местах и записываем его в аргумент
 			if (arg[0] == DIRECT_CHAR && arg[1] == LABEL_CHAR)
-			{
-				data->instrs[data->instr_num].args[num_arg].label = &arg[2];
-			}
+				data->instrs[data->instr_num].args[num_arg].label = ft_strdup(&arg[2]);
 			else
 				exit(1);
 		}
@@ -43,7 +44,13 @@ void parse_one_arg(char *arg_old, t_data *data, int num_arg)
 			data->instrs[data->instr_num].args[num_arg].value = number;
 		}
 	}
-	else if (ft_isdigit(arg[1]))
+}
+
+void parse_indirect(char *arg, t_data *data, int num_arg)
+{
+	int number;
+
+	if (ft_isdigit(arg[1]))
 	{
 		data->instrs[data->instr_num].args[num_arg].type = "T_IND";
 		if (ft_is_number(arg))
@@ -57,6 +64,25 @@ void parse_one_arg(char *arg_old, t_data *data, int num_arg)
 			exit(1);
 		}
 	}
+}
+
+void parse_one_arg(char *arg_old, t_data *data, int num_arg)
+{
+	int number;
+	int i = 0;
+	char *arg;
+
+	arg = ft_strtrim(arg_old);
+//	ft_strdel(&arg_old);
+	parse_register(arg, data, num_arg);
+	if (data->instrs[data->instr_num].args[num_arg].type == NULL)
+		parse_direct(arg, data, num_arg);
+	if (data->instrs[data->instr_num].args[num_arg].type == NULL)
+		parse_indirect(arg, data, num_arg);
+	ft_strdel(&arg);
+	//не соответсвует ни одному типу функции
+	if (data->instrs[data->instr_num].args[num_arg].type == NULL)
+		exit(1);
 }
 
 void ft_parse_args(char *split, int *i, t_data *data)
