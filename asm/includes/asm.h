@@ -12,6 +12,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+#define MAX_OP 17
 
 # define BUFF 4096
 
@@ -139,6 +140,7 @@ typedef struct s_instr
 
 	t_arg args[3];
 	char *label;
+	int id_instr;//номер от 0 до 15
 
     // t_name_args type[3];
 	struct s_instr		*next;
