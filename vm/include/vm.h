@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/05 17:54:19 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/07 16:36:51 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,8 @@ void				visualisation();
 
 /* OPERATIONS */
 int32_t				get_args(t_arg *args, uint8_t *arena, t_carriage *carriage, t_op *g_optab);
+int32_t				get_arg(uint8_t *ptr, uint8_t type, t_op params);
+void				take_args(uint8_t *arena, t_carriage *carriage, int32_t num_arg);
 int					execute_oper(uint8_t *arena, t_carriage *carriage);
 int					op_live(uint8_t *arena, t_carriage *carriage);
 int					op_ld(uint8_t *arena, t_carriage *carriage);

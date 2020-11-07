@@ -73,7 +73,7 @@ void		game(t_vm *vm)
 		cycle_count++;
 	}
 	debug_print_carriage(vm);
-	vm->carriage->opcode = 9;
+	vm->carriage->opcode = 8;
 	vm->carriage->carry = 1;
 	execute_oper(vm->arena, vm->carriage);
 	ft_printf("next oper = %d\n", *(vm->arena + vm->carriage->program_counter));

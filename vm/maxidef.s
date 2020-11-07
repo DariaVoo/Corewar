@@ -1,7 +1,7 @@
 .name " maxidef "
 .comment " module de defense"
 
-	zjmp %-8
+	or %123, %333, r3
 
 loop:	live %2
 	zjmp %8

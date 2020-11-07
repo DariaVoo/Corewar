@@ -67,6 +67,7 @@ SRC_LOGIC_OP = ld \
 				or \
 				xor \
 				zjmp
+				
 SRC_LOGIC_OP := $(addsuffix .c, $(SRC_LOGIC_OP))
 
 SRC_EXTRA = extra
