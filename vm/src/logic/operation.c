@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 14:48:38 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/04 18:27:15 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/05 17:55:18 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static int32_t	get_arg(uint8_t *ptr, uint8_t type, t_op params)
 	return (arg);
 }
 
-int32_t		get_args(t_arg **args, uint8_t *arena, t_carriage *carriage, t_op *g_optab)
+int32_t		get_args(t_arg *args, uint8_t *arena, t_carriage *carriage, t_op *g_optab)
 {
 	int32_t i;
 	int32_t	shift;
@@ -78,11 +78,11 @@ int32_t		get_args(t_arg **args, uint8_t *arena, t_carriage *carriage, t_op *g_op
 	i = 0;
 	while (i < params.col_args)
 	{
-		(*args)[i].type = (*ptr >> (CHAR_BIT - (i + 1) * 2)) & THR_BITS;
-		(*args)[i].value = get_arg(ptr + shift, (*args)[i].type, params);
+		args[i].type = (*ptr >> (CHAR_BIT - (i + 1) * 2)) & THR_BITS;
+		args[i].value = get_arg(ptr + shift, args[i].type, params);
 		if (kek(3) == 1)
 			return (0);
-		shift += ft_size((*args)[i].type, params.tdir_size);
+		shift += ft_size(args[i].type, params.tdir_size);
 		i++;
 	}
 	if (params.bit_type == 0)

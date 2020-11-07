@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   st.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 14:08:28 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/04 14:51:15 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/06 12:39:01 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		op_st(uint8_t *arena, t_carriage *carriage)
 
 	args = carriage->args;
 	regs = carriage->regs;
-	shift = get_args(&args, arena, carriage, g_optab);
+	shift = get_args(args, arena, carriage, g_optab);
 	if (shift == 0)
 		return (0);
 	if (args[SECOND].type == IND_CODE)

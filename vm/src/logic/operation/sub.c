@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sub.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:25:39 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/04 16:01:29 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/06 12:39:05 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		op_sub(uint8_t *arena, t_carriage *carriage)
 
 	args = carriage->args;
 	regs = carriage->regs;
-	shift = get_args(&args, arena, carriage, g_optab);
+	shift = get_args(args, arena, carriage, g_optab);
 	if (shift == 0)
 		return (0);
 	regs[args[THIRD].value] = regs[args[FIRST].value] - regs[args[SECOND].value];
