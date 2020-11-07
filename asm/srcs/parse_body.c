@@ -59,7 +59,8 @@ void	ft_parse_body(char *str_init, t_data *data)
 		return;
 	ft_parse_function(str, &symbol_number, data);
 	ft_parse_args(str, &symbol_number, data);
-	ft_printf("----instr_number---- %d\nlabel = '%s', name = '%s', id = '%d'\n", data->instr_num, data->instrs[data->instr_num].label, data->instrs[data->instr_num].name, data->instrs[data->instr_num].id);
+	ft_count_size(data);
+	ft_printf("----instr_number---- %d\nlabel = '%s', name = '%s', id = '%d', id_instr = '%d', size = '%d'\n", data->instr_num, data->instrs[data->instr_num].label, data->instrs[data->instr_num].name, data->instrs[data->instr_num].id, data->instrs[data->instr_num].id_instr, data->instrs[data->instr_num].size);
 	print_args_struct(data->instrs[data->instr_num].args);
 	data->instr_num +=1;
 }

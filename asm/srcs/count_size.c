@@ -1,7 +1,7 @@
 #include "asm.h"
 #include "../libft/includes/libftprintf.h"
 
-int		valid_args(t_data *data)
+void	ft_count_size(t_data *data)
 {
 	t_op		g_op_tab[MAX_OP] =
 			{
@@ -29,35 +29,26 @@ int		valid_args(t_data *data)
 					{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0},
 					{"gtmd", 1, {T_REG}, 17, 5, "gtmd", 1, 0}
 			};
-
 	int i;
-	int num_args;
+	int size;
+	int t_dir_size;
 
+	size = 2;
 	i = 0;
-	num_args = g_op_tab[data->instrs[data->instr_num].id_instr].col_args;
-//	num_args = instr[body.id_instr].num_args;
-	//проверка количества аругументов
-	while (i < 3)
+	t_dir_size = 4;
+	if (g_op_tab[data->instrs[data->instr_num].id_instr].bit_type == 0)
+		size--;
+	if (g_op_tab[data->instrs[data->instr_num].id_instr].tdir_size == 1)
+		t_dir_size = 2;
+	while (i < g_op_tab[data->instrs[data->instr_num].id_instr].col_args)
 	{
-		if ((num_args) == i)
-		{
-			if (i < 3 && data->instrs[data->instr_num].args[i].type != NULL)
-			{
-				//количество аргументов больше, чем нужно
-				exit(1);
-			}
-			else
-				return (1);
-		}
-		if (data->instrs[data->instr_num].args[i].type == NULL &&
-		!((ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_DIR") == 0) /*&& instr[body.id_instr].type[i].t_dir == 1*/) &&
-		!((ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_IND") == 0) /*&& instr[body.id_instr].type[i].t_dir == 1*/) &&
-		!((ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_REG") == 0) /*&& instr[body.id_instr].type[i].t_dir == 1*/))
-		{
-			//неправильный тип аргумента или аргументов слишком мало
-			exit(1);
-		}
+		if (ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_DIR") == 0)
+			size+=t_dir_size;
+		else if (ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_IND") == 0)
+			size+=2;
+		else if (ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_REG") == 0)
+			size++;
 		i++;
 	}
-	return (1);
+	data->instrs[data->instr_num].size = size;
 }

@@ -83,6 +83,7 @@ void parse_one_arg(char *arg_old, t_data *data, int num_arg)
 	//не соответсвует ни одному типу функции
 	if (data->instrs[data->instr_num].args[num_arg].type == NULL)
 		exit(1);
+	data->instrs[data->instr_num].args[num_arg].arg_number = num_arg;
 }
 
 void ft_parse_args(char *split, int *i, t_data *data)

@@ -11,6 +11,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
+# define MAX_ARGS 3
 
 #define MAX_OP 17
 
@@ -180,8 +181,17 @@ typedef struct s_data
 	int			instr_num;
 }				t_data;
 
-
-
+typedef struct				s_op
+{
+	char					*name_oper;
+	int						col_args;
+	int						type_arg[MAX_ARGS];
+	int						opcode;
+	int						cycle_to_die;
+	char					*comment;
+	int						bit_type;
+	int						tdir_size;
+}							t_op;
 
 /*
  ** util functions
@@ -217,6 +227,7 @@ void	ft_parse_body(char *str, t_data *data);
 char	*ft_parse_label(char *split, int *i, t_data *data);
 void	ft_parse_function(char *split, int *i, t_data *data);
 void	ft_parse_args(char *split, int *i, t_data *data);
+void	ft_count_size(t_data *data);
 
 /*
  ** check functions
