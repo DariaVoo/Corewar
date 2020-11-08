@@ -193,6 +193,8 @@ typedef struct				s_op
 	int						tdir_size;
 }							t_op;
 
+const t_op					g_op_tab[MAX_OP];
+
 /*
  ** util functions
  */
