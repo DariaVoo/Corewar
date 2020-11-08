@@ -17,13 +17,8 @@ int		valid_args(t_data *data)
 		if ((num_args) == i)
 		{
 			//количество аргументов больше, чем нужно
-			if (i < 3 && data->instrs[data->instr_num].args[i].type != NULL)
-			{
-				ft_printf("here");
+			if (i < 3 && data->instrs[data->instr_num].args[i].type != 0)
 				return TOO_MANY_ARGS;
-//				ft_printf("\n");
-				exit(1);
-			}
 			else
 			{
 //				ft_printf("\n");
@@ -31,11 +26,8 @@ int		valid_args(t_data *data)
 			}
 		}
 		//или аргументов слишком мало
-		if (data->instrs[data->instr_num].args[i].type == NULL)
-		{
+		if (data->instrs[data->instr_num].args[i].type == 0)
 			return FEW_ARGS;
-			exit(1);
-		}
 		//неправильный тип аргумента
 		if (ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_DIR") == 0)
 		{
@@ -51,23 +43,10 @@ int		valid_args(t_data *data)
 			bool = T_REG & g_op_tab[data->instrs[data->instr_num].id_instr].type_arg[i];
 		}
 		else
-		{
 			return INVALID_TYPE;
-//			ft_printf("%d, ", bool);
-			exit(1);
-		}
 //		ft_printf("%d, ", bool);
 		if (!bool)
-		{
 			return INVALID_TYPE;
-			exit(1);
-		}
-//		if (!((ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_DIR") == 0) && ((T_DIR &&  g_op_tab[data->instrs[data->instr_num].id_instr].type_arg[i]) == 1)) &&
-//		   !((ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_IND") == 0) && ((T_IND &&  g_op_tab[data->instrs[data->instr_num].id_instr].type_arg[i]) == 1)) &&
-//		   !((ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_REG") == 0) && ((T_REG &&  g_op_tab[data->instrs[data->instr_num].id_instr].type_arg[i]) == 1)))
-//		{
-//			exit(1);
-//		}
 		i++;
 	}
 //	ft_printf("\n");

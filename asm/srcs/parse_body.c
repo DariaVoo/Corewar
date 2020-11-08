@@ -5,7 +5,7 @@ void print_args_struct(t_arg arg[3])
 {
 	int i = 0;
 	while(i < 3) {
-		ft_printf("arg_number = '%d', type = '%s', "
+		ft_printf("arg_number = '%d', type = '%d', "
 				  "label = '%s', value = '%d'\n",
 				  arg[i].arg_number, arg[i].type, arg[i].label,
 				  arg[i].value);
@@ -13,7 +13,7 @@ void print_args_struct(t_arg arg[3])
 	}
 }
 
-void	*skip_comment(char *str_init, char **str)
+void	skip_comment(char *str_init, char **str)
 {
 	*str = NULL;
 	if (ft_strchr(str_init, COMMENT_CHAR))
