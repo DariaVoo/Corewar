@@ -97,6 +97,54 @@ int 	writing_header_to_file(char *str, int size, int fd)
 	return (0);
 }
 
+int		code_operation(char *name)
+{
+	int		i;
+
+	i = 0;
+	while (i < 17)
+	{
+		if (!ft_strcmp(name, g_op_tab[i].name_oper))
+			return (g_op_tab[i].opcode);
+		i++;
+	}
+	return (-1);
+}
+
+int 	code_args(t_arg *args)
+{
+	int		i;
+	int 	code;
+
+	i = 0;
+	code = 0;
+	while (i < 3)
+	{
+		code = code | args[i].type;
+		code = code << 2;
+		i++;
+	}
+	return (code);
+}
+
+void 	writing_instrs_to_fd(t_data *data, int fd)
+{
+	int 	i;
+	int		code_op;
+
+	i = 0;
+	code_op = 0;
+	while (i < data->instr_num)
+	{
+		code_op = code_operation(data->instrs[i].name);
+		ft_putchar_fd(code_op, fd);
+		if (g_op_tab[code_op - 1].bit_type == 1)
+			ft_putchar_fd(code_args(data->instrs[i].args), fd);
+		i++;
+	}
+
+}
+
 int 	writing_to_file(t_data *data, int fd)
 {
 	sum_size(data);
@@ -111,6 +159,7 @@ int 	writing_to_file(t_data *data, int fd)
 	writing_header_to_file(data->header->prog_name, PROG_NAME_LENGTH + 1, fd);
 	write_size_fd(data->file_size, fd);
 	writing_header_to_file(data->header->comment, COMMENT_LENGTH + 1, fd);
+	writing_instrs_to_fd(data, fd);
 	//CHAMP_MAX_SIZE
 	return (0);
 }
