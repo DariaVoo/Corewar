@@ -29,15 +29,15 @@ int		valid_args(t_data *data)
 		if (data->instrs[data->instr_num].args[i].type == 0)
 			return FEW_ARGS;
 		//неправильный тип аргумента
-		if (ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_DIR") == 0)
+		if (data->instrs[data->instr_num].args[i].type == T_DIR)
 		{
 			bool = T_DIR &  g_op_tab[data->instrs[data->instr_num].id_instr].type_arg[i];
 		}
-		else if (ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_IND") == 0)
+		else if (data->instrs[data->instr_num].args[i].type == T_IND)
 		{
 			bool = T_IND &  g_op_tab[data->instrs[data->instr_num].id_instr].type_arg[i];
 		}
-		else if ((ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_REG") == 0))
+		else if (data->instrs[data->instr_num].args[i].type == T_REG)
 		{
 //			ft_printf("here %d, %d", T_REG, g_op_tab[data->instrs[data->instr_num].id_instr].type_arg[i]);
 			bool = T_REG & g_op_tab[data->instrs[data->instr_num].id_instr].type_arg[i];
