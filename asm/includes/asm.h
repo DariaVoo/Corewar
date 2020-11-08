@@ -23,6 +23,15 @@
 # define PURPLE		"\033[35;1m"
 # define EOC		"\e[0m"
 
+/*
+ ** Error codes
+ */
+# define TOO_MANY_ARGS 2
+# define FEW_ARGS 3
+# define INVALID_TYPE 4
+
+
+
 // ///"live", 1, {T_DIR}, 1, 10, "alive", 0, 0
 // typedef struct s_opt
 // {
@@ -30,17 +39,6 @@
 // 	int		op; // продумать представление операции
 // }				t_opt;
 
-// typedef struct		s_op
-// {
-// 	char			*name_oper;
-// 	int				col_arg;
-// 	int				*type_arg;
-// 	int				opcode;
-// 	int				cycle_to_die;
-// 	char			*comment;
-// 	int				change_carry;
-// 	int				code_type_arg;
-// }					t_op;
 
 // //структура для аргумента
 typedef struct s_arg
@@ -55,34 +53,6 @@ typedef struct s_arg
 	int bc;
 	int id_label;
 }              t_arg;
-
-// //инструкции считываемые из файла
-// typedef struct s_championstr
-// {
-// 	char *name;
-// 	// char *label;
-// 	int bc; //лучше char *
-// 	int number; // порядковый номер инструкции, нужен для подсчета лейбла
-// 	int id;
-// 	int size; //итоговый размер инструкции, нужен для подсчета лейбла(хз,
-// 	// может и не надо если размер инструкций с аргументами статичен)
-// 	t_arg *args;
-// }               t_championstr;
-
-// typedef struct		s_champion
-// {
-// 	t_header        header;
-// 	t_championstr   *championstr;// пока просто запиши весь код чемпиона сюда
-// }					t_champion;
-
-// //аргументы операций
-// typedef struct  s_name_args
-// {
-// 	int    		t_reg;
-// 	int    		t_dir;
-// 	int			t_ind;
-// //    t_name_args	*next;
-// }               t_name_args;
 
 /* Алгоритм
 2 прохода:
@@ -101,28 +71,7 @@ typedef struct s_arg
 // t_champion *parse_champion(char *chmp_file_name);
 int		check_label(char *label);
 
-
-
 # define CH_STR 26
-
-// typedef struct 	s_corewar //переименовала из body в corewar
-// {
-// 	int line_number;
-// 	t_championstr champion_str[CH_STR]; // CH_STR?????
-// 	t_label *label;
-// 	t_instr instr[16];
-// 	char *file;
-// }				t_corewar;
-
-// typedef struct 	s_body
-// {
-// 	char *name;
-// 	char *label;
-// 	int label_num;
-// 	t_arg args[3];
-// 	int line_num;
-// 	int id_instr;
-// }				t_body;
 
 // VP
 typedef struct	s_flags
@@ -185,6 +134,8 @@ typedef struct s_data
 
     t_instr		*instrs;
 	int			instr_num;
+	int 		*symbol_number;
+	char		*split; //current line
 }				t_data;
 
 typedef struct				s_op
@@ -205,6 +156,7 @@ const t_op					g_op_tab[MAX_OP];
  ** util functions
  */
 void    ft_exit(char *str);
+void	free_close_fd_put_error(char *err, char *line, t_data *data, int ind_str);
 // NEW LEAF
 char    *ft_saved_name(char *str);
 void    ft_close_fd(int a, int b);

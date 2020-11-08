@@ -11,7 +11,7 @@ void	parse_register(char *arg, t_data *data, int num_arg)
 		number = ft_atoi(&arg[1]);
 		//неправильное название регистра
 		if (!ft_is_number(&arg[1]) || (number < 1 || number > 16))
-			exit(1);
+			free_close_fd_put_error("Invalid register in args", data->split, data, (*data->symbol_number));
 		data->instrs[data->instr_num].args[num_arg].value = number;
 	}
 }
@@ -26,21 +26,21 @@ void	parse_direct(char *arg, t_data *data, int num_arg)
 		if (ft_strchr(arg, LABEL_CHAR))
 		{
 			if (!arg[0] || !arg[1] || !arg[2])
-				exit(1);
+				free_close_fd_put_error("Invalid direct arg with label", data->split, data, (*data->symbol_number));
 			//если есть label, то проверяем все ли стоит на своих местах и записываем его в аргумент
 			if (arg[0] == DIRECT_CHAR && arg[1] == LABEL_CHAR)
 				data->instrs[data->instr_num].args[num_arg].label = ft_strdup(&arg[2]);
 			else
-				exit(1);
+				free_close_fd_put_error("Invalid direct arg with label", data->split, data, (*data->symbol_number));
 		}
 		else
 		{
 			//если это лейбла нет, то парсим число
 			if (arg[0] != DIRECT_CHAR)
-				exit(1);
+				free_close_fd_put_error("Invalid direct arg without label", data->split, data, (*data->symbol_number));
 			number = ft_atoi(&arg[1]);
 			if (!ft_is_number(&arg[1]))
-				exit(1);
+				free_close_fd_put_error("Invalid direct arg without label", data->split, data, (*data->symbol_number));
 			data->instrs[data->instr_num].args[num_arg].value = number;
 		}
 	}
@@ -50,7 +50,7 @@ void parse_indirect(char *arg, t_data *data, int num_arg)
 {
 	int number;
 
-	if (ft_isdigit(arg[1]))
+	if (ft_isdigit(arg[0]))
 	{
 		data->instrs[data->instr_num].args[num_arg].type = "T_IND";
 		if (ft_is_number(arg))
@@ -61,7 +61,7 @@ void parse_indirect(char *arg, t_data *data, int num_arg)
 		else
 		{
 			//аргумент не является числом
-			exit(1);
+			free_close_fd_put_error("Invalid indirect arg, it is not a number", data->split, data, (*data->symbol_number));
 		}
 	}
 }
@@ -82,7 +82,7 @@ void parse_one_arg(char *arg_old, t_data *data, int num_arg)
 	ft_strdel(&arg);
 	//не соответсвует ни одному типу функции
 	if (data->instrs[data->instr_num].args[num_arg].type == NULL)
-		exit(1);
+		free_close_fd_put_error("Invalid type of arg", data->split, data, (*data->symbol_number));
 	data->instrs[data->instr_num].args[num_arg].arg_number = num_arg;
 }
 
@@ -102,16 +102,22 @@ void ft_parse_args(char *split, int *i, t_data *data)
 		args_num = massiv_len(args);
 	//неверное количество аргументов в функции или их нет
 	if (args_num  > 3 || args == NULL)
-		exit(1);
+		free_close_fd_put_error("Invalid number of args(too many)", split, data, *i);
+	if (args == NULL)
+		free_close_fd_put_error("Invalid number of args(few)", split, data, *i);
 	while (args[j] && j < args_num)
 	{
-//		ft_printf("%s\n", args[j]);
 		parse_one_arg(args[j], data, j);
 		j++;
 	}
-	t_instr instr[16]; //структура должна передаваться из мейна
-	if (!valid_args(data))
-		exit(1);
+	j = valid_args(data);
+	if (j == TOO_MANY_ARGS)
+		free_close_fd_put_error("Invalid number of args(too many)", split, data, *i);
+	else if (j == FEW_ARGS)
+		free_close_fd_put_error("Invalid number of args(few)", split, data, *i);
+	else if (j == INVALID_TYPE)
+		free_close_fd_put_error("Invalid type of args", split, data, *i);
+
 
 	//парсим аргументы, а потом их валидируем
 	//аргументы можно спарсить в массив из трех элементов

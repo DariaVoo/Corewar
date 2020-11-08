@@ -42,3 +42,8 @@ void	ft_error_length(int f)
 	}
 	exit(1);
 }
+
+void	free_close_fd_put_error(char *err, char *line, t_data *data, int ind_str)
+{
+	ft_error(err, line, data->line_count, ind_str);
+}

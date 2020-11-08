@@ -4,23 +4,18 @@
 int		check_valid_function(char *func, t_data *data)
 {
 	int i;
-	char **function;
-	char *commands[16] = {"live", "ld", "st", "add", "sub",
-						  "and", "or", "xor", "zjmp", "ldi", "sti", "fork", "lld",
-						  "lldi", "lfork", "aff"};
 
-	function = NULL;
 	i = 0;
 	while (i < 16)
 	{
-		if (ft_strcmp(func, commands[i]) == 0)
+		if (ft_strcmp(func, g_op_tab[i].name_oper) == 0)
 		{
 			data->instrs[data->instr_num].id_instr = i;
-			return 1;
+			return (1);
 		}
 		i++;
 	}
-	return 0;
+	return (0);
 }
 
 char		*split_and_get_function_name(char *split, char split_char, t_data *data)
@@ -64,7 +59,5 @@ void		ft_parse_function(char *split, int *i, t_data *data)
 		(*i) += ft_strlen(name);
 	}
 	else
-	{
-		exit(1);
-	}
+		free_close_fd_put_error("Invalid function name", split, data, *i);
 }
