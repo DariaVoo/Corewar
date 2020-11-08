@@ -58,3 +58,18 @@ int		massiv_len(char **args)
 		i++;
 	return (i);
 }
+
+int			get_number_of_lines(char *str)
+{
+	int		read_fd;
+	char	*string;
+	int 	num;
+
+	num = 0;
+	read_fd = open(str, O_RDONLY);
+	while (get_next_line(read_fd, &string))
+		num++;
+	ft_strdel(&string);
+	close(read_fd);
+	return num;
+}

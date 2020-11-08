@@ -163,6 +163,7 @@ void    ft_close_fd(int a, int b);
 void 	skip_spaces(char *split, int *i);
 int		ft_is_number(char *name);
 int		massiv_len(char **args);
+int		get_number_of_lines(char *str);
 
 /*
  ** init functions

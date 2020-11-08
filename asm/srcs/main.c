@@ -14,7 +14,7 @@ int		main(int ac, char **av)
     if (ac == 1)
         ft_exit(USAGE);
     //all_data = 0;
-    ft_init_structs(&all_data, 1000);
+    ft_init_structs(&all_data, get_number_of_lines(av[ac-1]));
     
     ft_printf("START: %s\n", av[ac - 1]);
 
