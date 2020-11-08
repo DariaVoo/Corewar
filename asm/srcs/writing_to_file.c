@@ -101,14 +101,15 @@ int 	writing_to_file(t_data *data, int fd)
 {
 	sum_size(data);
 	int i = 0;
+	ft_printf(PURPLE"______SUM INSTRS______\n"EOC);
 	while (i < data->instr_num) {
 		ft_printf("name = %s | sum = %d\n", data->instrs[i].name, data->instrs[i].sum_size);
 		i++;
 	}
+	ft_printf(PURPLE"----------------------\n"EOC);
 	write_magic_fd(COREWAR_EXEC_MAGIC, fd);
 	writing_header_to_file(data->header->prog_name, PROG_NAME_LENGTH + 1, fd);
 	write_size_fd(data->file_size, fd);
-	 printf("\n SIZE == %d\n", data->file_size);
 	writing_header_to_file(data->header->comment, COMMENT_LENGTH + 1, fd);
 	//CHAMP_MAX_SIZE
 	return (0);

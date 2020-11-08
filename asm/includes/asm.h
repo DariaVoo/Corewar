@@ -17,6 +17,12 @@
 
 # define BUFF 4096
 
+# define RED		"\033[31m"
+# define GREEN		"\033[32m"
+# define YELLOW		"\033[33m"
+# define PURPLE		"\033[35;1m"
+# define EOC		"\e[0m"
+
 // ///"live", 1, {T_DIR}, 1, 10, "alive", 0, 0
 // typedef struct s_opt
 // {
