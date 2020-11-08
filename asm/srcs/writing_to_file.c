@@ -14,6 +14,23 @@
 #include "error.h"
 #include "../libft/includes/libftprintf.h"
 
+void	sum_size(t_data *data)
+{
+	int 	i;
+	int 	sum;
+
+	i = 0;
+	sum = 0;
+	data->instrs[0].sum_size = 0;
+	while (i < data->instr_num)
+	{
+		sum = data->instrs[i].size + sum;
+		data->instrs[i].sum_size = sum;
+		i++;
+	}
+	data->file_size = sum;
+}
+
 void	write_hex_fd(long nbr, int fd)
 {
 	if (nbr >= 256)
@@ -45,20 +62,22 @@ void	write_magic_fd(long nb, int fd)
 
 void	write_size_fd(long nb, int fd)
 {
+	int 	size;
 	int		count;
 
+	size = nb;
 	count = 0;
 	while (nb != 0)
 	{
 		nb = nb / 256;
 		count++;
 	}
-	while (8 - count)
+	while (7 - count)
 	{
 		ft_putchar_fd(0x0, fd);
 		count++;
 	}
-	write_hex_fd(CHAMP_MAX_SIZE, fd);
+	write_hex_fd(size, fd);
 }
 
 int 	writing_header_to_file(char *str, int size, int fd)
@@ -80,9 +99,16 @@ int 	writing_header_to_file(char *str, int size, int fd)
 
 int 	writing_to_file(t_data *data, int fd)
 {
+	sum_size(data);
+	int i = 0;
+	while (i < data->instr_num) {
+		ft_printf("name = %s | sum = %d\n", data->instrs[i].name, data->instrs[i].sum_size);
+		i++;
+	}
 	write_magic_fd(COREWAR_EXEC_MAGIC, fd);
 	writing_header_to_file(data->header->prog_name, PROG_NAME_LENGTH + 1, fd);
-	// write_size_fd(CHAMP_MAX_SIZE, fd); тут исправить на текущий размер
+	write_size_fd(data->file_size, fd);
+	 printf("\n SIZE == %d\n", data->file_size);
 	writing_header_to_file(data->header->comment, COMMENT_LENGTH + 1, fd);
 	//CHAMP_MAX_SIZE
 	return (0);

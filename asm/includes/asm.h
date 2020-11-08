@@ -144,7 +144,7 @@ typedef struct s_instr
 	int id_instr;//номер от 0 до 15
 
     // t_name_args type[3];
-	struct s_instr		*next;
+    int 		sum_size;
 
 }               t_instr;
 
