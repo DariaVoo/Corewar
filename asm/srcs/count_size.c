@@ -42,11 +42,11 @@ void	ft_count_size(t_data *data)
 		t_dir_size = 2;
 	while (i < g_op_tab[data->instrs[data->instr_num].id_instr].col_args)
 	{
-		if (ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_DIR") == 0)
+		if (data->instrs[data->instr_num].args[i].type == T_DIR)
 			size+=t_dir_size;
-		else if (ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_IND") == 0)
+		else if (data->instrs[data->instr_num].args[i].type == T_IND)
 			size+=2;
-		else if (ft_strcmp(data->instrs[data->instr_num].args[i].type, "T_REG") == 0)
+		else if (data->instrs[data->instr_num].args[i].type == T_REG)
 			size++;
 		i++;
 	}

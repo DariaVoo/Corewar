@@ -7,7 +7,7 @@ void	parse_register(char *arg, t_data *data, int num_arg)
 
 	if (arg[0] == 'r' && arg[1] && ft_isdigit(arg[1]))
 	{
-		data->instrs[data->instr_num].args[num_arg].type = "T_REG";
+		data->instrs[data->instr_num].args[num_arg].type = T_REG;
 		number = ft_atoi(&arg[1]);
 		//неправильное название регистра
 		if (!ft_is_number(&arg[1]) || (number < 1 || number > 16))
@@ -22,7 +22,7 @@ void	parse_direct(char *arg, t_data *data, int num_arg)
 
 	if (ft_strchr(arg, DIRECT_CHAR))
 	{
-		data->instrs[data->instr_num].args[num_arg].type = "T_DIR";
+		data->instrs[data->instr_num].args[num_arg].type = T_DIR;
 		if (ft_strchr(arg, LABEL_CHAR))
 		{
 			if (!arg[0] || !arg[1] || !arg[2])
@@ -52,7 +52,7 @@ void parse_indirect(char *arg, t_data *data, int num_arg)
 
 	if (ft_isdigit(arg[1]))
 	{
-		data->instrs[data->instr_num].args[num_arg].type = "T_IND";
+		data->instrs[data->instr_num].args[num_arg].type = T_IND;
 		if (ft_is_number(arg))
 		{
 			number = ft_atoi(arg);
@@ -75,13 +75,13 @@ void parse_one_arg(char *arg_old, t_data *data, int num_arg)
 	arg = ft_strtrim(arg_old);
 //	ft_strdel(&arg_old);
 	parse_register(arg, data, num_arg);
-	if (data->instrs[data->instr_num].args[num_arg].type == NULL)
+	if (data->instrs[data->instr_num].args[num_arg].type == 0)
 		parse_direct(arg, data, num_arg);
-	if (data->instrs[data->instr_num].args[num_arg].type == NULL)
+	if (data->instrs[data->instr_num].args[num_arg].type == 0)
 		parse_indirect(arg, data, num_arg);
 	ft_strdel(&arg);
 	//не соответсвует ни одному типу функции
-	if (data->instrs[data->instr_num].args[num_arg].type == NULL)
+	if (data->instrs[data->instr_num].args[num_arg].type == 0)
 		exit(1);
 	data->instrs[data->instr_num].args[num_arg].arg_number = num_arg;
 }
