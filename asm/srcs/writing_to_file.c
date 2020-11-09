@@ -127,6 +127,45 @@ int 	code_args(t_arg *args)
 	return (code);
 }
 
+int 	size_to_label(t_instr *instrs, char *label, int instr_num, int arg)
+{
+	int 	i;
+
+	i = 0;
+	while (i < instr_num)
+	{
+		ft_printf(RED"______ERROR______, %d\n"EOC, instr_num);
+
+		if (instrs[i].label && label && ft_strcmp(instrs[i].label, label) == 0) {
+			ft_printf(GREEN"%s %i | SIZE %d\n"EOC, instrs[i].label, i, instrs[i - 1].sum_size);
+			return (instrs[i - 1].sum_size);
+		}
+		i++;
+	}
+	return (arg);
+}
+
+void 	writing_args_to_fd(t_data *data, int ind_instr, int code_op, int fd)
+{
+	int		i;
+
+	i = 0;
+	while (i < 3)
+	{
+		if (data->instrs[ind_instr].args[i].type == T_REG)
+			ft_putchar_fd(data->instrs[ind_instr].args[i].value, fd);
+		else if (data->instrs[ind_instr].args[i].type == T_DIR)
+		{
+			// Функция для записи т_дир, может быть 2 байта или 4, см g_op_tab[code_op -1].tdir_size;
+			ft_printf(YELLOW"%d\n"EOC, size_to_label(data->instrs, data->instrs[ind_instr].args[i].label, data->instr_num, data->instrs[ind_instr].args[i].value));
+			ft_putchar_fd(size_to_label(data->instrs, data->instrs[ind_instr].args[i].label, data->instr_num, data->instrs[ind_instr].args[i].value), fd);
+		}
+		i++;
+	}
+	ft_printf(RED"______AAAAAAAAA______\n"EOC);
+
+}
+
 void 	writing_instrs_to_fd(t_data *data, int fd)
 {
 	int 	i;
@@ -140,6 +179,7 @@ void 	writing_instrs_to_fd(t_data *data, int fd)
 		ft_putchar_fd(code_op, fd);
 		if (g_op_tab[code_op - 1].bit_type == 1)
 			ft_putchar_fd(code_args(data->instrs[i].args), fd);
+		writing_args_to_fd(data, i, code_op, fd);
 		i++;
 	}
 
@@ -151,7 +191,7 @@ int 	writing_to_file(t_data *data, int fd)
 	int i = 0;
 	ft_printf(PURPLE"______SUM INSTRS______\n"EOC);
 	while (i < data->instr_num) {
-		ft_printf("name = %s | sum = %d\n", data->instrs[i].name, data->instrs[i].sum_size);
+		ft_printf("name = %s | label = %s | sum = %d\n", data->instrs[i].name, data->instrs[i].label, data->instrs[i].sum_size);
 		i++;
 	}
 	ft_printf(PURPLE"----------------------\n"EOC);
@@ -160,6 +200,7 @@ int 	writing_to_file(t_data *data, int fd)
 	write_size_fd(data->file_size, fd);
 	writing_header_to_file(data->header->comment, COMMENT_LENGTH + 1, fd);
 	writing_instrs_to_fd(data, fd);
+
 	//CHAMP_MAX_SIZE
 	return (0);
 }
