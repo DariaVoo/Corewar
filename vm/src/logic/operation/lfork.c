@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fork.c                                             :+:      :+:    :+:   */
+/*   lfork.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/08 15:22:25 by dima              #+#    #+#             */
-/*   Updated: 2020/11/09 23:02:36 by qjosmyn          ###   ########.fr       */
+/*   Created: 2020/11/09 22:49:52 by qjosmyn           #+#    #+#             */
+/*   Updated: 2020/11/09 22:50:05 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ int		op_fork(uint8_t *arena, t_carriage *carriage)
 	while (copy->next != NULL)
 		copy = copy->next;
 	copy->next = copy_carriage(carriage);
-	copy->next->prev = copy;
-	ft_printf("args 1 = %d\n", args[FIRST].value % IDX_MOD);
-	copy->program_counter = args[FIRST].value % IDX_MOD;
-	copy->regs[0] = -1000;
+	copy->program_counter = args[FIRST].value % MEM_SIZE;
 	return (shift);
 }
