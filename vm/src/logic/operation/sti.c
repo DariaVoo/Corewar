@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sti.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:04:57 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/08 16:10:53 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/09 21:37:29 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int			op_sti(uint8_t *arena, t_carriage *carriage)
 	t_arg		*args;
 	int32_t		*regs;
 	int32_t		address;
+	int32_t		i;
 	extern t_op	g_optab[17];
 
 	args = carriage->args;
@@ -28,7 +29,12 @@ int			op_sti(uint8_t *arena, t_carriage *carriage)
 	take_args(arena, carriage, FIRST);
 	address = carriage->program_counter + (args[SECOND].value + args[THIRD].value) % IDX_MOD;
 	address = address < 0 ? MEM_SIZE + address : address;
-	//Усечение, так как каст из 32 к 8
-	*(int32_t*)(arena + address) = regs[args[FIRST].value];
+	i = 0;
+	while (i < 4)
+	{
+		*(arena + address + i) = (regs[args[FIRST].value] >> ((3 - i) * CHAR_BIT)) & 0xFF;
+		ft_printf("%d\n", (regs[args[FIRST].value] >> ((3 - i) * CHAR_BIT)) & 0xFF);
+		i++;
+	}
 	return (shift);
 }
