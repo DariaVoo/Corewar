@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   carriage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 16:37:12 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/09/09 18:34:18 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/09 22:43:52 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,16 @@ void		set_starter_kit_carriage(t_carriage **carriage, uint8_t *arena)
 		add_carriage(carriage, arena, i + 1);
 		i++;
 	}
+}
+
+// не все копирует
+t_carriage	*copy_carriage(t_carriage *carriage)
+{
+	t_carriage	*copy;
+
+	copy = create_carriage();
+	ft_memcpy(copy->regs, carriage->regs, sizeof(int32_t) * REG_NUMBER);
+	copy->live = carriage->live;
+	copy->carry = carriage->carry;
+	return (copy);
 }
