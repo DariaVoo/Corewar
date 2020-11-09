@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 22:49:52 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/09 22:50:05 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/09 23:27:49 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int		op_fork(uint8_t *arena, t_carriage *carriage)
 	while (copy->next != NULL)
 		copy = copy->next;
 	copy->next = copy_carriage(carriage);
+	copy->next->prev = copy;
+	copy = copy->next;
 	copy->program_counter = args[FIRST].value % MEM_SIZE;
 	return (shift);
 }

@@ -6,12 +6,13 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 15:22:25 by dima              #+#    #+#             */
-/*   Updated: 2020/11/09 23:02:36 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/09 23:27:33 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
+// не все копируется!!!
 int		op_fork(uint8_t *arena, t_carriage *carriage)
 {
 	int32_t		shift;
@@ -28,8 +29,7 @@ int		op_fork(uint8_t *arena, t_carriage *carriage)
 		copy = copy->next;
 	copy->next = copy_carriage(carriage);
 	copy->next->prev = copy;
-	ft_printf("args 1 = %d\n", args[FIRST].value % IDX_MOD);
+	copy = copy->next;
 	copy->program_counter = args[FIRST].value % IDX_MOD;
-	copy->regs[0] = -1000;
 	return (shift);
 }
