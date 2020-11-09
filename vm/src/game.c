@@ -72,14 +72,15 @@ void		game(t_vm *vm)
 		break ;
 		cycle_count++;
 	}
-	debug_print_carriage(vm);
-	vm->carriage->opcode = 11;
-	// vm->carriage->carry = 1;
-	// execute_oper(vm->arena, vm->carriage);
-	// ft_printf("next oper = %d\n", *(vm->arena + vm->carriage->program_counter));
 	// debug_print_carriage(vm);
-	// vm->carriage->opcode = *(vm->arena + vm->carriage->program_counter);
+	vm->carriage->opcode = 2;
+	// vm->carriage->carry = 1;
 	execute_oper(vm->arena, vm->carriage);
+	ft_printf("next oper = %d\n", *(vm->arena + vm->carriage->program_counter));
+	debug_print_carriage(vm);
+	vm->carriage->opcode = *(vm->arena + vm->carriage->program_counter);
+	execute_oper(vm->arena, vm->carriage);
+	ft_printf("next oper = %d\n", *(vm->arena + vm->carriage->program_counter));
 	debug_print_carriage(vm);
 	arena_print(vm->arena);
 	// debug_print_carriage(vm);

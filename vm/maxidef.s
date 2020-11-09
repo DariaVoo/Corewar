@@ -1,6 +1,7 @@
 .name " maxidef "
 .comment " module de defense"
-	sti r0, %2, %2
+	ld %63,r3
+	fork %20 
 
 loop:	live %2
 	zjmp %8

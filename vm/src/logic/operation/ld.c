@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ld.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 15:54:42 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/06 12:38:17 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/09 21:42:09 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		op_ld(uint8_t *arena, t_carriage *carriage)
 		}
 		i++;
 	}
-	carriage->regs[args[1].value] = args[0].value;
-	carriage->carry = carriage->regs[args[1].value] == 0 ? 1 : 0;
+	carriage->regs[args[SECOND].value] = args[FIRST].value;
+	carriage->carry = carriage->regs[args[SECOND].value] == 0 ? 1 : 0;
 	return (shift);
 }

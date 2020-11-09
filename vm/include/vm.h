@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/07 16:36:51 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/09 22:44:14 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void				init_arena(uint8_t *arena, t_champion *champ[]);
 /* CARRIAGE */
 void				set_starter_kit_carriage(t_carriage *carriage[], uint8_t *arena);
 void				add_carriage(t_carriage **carriage, uint8_t *arena, uint8_t id);
+t_carriage			*copy_carriage(t_carriage *carriage);
 
 /* CHAMPIONS */
 void				parse_files(t_champion *champ[], char *champ_names[]);

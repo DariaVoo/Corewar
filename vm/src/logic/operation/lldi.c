@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lldi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:12:22 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/09 11:39:48 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/09 21:41:14 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int		op_lldi(uint8_t *arena, t_carriage *carriage)
 	address = carriage->program_counter + (args[FIRST].value + args[SECOND].value) % MEM_SIZE;
 	address = address < 0 ? MEM_SIZE + address : address;
 	regs[args[THIRD].value] = get_arg(arena + address, REG_CODE, g_optab[carriage->opcode - 1]);
+	carriage->carry = regs[args[THIRD].value] == 0 ? 1 : 0;
 	return (shift);
 }
