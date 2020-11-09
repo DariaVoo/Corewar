@@ -66,7 +66,12 @@ SRC_LOGIC_OP = ld \
 				and \
 				or \
 				xor \
-				zjmp
+				zjmp \
+				ldi \
+				sti \
+				fork \
+				lld \
+				lldi
 				
 SRC_LOGIC_OP := $(addsuffix .c, $(SRC_LOGIC_OP))
 

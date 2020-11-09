@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sti.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:04:57 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/07 18:09:17 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/08 16:10:53 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int			op_sti(uint8_t *arena, t_carriage *carriage)
 	shift = get_args(args, arena, carriage, g_optab);
 	if (shift == 0)
 		return (0);
-	take_args(args, carriage, FIRST);
+	take_args(arena, carriage, FIRST);
 	address = carriage->program_counter + (args[SECOND].value + args[THIRD].value) % IDX_MOD;
 	address = address < 0 ? MEM_SIZE + address : address;
 	//Усечение, так как каст из 32 к 8
-	*(arena + address) = regs[args[FIRST].value];
+	*(int32_t*)(arena + address) = regs[args[FIRST].value];
 	return (shift);
 }

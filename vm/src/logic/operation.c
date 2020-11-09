@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 14:48:38 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/07 16:36:35 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/09 11:38:00 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static int		kek(int kek)
 	return (lol);
 }
 
-static int32_t	ft_size(int code, uint8_t tdir_size)
+static int32_t	ft_size(int32_t code,  uint8_t tdir_size)
 {
 	if (code == REG_CODE)
 		return (REG_SIZE_BYTE);
 	else if (code == IND_CODE)
 		return (IND_SIZE_BYTE);
 	else if (code == DIR_CODE)
-		return (DIR_SIZE_BYTE * (1 - tdir_size / 2));
+		return (DIR_SIZE_BYTE - 2 * tdir_size);
 	return (0);
 }
 
@@ -49,7 +49,7 @@ int32_t		get_arg(uint8_t *ptr, uint8_t type, t_op params)
 	{
 		size = (params.type_arg[0] == T_REG) ? REG_SIZE_BYTE : 0;
 		size = (params.type_arg[0] == T_IND) ? IND_SIZE_BYTE : size;
-		size = (params.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE * (1 - params.tdir_size * 0.5) : size;
+		size = (params.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE - 2 * params.tdir_size : size;
 	}
 	else if ((size = ft_size(type, params.tdir_size)) == 0)
 		kek(1);
@@ -109,10 +109,9 @@ void	take_args(uint8_t *arena, t_carriage *carriage, int32_t num_arg)
 			args[i].value = carriage->regs[args[i].value];
 		else if (args[i].type == IND_CODE && i != num_arg)
 		{
-			// можно юзануть get_arg 
 			address = carriage->program_counter + args[i].value % IDX_MOD;
 			address = address < 0 ? MEM_SIZE + address : address;
-			args[i].value = get_arg(arena + address, REG_CODE, g_optab[carriage->opcode - 1]);
+			args[i].value = get_arg(arena + address, DIR_CODE, g_optab[carriage->opcode - 1]);
 		}
 		else if (args[i].type == DIR_CODE && i != num_arg)
 			args[i].value = args[i].value;
