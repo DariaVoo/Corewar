@@ -136,6 +136,7 @@ typedef struct s_data
 	int			instr_num;
 	int 		*symbol_number;
 	char		*split; //current line
+	char		*all_labels; //for validation
 }				t_data;
 
 typedef struct				s_op
@@ -163,7 +164,7 @@ void    ft_close_fd(int a, int b);
 void 	skip_spaces(char *split, int *i);
 int		ft_is_number(char *name);
 int		massiv_len(char **args);
-int		get_number_of_lines(char *str);
+int		get_number_of_lines(char *str, t_data *data);
 
 /*
  ** init functions
@@ -185,7 +186,7 @@ int     ft_parse_header(t_header *header, char *line, int num_line);
 // NEW LEAF
 void    ft_read_file(t_data *data);
 void	ft_parse_body(char *str, t_data *data);
-char	*ft_parse_label(char *split, int *i, t_data *data);
+char	*ft_parse_label(char *split, int *i);
 void	ft_parse_function(char *split, int *i, t_data *data);
 void	ft_parse_args(char *split, int *i, t_data *data);
 void	ft_count_size(t_data *data);

@@ -49,7 +49,7 @@ void	ft_parse_body(char *str_init, t_data *data)
 	data->split = str_init;
 	if (ft_strchr(str, LABEL_CHAR))
 	{
-		label = ft_parse_label(str, &symbol_number, data);
+		label = ft_parse_label(str, &symbol_number);
 		data->instrs[data->instr_num].label = label;
 		//если лейбл есть пушим в конец структуры лейблов
 		//		if (body.label != NULL)
