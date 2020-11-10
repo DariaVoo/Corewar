@@ -59,16 +59,31 @@ int		massiv_len(char **args)
 	return (i);
 }
 
-int			get_number_of_lines(char *str)
+int			get_number_of_lines(char *str, t_data *data)
 {
 	int		read_fd;
 	char	*string;
 	int 	num;
+	char	*label;
+	int		sym = 0;
 
 	num = 0;
+	label = " ";
 	read_fd = open(str, O_RDONLY);
 	while (get_next_line(read_fd, &string))
+	{
+		sym = 0;
+		if (ft_strchr(string, LABEL_CHAR))
+		{
+			if (ft_parse_label(string, &sym) != NULL)
+			{
+				sym = 0;
+				label = ft_strjoin(ft_strjoin(label, ft_parse_label(string, &sym)), " ");
+			}
+		}
 		num++;
+	}
+	data->all_labels = ft_strdup(label);
 	ft_strdel(&string);
 	close(read_fd);
 	return num;

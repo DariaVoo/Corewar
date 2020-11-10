@@ -1,7 +1,7 @@
 #include "asm.h"
 #include "../libft/includes/libftprintf.h"
 
-char		*ft_parse_label(char *split, int *i, t_data *data)
+char		*ft_parse_label(char *split, int *i)
 {
 	char	**labels;
 

@@ -29,7 +29,12 @@ void	parse_direct(char *arg, t_data *data, int num_arg)
 				free_close_fd_put_error("Invalid direct arg with label", data->split, data, (*data->symbol_number));
 			//если есть label, то проверяем все ли стоит на своих местах и записываем его в аргумент
 			if (arg[0] == DIRECT_CHAR && arg[1] == LABEL_CHAR)
-				data->instrs[data->instr_num].args[num_arg].label = ft_strdup(&arg[2]);
+			{
+				if (ft_strstr(data->all_labels, &arg[2]) != 0)
+					data->instrs[data->instr_num].args[num_arg].label = ft_strdup(&arg[2]);
+				else
+					ft_exit("NO SUCH LABEL"); //ДОПИСАТЬ ВЫВОД ОШИБКИ
+			}
 			else
 				free_close_fd_put_error("Invalid direct arg with label", data->split, data, (*data->symbol_number));
 		}
