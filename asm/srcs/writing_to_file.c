@@ -134,7 +134,7 @@ int 	size_to_label(t_instr *instrs, char *label, int instr_num, int arg)
 	i = 0;
 	while (i < instr_num)
 	{
-		ft_printf(RED"______ERROR______, %d\n"EOC, instr_num);
+//		ft_printf(RED"______ERROR______, %d\n"EOC, instr_num);
 
 		if (instrs[i].label && label && ft_strcmp(instrs[i].label, label) == 0) {
 			ft_printf(GREEN"%s %i | SIZE %d\n"EOC, instrs[i].label, i, instrs[i - 1].sum_size);
@@ -157,12 +157,12 @@ void 	writing_args_to_fd(t_data *data, int ind_instr, int code_op, int fd)
 		else if (data->instrs[ind_instr].args[i].type == T_DIR)
 		{
 			// Функция для записи т_дир, может быть 2 байта или 4, см g_op_tab[code_op -1].tdir_size;
-			ft_printf(YELLOW"%d\n"EOC, size_to_label(data->instrs, data->instrs[ind_instr].args[i].label, data->instr_num, data->instrs[ind_instr].args[i].value));
+//			ft_printf(YELLOW"%d\n"EOC, size_to_label(data->instrs, data->instrs[ind_instr].args[i].label, data->instr_num, data->instrs[ind_instr].args[i].value));
 			ft_putchar_fd(size_to_label(data->instrs, data->instrs[ind_instr].args[i].label, data->instr_num, data->instrs[ind_instr].args[i].value), fd);
 		}
 		i++;
 	}
-	ft_printf(RED"______AAAAAAAAA______\n"EOC);
+//	ft_printf(RED"______AAAAAAAAA______\n"EOC);
 
 }
 
@@ -173,7 +173,7 @@ void 	writing_instrs_to_fd(t_data *data, int fd)
 
 	i = 0;
 	code_op = 0;
-	while (i < data->instr_num)
+	while (i < data->instr_num) //i < data->instr_num
 	{
 		code_op = code_operation(data->instrs[i].name);
 		ft_putchar_fd(code_op, fd);

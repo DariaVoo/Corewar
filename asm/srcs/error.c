@@ -10,18 +10,23 @@ void    ft_error(char *err, char *line, int num_str, int ind_str)
 	int		i;
 
 	i = 0;
-	ft_printf("%s [%d:%d]", err, num_str, ind_str); // добавить принтф с фд
+	ft_putstr_fd(err, 2);
+	ft_putstr_fd(" [", 2);
+	ft_putnbr_fd(num_str, 2);
+	ft_putstr_fd(":", 2);
+	ft_putnbr_fd(ind_str, 2);
+	ft_putstr_fd("]", 2);// добавить принтф с фд
 	if (line) {
-		write(1, " INSTRUCTION \"", 14);
+		write(2, " INSTRUCTION \"", 14);
 		while (line[i] != ' ' && line[i] != '\t' && line[i] != COMMENT_CHAR &&
 			   line[i] != ALT_COMMENT_CHAR && line[i] != '\0') {
-			ft_putchar(line[i]);
+			ft_putchar_fd(line[i], 2);
 			i++;
 		}
-		write(1, "\"\n", 2);
+		write(2, "\"\n", 2);
 	}
 	else
-		write(1, "\n", 1);
+		write(2, "\n", 1);
 	exit(1);
 }
 
