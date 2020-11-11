@@ -6,7 +6,7 @@
 /*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 15:25:39 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/06 12:39:05 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/10 23:33:21 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int		op_sub(uint8_t *arena, t_carriage *carriage)
 	shift = get_args(args, arena, carriage, g_optab);
 	if (shift == 0)
 		return (0);
-	regs[args[THIRD].value] = regs[args[FIRST].value] - regs[args[SECOND].value];
-	if (regs[args[THIRD].value] == 0)
+	regs[args[THIRD].value - 1] = regs[args[FIRST].value - 1] - regs[args[SECOND].value - 1];
+	if (regs[args[THIRD].value - 1] == 0)
 		carriage->carry = 1;
 	else
 		carriage->carry = 0;

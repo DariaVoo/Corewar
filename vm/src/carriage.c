@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   carriage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 16:37:12 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/09 22:43:52 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/10 21:18:59 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	init_carriage(t_carriage *carriage, uint8_t *arena, uint8_t id)
 	carriage->opcode = *(arena + carriage->program_counter);
 	ft_memset(carriage->regs, 0, REG_NUMBER);
 	carriage->regs[0] = -id;
-	carriage->cycle_to_die = CYCLE_TO_DIE;
+	carriage->cycle_to_die = 0;
 	carriage->carry = 0;
 	carriage->live = 0;
 	carriage->next = NULL;

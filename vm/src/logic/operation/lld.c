@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lld.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:10:18 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/07 18:12:32 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/10 23:31:00 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		op_lld(uint8_t *arena, t_carriage *carriage)
 		}
 		i++;
 	}
-	carriage->regs[args[1].value] = args[0].value;
-	carriage->carry = carriage->regs[args[1].value] == 0 ? 1 : 0;
+	carriage->regs[args[SECOND].value - 1] = args[FIRST].value;
+	carriage->carry = carriage->regs[args[SECOND].value - 1] == 0 ? 1 : 0;
 	return (shift);
 }

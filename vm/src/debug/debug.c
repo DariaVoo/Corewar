@@ -25,7 +25,7 @@ void		arena_print(uint8_t *arena)
 	while (i < MEM_SIZE)
 	{
 		if (arena[i])
-			ft_printf("{red}%.2x{eoc}", (0xff & arena[i]));
+			ft_printf("%.2x", (0xff & arena[i]));
 		else
 			ft_printf("%.2x", (0xff & arena[i]));
 		if (i % 2 != 0)
@@ -46,15 +46,15 @@ void			debug_print_carriage(t_vm *vm)
 		for (int i = 0; i < REG_NUMBER; i++)
 		{
 			if (copy->regs[i])
-				ft_printf("{blue}[%2d]{eoc}", copy->regs[i]);
+				ft_printf("[%2d]", copy->regs[i]);
 			else
 				ft_printf("[%2d]", copy->regs[i]);
 		}
 		ft_printf("\n");
 		ft_printf("live: %d\n", copy->live);
-		ft_printf("current_pos: %d\n", copy->program_counter);
 		ft_printf("program_counter: %d\n", copy->program_counter);
-		ft_printf("opcode: {green}[%.2x]{eoc}\n", copy->opcode);
+		ft_printf("cycle_to_die: %d\n", copy->cycle_to_die);
+		ft_printf("opcode: [%.2x]\n", copy->opcode);
 		ft_printf("-------------------------------------\n");
 		copy = copy->next;
 	}

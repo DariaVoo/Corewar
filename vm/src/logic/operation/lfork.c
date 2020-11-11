@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   lfork.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 22:49:52 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/09 23:27:49 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/10 20:54:45 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int		op_fork(uint8_t *arena, t_carriage *carriage)
+int		op_lfork(uint8_t *arena, t_carriage *carriage)
 {
 	int32_t		shift;
 	t_arg		*args;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   xor.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 17:14:52 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/07 16:05:18 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/10 23:33:32 by dima             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		op_xor(uint8_t *arena, t_carriage *carriage)
 	if (shift == 0)
 		return (0);
 	take_args(arena, carriage, THIRD);
-	regs[args[THIRD].value] = args[FIRST].value ^ args[SECOND].value;
-	carriage->carry = regs[args[THIRD].value] == 0 ? 1 : 0;
+	regs[args[THIRD].value - 1] = args[FIRST].value ^ args[SECOND].value;
+	carriage->carry = regs[args[THIRD].value - 1] == 0 ? 1 : 0;
 	return (shift);
 }
