@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "asm.h"
+#include "../includes/asm.h"
 #include "error.h"
 #include "../libft/includes/libftprintf.h"
 
@@ -115,24 +115,30 @@ int		code_operation(char *name)
 	return (-1);
 }
 
-int 	write_code_dir(int args, int f, int fd)
+int 	write_code_dir(int args, int type, int fd, int tdir_size)
 {
+	// t_dir, t_ind, t_reg
 	int 	size;
 	int		count;
+	int8_t buf;
 
-	size = args;
+
+	if (type == T_DIR)
+		size = 4 - 2 * tdir_size;
+	else if (type == T_IND)
+		size = 2;
+	else
+		size = 1;
 	count = 0;
-	while (size != 0)
+	ft_printf("args = %d\n", args & 0xFF);
+	while (size > 0)
 	{
-		size = size / 256;
-		count++;
+		buf = (args >> ((size - 1) * CHAR_BIT)) & 0xFF;
+		ft_printf("buf = %d\n", buf);
+		ft_putchar_fd(buf, fd);
+		size--;
 	}
-	while (f - count)
-	{
-		ft_putchar_fd(0x0, fd);
-		count++;
-	}
-	ft_putchar_fd(args, fd);
+	ft_printf("KEK\n");
 	return (args);
 }
 
@@ -153,48 +159,55 @@ int 	code_args(t_arg *args)
 }
 //		ft_printf(RED"______ERROR______, %d\n"EOC, instr_num);
 
-int 	size_to_label(t_instr *instrs, char *label, int instr_num, int arg, int *f)
+int 	size_to_label(t_data *data, t_arg *args, int current_size, int tdir_size)
 {
 	int 	i;
+	int 	size;
+	t_instr *instrs;
 
 	i = 0;
-	while (i < instr_num)
+	size = 0;
+	instrs = data->instrs;
+	while (i < data->instr_num)
 	{
-		if (instrs[i].label && label && ft_strcmp(instrs[i].label, label) == 0) {
-			ft_printf(GREEN"%s %i | SIZE %d\n"EOC, instrs[i].label, i, instrs[i - 1].sum_size);
-			return (instrs[i - 1].sum_size);
+		ft_printf(YELLOW"label = %s\n"EOC, instrs[i].label);
+		if (instrs[i].label && args->label && ft_strcmp(instrs[i].label, args->label) == 0) {
+			size = instrs[i - 1].sum_size - current_size;
+			ft_printf(GREEN"current_size = %d | instrs[i - 1].sum_size = %d | size = %d\n"EOC, current_size, instrs[i - 1].sum_size, size);
+			return (size);
 		}
+		ft_printf("lol\n");
 		i++;
 	}
-	*f = -1;
-	return (arg);
+	return (args->value);
 }
 
 void 	writing_args_to_fd(t_data *data, int ind_instr, int code_op, int fd)
 {
 	int		i;
-	int		sz_dir;
 	int		size;
-	int 	f;
+	int		sz_dir;
 	t_arg	*args;
 
 	i = 0;
-	f = 0;
-	sz_dir = 2;
 	size = 0;
+	sz_dir = 2;
 	args = data->instrs[ind_instr].args;
-	while (i < 3)
+	while (i < g_op_tab[code_op -1].col_args)
 	{
 		if (args[i].type == T_REG)
 			ft_putchar_fd(args[i].value, fd);
-		else if (args[i].type == T_DIR)
+//		else if (args[i].type == T_DIR || args[i].type == T_IND)
+		else
 		{
-			if (g_op_tab[code_op -1].tdir_size == 0)
-				sz_dir = 3;
-			size = size_to_label(data->instrs, args[i].label, data->instr_num, args[i].value, &f);
-			if (size < data->instrs[ind_instr].sum_size && f != -1)
-				size = size - data->instrs[ind_instr].sum_size;
-			write_code_dir(size, sz_dir, fd);
+			size = size_to_label(data, &args[i], data->instrs[ind_instr - 1].sum_size, g_op_tab[code_op -1].tdir_size);
+//			if (size < data->instrs[ind_instr].sum_size && f != -1)
+//				size = size - data->instrs[ind_instr].sum_size;
+//			if (g_op_tab[code_op -1].tdir_size == 0)
+//				sz_dir = 3;
+			write_code_dir(size, args[i].type, fd, g_op_tab[code_op -1].tdir_size);
+			ft_printf(RED"%d\n"EOC, size);
+//			ft_putchar_fd(size, fd);
 		}
 		i++;
 	}
@@ -209,11 +222,13 @@ void 	writing_instrs_to_fd(t_data *data, int fd)
 	code_op = 0;
 	while (i < data->instr_num) //i < data->instr_num
 	{
+		ft_printf(PURPLE"INSTR = %s\n", data->instrs[i].name);
 		code_op = code_operation(data->instrs[i].name);
 		ft_putchar_fd(code_op, fd);
 		if (g_op_tab[code_op - 1].bit_type == 1)
 			ft_putchar_fd(code_args(data->instrs[i].args), fd);
 		writing_args_to_fd(data, i, code_op, fd);
+		ft_printf("i = %d\n", i);
 		i++;
 	}
 
@@ -234,7 +249,6 @@ int 	writing_to_file(t_data *data, int fd)
 	write_size_fd(data->file_size, fd);
 	writing_header_to_file(data->header->comment, COMMENT_LENGTH + 1, fd, 1);
 	writing_instrs_to_fd(data, fd);
-
 	//CHAMP_MAX_SIZE
 	return (0);
 }
