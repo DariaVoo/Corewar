@@ -4,8 +4,10 @@
 char		*ft_parse_label(char *split, int *i)
 {
 	char	**labels;
+	char	*label;
 
 	labels = NULL;
+	label = NULL;
 	skip_spaces(split, i);
 	labels = ft_strsplit(&split[*i], LABEL_CHAR);
 	if (labels != NULL)
@@ -18,10 +20,19 @@ char		*ft_parse_label(char *split, int *i)
 			if (split[*i] && split[*i] == ':')
 			{
 				(*i)++;
-				return labels[0];
+				label = ft_strdup(labels[0]);
+				free_massiv(labels);
+				return (label);
 			}
 			else
+			{
+				free_massiv(labels);
 				return NULL;
+			}
+		}
+		else
+		{
+			free_massiv(labels);
 		}
 	}
 	//по сути этого случая не может быть так как проверка на label char есть раньше

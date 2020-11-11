@@ -31,7 +31,9 @@ void	parse_direct(char *arg, t_data *data, int num_arg)
 			if (arg[0] == DIRECT_CHAR && arg[1] == LABEL_CHAR)
 			{
 				if (ft_strstr(data->all_labels, &arg[2]) != 0)
+				{
 					data->instrs[data->instr_num].args[num_arg].label = ft_strdup(&arg[2]);
+				}
 				else
 					ft_exit("NO SUCH LABEL"); //ДОПИСАТЬ ВЫВОД ОШИБКИ
 			}
@@ -123,6 +125,7 @@ void ft_parse_args(char *split, int *i, t_data *data)
 	else if (j == INVALID_TYPE)
 		free_close_fd_put_error("Invalid type of args", split, data, *i);
 
+	free_massiv(args);
 
 	//парсим аргументы, а потом их валидируем
 	//аргументы можно спарсить в массив из трех элементов
