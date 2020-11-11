@@ -28,7 +28,7 @@ void		arena_print(uint8_t *arena)
 			ft_printf("%.2x", (0xff & arena[i]));
 		else
 			ft_printf("%.2x", (0xff & arena[i]));
-		if (i % 2 != 0)
+		// if (i % 2 != 0)
 			ft_putstr(" ");
 		if ((i + 1) % 64 == 0 && i != 0)
 			ft_putstr("\n");

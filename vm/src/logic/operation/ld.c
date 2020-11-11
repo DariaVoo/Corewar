@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ld.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 15:54:42 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/10 23:29:20 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/11 17:48:33 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		op_ld(uint8_t *arena, t_carriage *carriage)
 	{
 		if (args[i].type == IND_CODE)
 		{
-			address = carriage->program_counter + args[i].value % IDX_MOD;
+			address = (carriage->program_counter + args[i].value % IDX_MOD) % MEM_SIZE;
 			args[i].value = *(arena + address + (address > 0 ? 0 : MEM_SIZE));
 		}
 		i++;

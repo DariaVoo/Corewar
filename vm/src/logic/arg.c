@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arg.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 20:50:52 by dima              #+#    #+#             */
-/*   Updated: 2020/11/11 03:25:37 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/11 20:04:10 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int32_t	ft_size(int32_t code,  uint8_t tdir_size)
 	return (0);
 }
 
-int32_t		get_arg(uint8_t *ptr, uint8_t type, t_op params)
+int32_t		get_arg(uint8_t *arena, int16_t address, uint8_t type, t_op params)
 {
 	int32_t	arg;
 	int32_t	i;
@@ -54,10 +54,9 @@ int32_t		get_arg(uint8_t *ptr, uint8_t type, t_op params)
 	}
 	else if ((size = ft_size(type, params.tdir_size)) == 0)
 		kek(1);
-	ft_printf("size %d\n", size);
 	while (i < size)
 	{
-		arg |= *(ptr + i);
+		arg |= *(arena + (address + i) % MEM_SIZE);
 		if (i != size - 1)
 			arg = arg << CHAR_BIT;
 		i++;
@@ -67,32 +66,47 @@ int32_t		get_arg(uint8_t *ptr, uint8_t type, t_op params)
 	return (arg);
 }
 
+int32_t		arguments(t_arg *args, uint8_t *arena, int32_t pc, t_op param)
+{
+	int32_t		i;
+	int16_t		address;
+	int32_t		shift;
+
+	i = 0;
+	address = pc + OPCODE_SIZE;
+	shift = param.bit_type;
+	while (i < param.col_args)
+	{
+		args[i].type = *(arena + address % MEM_SIZE);
+		args[i].type = (args[i].type >> (CHAR_BIT - (i + 1) * 2)) & THR_BITS;
+		args[i].value = get_arg(arena, address + shift, args[i].type, param);
+		if (kek(3) == 1)
+			return (0);
+		shift += ft_size(args[i].type, param.tdir_size);
+		ft_printf("args [%d] = %d\n", i , shift);
+		i++;
+	}
+	return (shift);
+}
+
 int32_t		get_args(t_arg *args, uint8_t *arena, t_carriage *carriage, t_op *g_optab)
 {
 	int32_t i;
 	int32_t	shift;
 	uint8_t	*ptr;
-	t_op	params;
+	t_op	param;
 
-	params = g_optab[carriage->opcode - 1];
-	ptr = arena + carriage->program_counter + OPCODE_SIZE;
-	shift = params.bit_type;
-	i = 0;
-	while (i < params.col_args)
+	param = g_optab[carriage->opcode - 1];
+	shift = arguments(args, arena, carriage->program_counter, param);
+	ft_printf("args: %d %d %d\n", args[FIRST].value, args[SECOND].value, args[THIRD].value);
+	if (param.bit_type == 0)
 	{
-		args[i].type = (*ptr >> (CHAR_BIT - (i + 1) * 2)) & THR_BITS;
-		args[i].value = get_arg(ptr + shift, args[i].type, params);
-		if (kek(3) == 1)
-			return (0);
-		shift += ft_size(args[i].type, params.tdir_size);
-		i++;
+		shift = (param.type_arg[0] == T_REG) ? REG_SIZE_BYTE : shift;
+		shift = (param.type_arg[0] == T_IND) ? IND_SIZE_BYTE : shift;
+		shift = (param.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE - 2 * param.tdir_size : shift;
 	}
-	if (params.bit_type == 0)
-	{
-		shift = (params.type_arg[0] == T_REG) ? REG_SIZE_BYTE : shift;
-		shift = (params.type_arg[0] == T_IND) ? IND_SIZE_BYTE : shift;
-		shift = (params.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE : shift;
-	}
+	if (shift == 0)
+		return (0);
 	return (shift);
 }
 
@@ -114,7 +128,7 @@ void	take_args(uint8_t *arena, t_carriage *carriage, int32_t num_arg)
 			address = carriage->program_counter + args[i].value % IDX_MOD;
 			address = address < 0 ? MEM_SIZE + address : address;
 			// Читаем 4 байта. Это костыль, чтою меньше функций юзать
-			args[i].value = get_arg(arena + address, DIR_CODE, g_optab[0]);
+			args[i].value = get_arg(arena, address, DIR_CODE, g_optab[0]);
 			ft_printf("address = %d\n", *(arena + address));
 		}
 		else if (args[i].type == DIR_CODE && i != num_arg)

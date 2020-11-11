@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ldi.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 16:16:00 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/10 23:29:52 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/11 17:33:59 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int		op_ldi(uint8_t *arena, t_carriage *carriage)
 	take_args(arena, carriage, THIRD);
 	address = carriage->program_counter + (args[FIRST].value + args[SECOND].value) % IDX_MOD;
 	address = address < 0 ? MEM_SIZE + address : address;
-	regs[args[THIRD].value - 1] = get_arg(arena + address, REG_CODE, g_optab[carriage->opcode - 1]);
+	regs[args[THIRD].value - 1] = get_arg(arena, address, REG_CODE, g_optab[carriage->opcode - 1]);
 	return (shift);
 }

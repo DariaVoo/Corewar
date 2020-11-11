@@ -55,7 +55,9 @@ SRC_PARSE = parse_args \
 SRC_PARSE := $(addsuffix .c, $(SRC_PARSE))
 
 SRC_LOGIC = operation \
-			op
+			op \
+			arg
+
 SRC_LOGIC := $(addsuffix .c, $(SRC_LOGIC))
 
 SRC_LOGIC_OP = ld \
@@ -71,7 +73,9 @@ SRC_LOGIC_OP = ld \
 				sti \
 				fork \
 				lld \
-				lldi
+				lldi \
+				lfork \
+				aff
 				
 SRC_LOGIC_OP := $(addsuffix .c, $(SRC_LOGIC_OP))
 

@@ -1,8 +1,8 @@
 .name    "Back"
 .comment "sebc"
 
-	live %1
-	sti	r1, 1 , %0
+	live	%1
+	sti	r1, 1, %0
 	ld	%4, r3
 l1:	live	%1
 	ld	%:l1, r2

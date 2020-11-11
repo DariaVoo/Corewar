@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/11 03:22:01 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/11 17:29:41 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct				s_carriage
 {
 	int32_t					regs[REG_NUMBER];
 	uint16_t				cycle_to_die;
-	int						program_counter;
+	int16_t					program_counter;
 	int						live;
 	int						carry;
 	struct s_arg			*args;
@@ -147,7 +147,7 @@ void				visualisation();
 
 /* ARGS */
 int32_t				get_args(t_arg *args, uint8_t *arena, t_carriage *carriage, t_op *g_optab);
-int32_t				get_arg(uint8_t *ptr, uint8_t type, t_op params);
+int32_t				get_arg(uint8_t *arena, int16_t address, uint8_t type, t_op params);
 void				take_args(uint8_t *arena, t_carriage *carriage, int32_t num_arg);
 
 /* OPERATION */
