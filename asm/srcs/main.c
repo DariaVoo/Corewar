@@ -44,7 +44,6 @@ int		main(int ac, char **av)
 
     // ЗАПИСАТЬ В СОЗДАННЫЙ ФАЙЛ
     writing_to_file(&all_data, fd);
-
     // ОБРАБОТКА ФЛАГОВ
     if ((ac - 1) > 1)
         ft_check_flags(&av, ac - 1);
