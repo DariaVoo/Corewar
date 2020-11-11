@@ -48,10 +48,10 @@ typedef struct s_arg
 	int size; //размер аргумента (2 или 4) нужен для получения значения
 	int value; //значение, для label рассчитывается при ВТОРОМ проходе
 	int arg_number; //порядковый номер аргумента, возможно, не нужен, но может пригодиться для валидации
-	int instr_num_curr; //порядковый номер текущей инструкции
-	int instr_num_to_go; //порядковый номер инструкции, к которой нужно перескачить (сложить размеры инструкций между двумя значениями)
-	int bc;
-	int id_label;
+//	int instr_num_curr; //порядковый номер текущей инструкции
+//	int instr_num_to_go; //порядковый номер инструкции, к которой нужно перескачить (сложить размеры инструкций между двумя значениями)
+//	int bc;
+//	int id_label;
 }              t_arg;
 
 /* Алгоритм
@@ -74,25 +74,25 @@ int		check_label(char *label);
 # define CH_STR 26
 
 // VP
-typedef struct	s_flags
-{
-	int		aff; //print source file (-a in original asm for refenece)
-	int		help; //print help (usage analog)
-	int		joke; //print random joke from defined jokes
-}				t_flags;
+//typedef struct	s_flags
+//{
+//	int		aff; //print source file (-a in original asm for refenece)
+//	int		help; //print help (usage analog)
+//	int		joke; //print random joke from defined jokes
+//}				t_flags;
 
 //инструкции, данные в задании (Операции и их аргументы)
 typedef struct s_instr
 {
     char *name; //название инструкции
-    int bc; //байткод, но надо подумать в чем его хранить (код операции)
+//    int bc; //байткод, но надо подумать в чем его хранить (код операции)
     int id; //id инструкции и связующее звено между массивом считываемых инструкций и данной структуры
 	int		size;
     //здесь нужно прописать возможный размер, количество аргументов и тп, все то, что дано в таблице
-	char	arguments[3];
-
-	int		labels_id[3]; // ИЛИ ВСЕ-ТАКИ 3?
-    int num_args; // КОЛ-ВО АРГУМЕНТОВ
+//	char	arguments[3];
+//
+//	int		labels_id[3]; // ИЛИ ВСЕ-ТАКИ 3?
+//    int num_args; // КОЛ-ВО АРГУМЕНТОВ
 
 	t_arg args[3];
 	char *label;
@@ -128,7 +128,7 @@ typedef struct s_data
 	// char		*comment;
     //либо t_header;
 
-	int			*instructions;
+//	int			*instructions;
 	t_label		*label;
     t_header    *header;
 
@@ -169,7 +169,6 @@ int		get_number_of_lines(char *str, t_data *data);
 /*
  ** init functions
  */
-// void    ft_init_structs(t_header *header, t_body *body);
 void	ft_init_structs(t_data *data, int instr_num);
 
 /*
@@ -182,8 +181,6 @@ int		ft_is_comment(char *str);
  ** parse functions
  */
 int     ft_parse_header(t_header *header, char *line, int num_line);
-// void    ft_parse_body(char **split, int i, int all_lines);
-// NEW LEAF
 void    ft_read_file(t_data *data);
 void	ft_parse_body(char *str, t_data *data);
 char	*ft_parse_label(char *split, int *i);
@@ -208,6 +205,7 @@ int 	valid_args(t_data *data);
  ** free_functions
  */
 void	free_massiv(char **massiv);
+void	free_data(t_data *data);
 
 /*
 ** write funcs

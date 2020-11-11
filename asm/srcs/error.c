@@ -50,5 +50,9 @@ void	ft_error_length(int f)
 
 void	free_close_fd_put_error(char *err, char *line, t_data *data, int ind_str)
 {
-	ft_error(err, line, data->line_count, ind_str);
+	int line_count;
+
+	line_count = data->line_count;
+	free(data);
+	ft_error(err, line, line_count , ind_str);
 }

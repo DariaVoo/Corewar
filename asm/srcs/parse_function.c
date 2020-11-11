@@ -29,10 +29,12 @@ char		*split_and_get_function_name(char *split, char split_char, t_data *data)
 		function = ft_strsplit(split, split_char);
 	if (function != NULL && function[0] != NULL && check_valid_function(function[0], data))
 	{
-		name = ft_strdup(ft_strtrim(function[0]));
+		name = ft_strtrim(function[0]);
 		free_massiv(function);
 		return (name);
 	}
+	if (function != NULL)
+		free_massiv(function);
 	return NULL;
 }
 

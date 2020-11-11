@@ -82,5 +82,6 @@ int		main(int ac, char **av)
 	// ft_parse_body(split, i, 1000);
 	// ft_create_body
     ft_printf("FINISH\n");
+    free_data(&all_data);
 	return (0);
 }
