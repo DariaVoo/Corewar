@@ -87,8 +87,6 @@ int 	writing_header_to_file(char *str, int size, int fd, int f)
 	int		i;
 
 	i = 0;
-	if (f == 1)
-		size += 3;
 	while (str[i] != '\0') {
 		ft_putchar_fd(str[i], fd);
 		i++;
