@@ -57,7 +57,7 @@ void parse_indirect(char *arg, t_data *data, int num_arg)
 {
 	int number;
 
-	if (ft_isdigit(arg[0]))
+	if (ft_isdigit(arg[0]) || arg[0] == '+' || arg[0] == '-')
 	{
 		data->instrs[data->instr_num].args[num_arg].type = T_IND;
 		if (ft_is_number(arg))
@@ -70,6 +70,16 @@ void parse_indirect(char *arg, t_data *data, int num_arg)
 			//аргумент не является числом
 			free_close_fd_put_error("Invalid indirect arg, it is not a number", data->split, data, (*data->symbol_number));
 		}
+	}
+	else if (arg[0] == LABEL_CHAR)
+	{
+		if (ft_strstr(data->all_labels, &arg[1]) != 0)
+		{
+			data->instrs[data->instr_num].args[num_arg].type = T_IND;
+			data->instrs[data->instr_num].args[num_arg].label = ft_strdup(&arg[1]);
+		}
+		else
+			ft_exit("NO SUCH LABEL"); //ДОПИСАТЬ ВЫВОД ОШИБКИ
 	}
 }
 
