@@ -103,6 +103,7 @@ void		game(t_vm *vm)
 	}
 	// debug_print_carriage(vm);
 	int i = 0;
+	int flag = 0;
 	// операция выполняется позднее, чем в оригинале (перед sti была только одна функции)
 	while (i > -1)
 	{
@@ -112,7 +113,10 @@ void		game(t_vm *vm)
 			if (carriage->cycle_to_die == 0)
 			{
 				if (execute_oper(arena, carriage) == 0)
-					exit(0);
+				{
+					flag = -1;
+					break;
+				}
 				load_oper(arena, carriage);
 			}
 			else
@@ -121,12 +125,14 @@ void		game(t_vm *vm)
 			}
 			carriage = carriage->next;
 		}
+		if (flag == -1)
+			break;
 		ft_printf("cycle = %d\n", i);
 		debug_print_carriage(vm);
-		arena_print(vm->arena);
 		// int l;
 		// scanf("%d", &l);
 		i++;
 	}
+		// arena_print(vm->arena);
 	arena_print(vm->arena);
 }

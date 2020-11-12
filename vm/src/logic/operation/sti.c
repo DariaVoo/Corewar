@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sti.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:04:57 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/11 03:01:04 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/12 23:45:42 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			op_sti(uint8_t *arena, t_carriage *carriage)
 	t_arg		*args;
 	int32_t		*regs;
 	int32_t		address;
-	int32_t		i;
+	int			i;
 	extern t_op	g_optab[17];
 
 	args = carriage->args;
@@ -26,6 +26,7 @@ int			op_sti(uint8_t *arena, t_carriage *carriage)
 	shift = get_args(args, arena, carriage, g_optab);
 	if (shift == 0)
 		return (0);
+	ft_printf("carriage = %d\n", carriage->regs[0]);
 	ft_printf("args: %d %d %d\n", args[FIRST].value, args[SECOND].value, args[THIRD].value);
 	take_args(arena, carriage, FIRST);
 	ft_printf("args: %d %d %d\n", args[FIRST].value, args[SECOND].value, args[THIRD].value);

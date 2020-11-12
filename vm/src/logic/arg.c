@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 20:50:52 by dima              #+#    #+#             */
-/*   Updated: 2020/11/11 20:04:10 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/12 21:51:13 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int32_t		arguments(t_arg *args, uint8_t *arena, int32_t pc, t_op param)
 		if (kek(3) == 1)
 			return (0);
 		shift += ft_size(args[i].type, param.tdir_size);
-		ft_printf("args [%d] = %d\n", i , shift);
 		i++;
 	}
 	return (shift);
@@ -91,14 +90,11 @@ int32_t		arguments(t_arg *args, uint8_t *arena, int32_t pc, t_op param)
 
 int32_t		get_args(t_arg *args, uint8_t *arena, t_carriage *carriage, t_op *g_optab)
 {
-	int32_t i;
 	int32_t	shift;
-	uint8_t	*ptr;
 	t_op	param;
 
 	param = g_optab[carriage->opcode - 1];
 	shift = arguments(args, arena, carriage->program_counter, param);
-	ft_printf("args: %d %d %d\n", args[FIRST].value, args[SECOND].value, args[THIRD].value);
 	if (param.bit_type == 0)
 	{
 		shift = (param.type_arg[0] == T_REG) ? REG_SIZE_BYTE : shift;
@@ -110,7 +106,7 @@ int32_t		get_args(t_arg *args, uint8_t *arena, t_carriage *carriage, t_op *g_opt
 	return (shift);
 }
 
-void	take_args(uint8_t *arena, t_carriage *carriage, int32_t num_arg)
+t_arg	*take_args(uint8_t *arena, t_carriage *carriage, int32_t num_arg)
 {
 	int32_t		i;
 	int32_t		address;
@@ -121,18 +117,16 @@ void	take_args(uint8_t *arena, t_carriage *carriage, int32_t num_arg)
 	args = carriage->args;
 	while (i < MAX_ARGS)
 	{
-		if (args[i].type == REG_CODE && i != num_arg)
+		if (args[i].type == REG_CODE && i != num_arg){
 			args[i].value = carriage->regs[args[i].value - 1];
+		}
 		else if (args[i].type == IND_CODE && i != num_arg)
 		{
 			address = carriage->program_counter + args[i].value % IDX_MOD;
 			address = address < 0 ? MEM_SIZE + address : address;
-			// Читаем 4 байта. Это костыль, чтою меньше функций юзать
 			args[i].value = get_arg(arena, address, DIR_CODE, g_optab[0]);
-			ft_printf("address = %d\n", *(arena + address));
 		}
-		else if (args[i].type == DIR_CODE && i != num_arg)
-			args[i].value = args[i].value;
 		i++;
 	}
+	return (args);
 }
