@@ -55,8 +55,8 @@ void	ft_parse_body(char *str_init, t_data *data)
 			data->instrs[data->instr_num].label = label;
 		}
 		//если лейбл есть пушим в конец структуры лейблов
-		//		if (body.label != NULL)
-		//			push_back(labels, label);
+		//        if (body.label != NULL)
+		//            push_back(labels, label);
 		//если есть лейбл то пропускаем пробелы до функции
 	}
 	go_to_start_if_label_in_arg(str, &symbol_number, data);
