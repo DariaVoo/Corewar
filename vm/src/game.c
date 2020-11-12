@@ -105,7 +105,7 @@ void		game(t_vm *vm)
 	int i = 0;
 	int flag = 0;
 	// операция выполняется позднее, чем в оригинале (перед sti была только одна функции)
-	while (i > -1)
+	while (i < 139)
 	{
 		carriage = vm->carriage;
 		while (carriage)
