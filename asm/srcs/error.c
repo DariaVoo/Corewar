@@ -53,6 +53,6 @@ void	free_close_fd_put_error(char *err, char *line, t_data *data, int ind_str)
 	int line_count;
 
 	line_count = data->line_count;
-	free(data);
+	free_data(data);
 	ft_error(err, line, line_count , ind_str);
 }
