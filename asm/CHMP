@@ -1,0 +1,5677 @@
+START: Car.s
+3
+----instr_number---- 0
+label = '(null)', name = 'fork', id = '0', id_instr = '11', size = '3'
+arg_number = '0', type = '2', label = 'label00', value = '0'
+arg_number = '0', type = '0', label = '(null)', value = '0'
+arg_number = '0', type = '0', label = '(null)', value = '0'
+----instr_number---- 1
+label = '(null)', name = 'ld', id = '1', id_instr = '1', size = '7'
+arg_number = '0', type = '2', label = '(null)', value = '-272'
+arg_number = '1', type = '1', label = '(null)', value = '3'
+arg_number = '0', type = '0', label = '(null)', value = '0'
+----instr_number---- 2
+label = '(null)', name = 'live', id = '2', id_instr = '0', size = '5'
+arg_number = '0', type = '2', label = '(null)', value = '0'
+arg_number = '0', type = '0', label = '(null)', value = '0'
+arg_number = '0', type = '0', label = '(null)', value = '0'
+[35;1m______SUM INSTRS______
+[0mname = fork | label = (null) | sum = 3
+name = ld | label = (null) | sum = 10
+name = live | label = (null) | sum = 15
+name = fork | label = (null) | sum = 18
+name = ld | label = (null) | sum = 25
+name = fork | label = (null) | sum = 28
+name = ld | label = (null) | sum = 35
+name = ld | label = (null) | sum = 42
+name = zjmp | label = (null) | sum = 45
+name = ld | label = label02 | sum = 52
+name = ld | label = (null) | sum = 59
+name = zjmp | label = (null) | sum = 62
+name = ld | label = label01 | sum = 69
+name = fork | label = (null) | sum = 72
+name = ld | label = (null) | sum = 79
+name = ld | label = (null) | sum = 86
+name = zjmp | label = (null) | sum = 89
+name = ld | label = label04 | sum = 96
+name = ld | label = (null) | sum = 103
+name = zjmp | label = (null) | sum = 106
+name = ld | label = label00 | sum = 113
+name = live | label = (null) | sum = 118
+name = fork | label = (null) | sum = 121
+name = fork | label = (null) | sum = 124
+name = ld | label = (null) | sum = 131
+name = ld | label = (null) | sum = 138
+name = zjmp | label = (null) | sum = 141
+name = ld | label = label07 | sum = 148
+name = ld | label = (null) | sum = 155
+name = zjmp | label = (null) | sum = 158
+name = fork | label = label06 | sum = 161
+name = ld | label = (null) | sum = 168
+name = zjmp | label = (null) | sum = 171
+name = ld | label = label09 | sum = 178
+name = zjmp | label = (null) | sum = 181
+name = ldi | label = label03 | sum = 187
+name = ld | label = (null) | sum = 194
+name = live | label = (null) | sum = 199
+name = sti | label = label12 | sum = 204
+name = zjmp | label = (null) | sum = 207
+name = ldi | label = label08 | sum = 213
+name = ld | label = (null) | sum = 220
+name = live | label = (null) | sum = 225
+name = sti | label = label13 | sum = 230
+name = zjmp | label = (null) | sum = 233
+name = ldi | label = label05 | sum = 239
+name = ld | label = (null) | sum = 246
+name = live | label = (null) | sum = 251
+name = sti | label = label14 | sum = 256
+name = zjmp | label = (null) | sum = 259
+name = live | label = label10 | sum = 264
+name = fork | label = (null) | sum = 267
+name = zjmp | label = (null) | sum = 270
+name = live | label = label11 | sum = 275
+name = fork | label = (null) | sum = 278
+name = zjmp | label = (null) | sum = 281
+[35;1m----------------------
+[0m[35;1mINSTR = fork
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0m[32mcurrent_size = 0 | instrs[i - 1].sum_size = 106 | size = 106
+[0margs = 106
+buf = 0
+buf = 106
+KEK
+[31m106
+[0mi = 0
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 240
+buf = -1
+buf = -1
+buf = -2
+buf = -16
+KEK
+[31m-272
+[0mi = 1
+[35;1mINSTR = live
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 2
+[35;1mINSTR = fork
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0m[32mcurrent_size = 15 | instrs[i - 1].sum_size = 62 | size = 47
+[0margs = 47
+buf = 0
+buf = 47
+KEK
+[31m47
+[0mi = 3
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 240
+buf = -1
+buf = -1
+buf = -2
+buf = -16
+KEK
+[31m-272
+[0mi = 4
+[35;1mINSTR = fork
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0m[32mcurrent_size = 25 | instrs[i - 1].sum_size = 45 | size = 20
+[0margs = 20
+buf = 0
+buf = 20
+KEK
+[31m20
+[0mi = 5
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 6
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 7
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0m[32mcurrent_size = 42 | instrs[i - 1].sum_size = 181 | size = 139
+[0margs = 139
+buf = 0
+buf = -117
+KEK
+[31m139
+[0mi = 8
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 4
+buf = 0
+buf = 0
+buf = 0
+buf = 4
+KEK
+[31m4
+[0mi = 9
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 10
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0m[32mcurrent_size = 59 | instrs[i - 1].sum_size = 181 | size = 122
+[0margs = 122
+buf = 0
+buf = 122
+KEK
+[31m122
+[0mi = 11
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 54
+buf = -1
+buf = -1
+buf = -1
+buf = 54
+KEK
+[31m-202
+[0mi = 12
+[35;1mINSTR = fork
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0m[32mcurrent_size = 69 | instrs[i - 1].sum_size = 89 | size = 20
+[0margs = 20
+buf = 0
+buf = 20
+KEK
+[31m20
+[0mi = 13
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 14
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 15
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0m[32mcurrent_size = 86 | instrs[i - 1].sum_size = 233 | size = 147
+[0margs = 147
+buf = 0
+buf = -109
+KEK
+[31m147
+[0mi = 16
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 4
+buf = 0
+buf = 0
+buf = 0
+buf = 4
+KEK
+[31m4
+[0mi = 17
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 18
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0m[32mcurrent_size = 103 | instrs[i - 1].sum_size = 233 | size = 130
+[0margs = 130
+buf = 0
+buf = -126
+KEK
+[31m130
+[0mi = 19
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 144
+buf = 0
+buf = 0
+buf = 1
+buf = -112
+KEK
+[31m400
+[0mi = 20
+[35;1mINSTR = live
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 21
+[35;1mINSTR = fork
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0m[32mcurrent_size = 118 | instrs[i - 1].sum_size = 158 | size = 40
+[0margs = 40
+buf = 0
+buf = 40
+KEK
+[31m40
+[0mi = 22
+[35;1mINSTR = fork
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0m[32mcurrent_size = 121 | instrs[i - 1].sum_size = 141 | size = 20
+[0margs = 20
+buf = 0
+buf = 20
+KEK
+[31m20
+[0mi = 23
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 24
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 25
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0m[32mcurrent_size = 138 | instrs[i - 1].sum_size = 207 | size = 69
+[0margs = 69
+buf = 0
+buf = 69
+KEK
+[31m69
+[0mi = 26
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 4
+buf = 0
+buf = 0
+buf = 0
+buf = 4
+KEK
+[31m4
+[0mi = 27
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 28
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0m[32mcurrent_size = 155 | instrs[i - 1].sum_size = 207 | size = 52
+[0margs = 52
+buf = 0
+buf = 52
+KEK
+[31m52
+[0mi = 29
+[35;1mINSTR = fork
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0m[32mcurrent_size = 158 | instrs[i - 1].sum_size = 171 | size = 13
+[0margs = 13
+buf = 0
+buf = 13
+KEK
+[31m13
+[0mi = 30
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 31
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0m[32mcurrent_size = 168 | instrs[i - 1].sum_size = 259 | size = 91
+[0margs = 91
+buf = 0
+buf = 91
+KEK
+[31m91
+[0mi = 32
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 33
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0m[32mcurrent_size = 178 | instrs[i - 1].sum_size = 270 | size = 92
+[0margs = 92
+buf = 0
+buf = 92
+KEK
+[31m92
+[0mi = 34
+[35;1mINSTR = ldi
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0m[32mcurrent_size = 181 | instrs[i - 1].sum_size = 199 | size = 18
+[0margs = 18
+buf = 0
+buf = 18
+KEK
+[31m18
+[0mi = 35
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 36
+[35;1mINSTR = live
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 1
+buf = 0
+buf = 0
+buf = 0
+buf = 1
+KEK
+[31m1
+[0mi = 37
+[35;1mINSTR = sti
+i = 38
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 235
+buf = -2
+buf = -21
+KEK
+[31m-277
+[0mi = 39
+[35;1mINSTR = ldi
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0m[32mcurrent_size = 207 | instrs[i - 1].sum_size = 225 | size = 18
+[0margs = 18
+buf = 0
+buf = 18
+KEK
+[31m18
+[0mi = 40
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 41
+[35;1mINSTR = live
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 1
+buf = 0
+buf = 0
+buf = 0
+buf = 1
+KEK
+[31m1
+[0mi = 42
+[35;1mINSTR = sti
+i = 43
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 139
+buf = 1
+buf = -117
+KEK
+[31m395
+[0mi = 44
+[35;1mINSTR = ldi
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0m[32mcurrent_size = 233 | instrs[i - 1].sum_size = 251 | size = 18
+[0margs = 18
+buf = 0
+buf = 18
+KEK
+[31m18
+[0mi = 45
+[35;1mINSTR = ld
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 0
+buf = 0
+buf = 0
+buf = 0
+buf = 0
+KEK
+[31m0
+[0mi = 46
+[35;1mINSTR = live
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 1
+buf = 0
+buf = 0
+buf = 0
+buf = 1
+KEK
+[31m1
+[0mi = 47
+[35;1mINSTR = sti
+i = 48
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 49
+buf = -1
+buf = 49
+KEK
+[31m-207
+[0mi = 49
+[35;1mINSTR = live
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 1
+buf = 0
+buf = 0
+buf = 0
+buf = 1
+KEK
+[31m1
+[0mi = 50
+[35;1mINSTR = fork
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0m[32mcurrent_size = 264 | instrs[i - 1].sum_size = 259 | size = -5
+[0margs = 251
+buf = -1
+buf = -5
+KEK
+[31m-5
+[0mi = 51
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0m[32mcurrent_size = 267 | instrs[i - 1].sum_size = 259 | size = -8
+[0margs = 248
+buf = -1
+buf = -8
+KEK
+[31m-8
+[0mi = 52
+[35;1mINSTR = live
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+args = 1
+buf = 0
+buf = 0
+buf = 0
+buf = 1
+KEK
+[31m1
+[0mi = 53
+[35;1mINSTR = fork
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0m[32mcurrent_size = 275 | instrs[i - 1].sum_size = 270 | size = -5
+[0margs = 251
+buf = -1
+buf = -5
+KEK
+[31m-5
+[0mi = 54
+[35;1mINSTR = zjmp
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label02
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label01
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label04
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label00
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label07
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label06
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label09
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label03
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label12
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label08
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label13
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label05
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label14
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label10
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = (null)
+[0mlol
+[33mlabel = label11
+[0m[32mcurrent_size = 278 | instrs[i - 1].sum_size = 270 | size = -8
+[0margs = 248
+buf = -1
+buf = -8
+KEK
+[31m-8
+[0mi = 55
+FINISH
