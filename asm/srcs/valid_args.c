@@ -1,5 +1,4 @@
 #include "asm.h"
-#include "../libft/includes/libftprintf.h"
 
 int		valid_args(t_data *data)
 {

@@ -30,6 +30,7 @@ void	free_data(t_data *data)
 		free(data->header);
 	while(i < all_instrs)
 	{
+		j = 0;
 		if (data->instrs[i].name != NULL)
 			ft_strdel(&data->instrs[i].name);
 		if (data->instrs[i].label != NULL)

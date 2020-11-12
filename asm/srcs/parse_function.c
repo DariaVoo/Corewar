@@ -1,5 +1,4 @@
 #include "asm.h"
-#include "../libft/includes/libftprintf.h"
 
 int		check_valid_function(char *func, t_data *data)
 {
@@ -45,6 +44,8 @@ char		*ft_get_function_name(char *split, int *i, t_data *data)
 	name = NULL;
 	skip_spaces(split, i);
 	name = split_and_get_function_name(&split[*i], ' ', data);//посмотреть будет ли работать если конец строки
+	if (name == NULL)
+		name = split_and_get_function_name(&split[*i], '\t', data);
 	if (name == NULL && ft_strchr(split, DIRECT_CHAR))
 		name = split_and_get_function_name(&split[*i], DIRECT_CHAR, data);
 	return (name);

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.15)
 project(asm C)
 
 set(CMAKE_C_STANDARD 11)
@@ -8,6 +8,7 @@ include_directories(libft/includes)
 
 add_executable(asm
         includes/asm.h
+        includes/error.h
         includes/op.h
         libft/includes/colors.h
         libft/includes/funfortypes.h
@@ -116,7 +117,27 @@ add_executable(asm
         libft/srcs/ft_printf/type_color.c
         libft/srcs/ft_printf/type_unixtime.c
         libft/srcs/ft_printf/unixtime.c
+        srcs/check.c
+        srcs/check_data.c
         srcs/check_label.c
+        srcs/cor_file.c
+        srcs/count_size.c
+        srcs/empty_now.c
+        srcs/error.c
+        srcs/free_functions.c
+        srcs/init.c
+        srcs/init_structs.c
         srcs/main.c
+        srcs/op.c
+        srcs/parse.c
+        srcs/parse_args.c
         srcs/parse_body.c
-        srcs/parse_champion.c)
+        srcs/parse_body_p.c
+        srcs/parse_champion.c
+        srcs/parse_function.c
+        srcs/parse_header.c
+        srcs/parse_label.c
+        srcs/read_file.c
+        srcs/utils.c
+        srcs/valid_args.c
+        srcs/writing_to_file.c)
