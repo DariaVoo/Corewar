@@ -45,6 +45,10 @@ void	free_data(t_data *data)
 	}
 	if (data->split != NULL)
 		free(data->split);
+	if (data->all_labels != NULL)
+		free(data->all_labels);
+	if (data->label != NULL)
+		free(data->label);
 	if (data->instrs != NULL)
 		free(data->instrs);
 

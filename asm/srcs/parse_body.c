@@ -22,7 +22,7 @@ void	skip_comment(char *str_init, char **str)
 		free_massiv(str_lines);
 	}
 	else
-		*str = str_init;
+		*str = ft_strdup(str_init);
 }
 
 void	go_to_start_if_label_in_arg(char *str, int *symbol_number, t_data *data)
