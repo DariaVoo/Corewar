@@ -85,6 +85,7 @@ void	ft_parse_body(char *str_init, t_data *data)
 
 	skip_comment(str_init, &str);
 	symbol_number = 0;
+	data->instrs[data->instr_num].sum_size = 0;
 	data->instrs[data->instr_num].id = data->instr_num;
 	data->symbol_number = &symbol_number;
 	data->split = str_init;
@@ -99,11 +100,11 @@ void	ft_parse_body(char *str_init, t_data *data)
 	ft_parse_function(str, &symbol_number, data);
 	ft_parse_args(str, &symbol_number, data);
 	ft_count_size(data);
-	if (data->instr_num < 3)
-	{
-//		ft_printf("----instr_number---- %d\nlabels = '%s', label = '%s', name = '%s', id = '%d', id_instr = '%d', size = '%d'\n", data->instr_num, get_label_string(data->instrs[data->instr_num].labels), data->instrs[data->instr_num].label, data->instrs[data->instr_num].name, data->instrs[data->instr_num].id, data->instrs[data->instr_num].id_instr, data->instrs[data->instr_num].size);
-//		print_args_struct(data->instrs[data->instr_num].args);
-	}
+//	if (data->instr_num < 3)
+//	{
+		ft_printf("----instr_number---- %d\nlabels = '%s', label = '%s', name = '%s', id = '%d', id_instr = '%d', size = '%d'\n", data->instr_num, get_label_string(data->instrs[data->instr_num].labels), data->instrs[data->instr_num].label, data->instrs[data->instr_num].name, data->instrs[data->instr_num].id, data->instrs[data->instr_num].id_instr, data->instrs[data->instr_num].size);
+		print_args_struct(data->instrs[data->instr_num].args);
+//	}
 	data->instr_num += 1;
 	ft_strdel(&str);
 }

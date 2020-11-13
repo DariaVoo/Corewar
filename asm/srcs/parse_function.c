@@ -22,7 +22,6 @@ char		*split_and_get_function_name(char *split, char split_char, t_data *data)
 	char 	**function;
 	char	*name;
 
-	name = NULL;
 	function = NULL;
 	if (split[0])
 		function = ft_strsplit(split, split_char);
@@ -41,7 +40,6 @@ char		*ft_get_function_name(char *split, int *i, t_data *data)
 {
 	char	*name;
 
-	name = NULL;
 	skip_spaces(split, i);
 	name = split_and_get_function_name(&split[*i], ' ', data);//посмотреть будет ли работать если конец строки
 	if (name == NULL)
