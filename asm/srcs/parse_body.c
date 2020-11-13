@@ -27,10 +27,19 @@ void print_args_struct(t_arg arg[3])
 
 void	skip_comment(char *str_init, char **str)
 {
-	*str = NULL;
+	char **str_lines;
+
+	str_lines = NULL;
+//	str = NULL;
 	if (ft_strchr(str_init, COMMENT_CHAR))
 	{
-		char **str_lines = ft_strsplit(str_init, COMMENT_CHAR);
+		str_lines = ft_strsplit(str_init, COMMENT_CHAR);
+		*str = ft_strdup(str_lines[0]);
+		free_massiv(str_lines);
+	}
+	else if (ft_strchr(str_init, ALT_COMMENT_CHAR))
+	{
+		str_lines = ft_strsplit(str_init, ALT_COMMENT_CHAR);
 		*str = ft_strdup(str_lines[0]);
 		free_massiv(str_lines);
 	}
@@ -47,46 +56,40 @@ void	go_to_start_if_label_in_arg(char *str, int *symbol_number, t_data *data)
 	}
 }
 
-
-void	ft_parse_body(char *str_init, t_data *data)
+void	ft_parse_label_init(char *str, t_data *data, int *symbol_number, char **label1)
 {
 	char	*label;
-	int 	symbol_number;
-	char	*str;
 
-	skip_comment(str_init, &str);
-	symbol_number = 0;
-	data->instrs[data->instr_num].id = data->instr_num;
-	data->symbol_number = &symbol_number;
-	data->split = str_init;
-	label = NULL;
 	if (ft_strchr(str, LABEL_CHAR))
 	{
-		label = ft_parse_label(str, &symbol_number);
-//		ft_printf("%s\n", label);
+		label = ft_parse_label(str, symbol_number);
+		*label1 = label;
 		if (label != NULL)
 		{
 			if (data->instrs[data->instr_num].label == NULL)
 			{
 				data->instrs[data->instr_num].label = label;
 				data->instrs[data->instr_num].labels = add_block(ft_strdup(label));
-
 			}
 			else
-			{
 				push_end(label, &data->instrs[data->instr_num].labels);
-			}
 		}
-//		if (data->instrs[data->instr_num].label == NULL)
-//		{
-//			data->instrs[data->instr_num].label = label;
-//			data->instrs[data->instr_num].labels = add_block(label);
-//		}
-		//если лейбл есть пушим в конец структуры лейблов
-		//        if (body.label != NULL)
-		//            push_back(labels, label);
-		//если есть лейбл то пропускаем пробелы до функции
 	}
+}
+
+void	ft_parse_body(char *str_init, t_data *data)
+{
+	int 	symbol_number;
+	char	*str;
+	char *label;
+
+	skip_comment(str_init, &str);
+	symbol_number = 0;
+	data->instrs[data->instr_num].id = data->instr_num;
+	data->symbol_number = &symbol_number;
+	data->split = str_init;
+	ft_parse_label_init(str, data, &symbol_number, &label);
+	skip_spaces(str, &symbol_number);
 	go_to_start_if_label_in_arg(str, &symbol_number, data);
 	if (str[symbol_number] == '\0')
 	{
