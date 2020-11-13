@@ -4,10 +4,10 @@ void print_args_struct(t_arg arg[3])
 {
 	int i = 0;
 	while(i < 3) {
-		ft_printf("arg_number = '%d', type = '%d', "
-				  "label = '%s', value = '%d'\n",
-				  arg[i].arg_number, arg[i].type, arg[i].label,
-				  arg[i].value);
+//		ft_printf("arg_number = '%d', type = '%d', "
+//				  "label = '%s', value = '%d'\n",
+//				  arg[i].arg_number, arg[i].type, arg[i].label,
+//				  arg[i].value);
 		i++;
 	}
 }
@@ -70,7 +70,7 @@ void	ft_parse_body(char *str_init, t_data *data)
 	ft_count_size(data);
 	if (data->instr_num < 3)
 	{
-		ft_printf("----instr_number---- %d\nlabel = '%s', name = '%s', id = '%d', id_instr = '%d', size = '%d'\n", data->instr_num, data->instrs[data->instr_num].label, data->instrs[data->instr_num].name, data->instrs[data->instr_num].id, data->instrs[data->instr_num].id_instr, data->instrs[data->instr_num].size);
+//		ft_printf("----instr_number---- %d\nlabel = '%s', name = '%s', id = '%d', id_instr = '%d', size = '%d'\n", data->instr_num, data->instrs[data->instr_num].label, data->instrs[data->instr_num].name, data->instrs[data->instr_num].id, data->instrs[data->instr_num].id_instr, data->instrs[data->instr_num].size);
 		print_args_struct(data->instrs[data->instr_num].args);
 	}
 	data->instr_num += 1;

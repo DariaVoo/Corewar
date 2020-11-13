@@ -14,18 +14,26 @@ int		main(int ac, char **av)
     if (ac == 1)
         ft_exit(USAGE);
     //all_data = 0;
-    all_data.all_labels = NULL;
-    ft_init_structs(&all_data, get_number_of_lines(av[ac-1], &all_data));
+    // ft_init_structs(&all_data, get_number_of_lines(av[ac-1], &all_data));
     
     ft_printf("START: %s\n", av[ac - 1]);
 
-    all_data.read_fd = open(av[ac - 1], O_RDONLY); // Должен быть 3 или больше (на открытие файла, ага)
-    ft_printf("%d\n", all_data.read_fd);
-    
+	ft_check_filename(av[ac - 1]); //проверка имени файла (заканчивается на .s)
+	if ((all_data.read_fd = open(av[ac - 1], O_RDONLY)) < 3)
+	{
+		close(all_data.read_fd);
+		ft_exit("Bad file read\n");
+	}
+	if (read(all_data.read_fd, NULL, 0) < 0)
+	{
+		close(all_data.read_fd);
+		ft_exit("Bad file read\n");
+	}  
+    ft_init_structs(&all_data, get_number_of_lines(&all_data));
 
     // ОБРАБОТКА ОШИБОК ОТКРЫТИЯ (НОМЕР ФД И КОЛ-ВО СЧИТАННЫХ БАЙТ)
-	if (all_data.read_fd < 3)
-		ft_exit("Bad file read");
+	// if (all_data.read_fd < 3)
+	// 	ft_exit("Bad file read");
 
     ft_read_file(&all_data);
     ft_check_all_data(&all_data);
@@ -33,7 +41,7 @@ int		main(int ac, char **av)
     
     // СОЗДАТЬ ФАЙЛ
     int fd;
-    if ((fd = open(ft_cor_extension(av[ac - 1]), O_RDWR | O_CREAT, 0666)) == -1)
+    if ((fd = open(ft_cor_extension(av[ac - 1]), O_RDWR | O_CREAT | O_TRUNC, 0666)) == -1)
         return (-1);
 
     // ОБРАБОТАТЬ ОШИБКИ СОЗДАНИЯ (НОМЕР ФД)

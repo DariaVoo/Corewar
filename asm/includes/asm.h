@@ -164,7 +164,7 @@ void    ft_close_fd(int a, int b);
 void 	skip_spaces(char *split, int *i);
 int		ft_is_number(char *name);
 int		massiv_len(char **args);
-int		get_number_of_lines(char *str, t_data *data);
+int		get_number_of_lines(t_data *data);
 
 /*
  ** init functions
@@ -191,6 +191,7 @@ void	ft_count_size(t_data *data);
 /*
  ** check functions
  */
+void	ft_check_filename(char *name);
 void    ft_check_header_file(void);
 void	ft_check_args(char **av, int ac);
 void    ft_check_filename(char *str);

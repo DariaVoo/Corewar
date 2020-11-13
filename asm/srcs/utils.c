@@ -59,19 +59,19 @@ int		massiv_len(char **args)
 	return (i);
 }
 
-int			get_number_of_lines(char *str, t_data *data)
+int			get_number_of_lines(t_data *data)
 {
-	int		read_fd;
 	char	*string;
 	int 	num;
 	char	*label;
-	int		sym = 0;
+	int		sym;
 
 	num = 0;
 	label = " ";
-	read_fd = open(str, O_RDONLY);
-	while (get_next_line(read_fd, &string))
+	int a = -1;
+	while (get_next_line(data->read_fd, &string))
 	{
+		a = ft_strlen(string);
 		sym = 0;
 		if (ft_strchr(string, LABEL_CHAR))
 		{
@@ -84,7 +84,9 @@ int			get_number_of_lines(char *str, t_data *data)
 		num++;
 	}
 	data->all_labels = ft_strdup(label);
+	ft_printf("LAST STR |%s|\n, NUM %d\n", string, a);
+	ft_exit("");
 	ft_strdel(&string);
-	close(read_fd);
-	return num;
+	lseek(data->read_fd, 0, 0);
+	return (num);
 }
