@@ -1,13 +1,26 @@
 #include "asm.h"
 
+char *get_label_string(t_sort *sort)
+{
+	t_sort *tmp = sort;
+	char *str = " ";
+	while(tmp)
+	{
+		str = ft_strjoin(str, tmp->label);
+		str = ft_strjoin(str, " ");
+		tmp = tmp->next;
+	}
+	return str;
+}
+
 void print_args_struct(t_arg arg[3])
 {
 	int i = 0;
 	while(i < 3) {
-//		ft_printf("arg_number = '%d', type = '%d', "
-//				  "label = '%s', value = '%d'\n",
-//				  arg[i].arg_number, arg[i].type, arg[i].label,
-//				  arg[i].value);
+		ft_printf("arg_number = '%d', type = '%d', "
+				  "label = '%s', value = '%d'\n",
+				  arg[i].arg_number, arg[i].type, arg[i].label,
+				  arg[i].value);
 		i++;
 	}
 }
@@ -49,11 +62,26 @@ void	ft_parse_body(char *str_init, t_data *data)
 	label = NULL;
 	if (ft_strchr(str, LABEL_CHAR))
 	{
-		if (data->instrs[data->instr_num].label == NULL)
+		label = ft_parse_label(str, &symbol_number);
+//		ft_printf("%s\n", label);
+		if (label != NULL)
 		{
-			label = ft_parse_label(str, &symbol_number);
-			data->instrs[data->instr_num].label = label;
+			if (data->instrs[data->instr_num].label == NULL)
+			{
+				data->instrs[data->instr_num].label = label;
+				data->instrs[data->instr_num].labels = add_block(ft_strdup(label));
+
+			}
+			else
+			{
+				push_end(label, &data->instrs[data->instr_num].labels);
+			}
 		}
+//		if (data->instrs[data->instr_num].label == NULL)
+//		{
+//			data->instrs[data->instr_num].label = label;
+//			data->instrs[data->instr_num].labels = add_block(label);
+//		}
 		//если лейбл есть пушим в конец структуры лейблов
 		//        if (body.label != NULL)
 		//            push_back(labels, label);
@@ -62,7 +90,7 @@ void	ft_parse_body(char *str_init, t_data *data)
 	go_to_start_if_label_in_arg(str, &symbol_number, data);
 	if (str[symbol_number] == '\0')
 	{
-		ft_printf("here");
+		ft_strdel(&str);
 		return;
 	}
 	ft_parse_function(str, &symbol_number, data);
@@ -70,8 +98,8 @@ void	ft_parse_body(char *str_init, t_data *data)
 	ft_count_size(data);
 	if (data->instr_num < 3)
 	{
-//		ft_printf("----instr_number---- %d\nlabel = '%s', name = '%s', id = '%d', id_instr = '%d', size = '%d'\n", data->instr_num, data->instrs[data->instr_num].label, data->instrs[data->instr_num].name, data->instrs[data->instr_num].id, data->instrs[data->instr_num].id_instr, data->instrs[data->instr_num].size);
-		print_args_struct(data->instrs[data->instr_num].args);
+//		ft_printf("----instr_number---- %d\nlabels = '%s', label = '%s', name = '%s', id = '%d', id_instr = '%d', size = '%d'\n", data->instr_num, get_label_string(data->instrs[data->instr_num].labels), data->instrs[data->instr_num].label, data->instrs[data->instr_num].name, data->instrs[data->instr_num].id, data->instrs[data->instr_num].id_instr, data->instrs[data->instr_num].size);
+//		print_args_struct(data->instrs[data->instr_num].args);
 	}
 	data->instr_num += 1;
 	ft_strdel(&str);

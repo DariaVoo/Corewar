@@ -31,6 +31,8 @@ void	free_data(t_data *data)
 	while(i < all_instrs)
 	{
 		j = 0;
+		if (data->instrs[i].labels != NULL)
+			sort_del(&data->instrs[i].labels);
 		if (data->instrs[i].name != NULL)
 			ft_strdel(&data->instrs[i].name);
 		if (data->instrs[i].label != NULL)
@@ -43,13 +45,12 @@ void	free_data(t_data *data)
 		}
 		i++;
 	}
-	if (data->split != NULL)
-		free(data->split);
+//	if (data->split != NULL)
+//		ft_strdel(&data->split);
 	if (data->all_labels != NULL)
 		free(data->all_labels);
 	if (data->label != NULL)
 		free(data->label);
 	if (data->instrs != NULL)
 		free(data->instrs);
-
 }

@@ -81,6 +81,12 @@ int		check_label(char *label);
 //	int		joke; //print random joke from defined jokes
 //}				t_flags;
 
+typedef struct		s_sort
+{
+	char *label;
+	struct s_sort	*next;
+}					t_sort;
+
 //инструкции, данные в задании (Операции и их аргументы)
 typedef struct s_instr
 {
@@ -100,6 +106,7 @@ typedef struct s_instr
 
     // t_name_args type[3];
     int 		sum_size;
+	t_sort		*labels;
 
 }               t_instr;
 
@@ -152,6 +159,12 @@ typedef struct				s_op
 }							t_op;
 
 const t_op					g_op_tab[MAX_OP];
+
+
+
+t_sort				*add_block(char *label);
+void				push_end(char *label, t_sort **sort);
+void				sort_del(t_sort **sort);
 
 /*
  ** util functions
