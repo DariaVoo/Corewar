@@ -6,7 +6,7 @@
 /*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:50:02 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 21:02:05 by rretta           ###   ########.fr       */
+/*   Updated: 2020/11/14 21:52:44 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	free_massiv(char **massiv)
 	int i;
 
 	i = 0;
-	if (!massiv )
-		return;
-	while(massiv[i])
+	if (!massiv)
+		return ;
+	while (massiv[i])
 	{
 		free(massiv[i]);
 		i++;
@@ -36,7 +36,7 @@ void	free_instrs(t_data *data, int i)
 		sort_del(&data->instrs[i].labels);
 	ft_strdel(&data->instrs[i].name);
 	ft_strdel(&data->instrs[i].label);
-	while(j < 3)
+	while (j < 3)
 	{
 		ft_strdel(&data->instrs[i].args[j].label);
 		j++;
@@ -53,13 +53,11 @@ void	free_data(t_data *data)
 	all_instrs = data->instr_num;
 	if (data->header != NULL)
 		free(data->header);
-	while(i < all_instrs)
+	while (i < all_instrs)
 	{
 		free_instrs(data, i);
 		i++;
 	}
-//	if (data->split != NULL)
-//		ft_strdel(&data->split);
 	ft_strdel(&data->all_labels);
 	ft_strdel(&data->file_name);
 	if (data->label != NULL)
