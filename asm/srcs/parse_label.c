@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   parse_label.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sweet-cacao <sweet-cacao@student.42.fr>    +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:48:44 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 19:48:44 by sweet-cacao      ###   ########.fr       */
+/*   Updated: 2020/11/14 20:50:56 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "asm.h"
 #include "../libft/includes/libftprintf.h"
 
@@ -34,5 +35,5 @@ char		*ft_parse_label(char *split, int *i)
 		}
 	}
 	free_massiv(labels);
-	return NULL;
+	return (NULL);
 }
