@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 12:33:36 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 16:45:03 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,16 @@ typedef struct				s_carriage
 	struct s_carriage		*prev;
 	uint8_t					opcode;
 	int32_t					last_live;
+	int32_t					player_id;
 }							t_carriage;
 
 typedef struct				s_champion
 {
 	t_header				header;
 	int						id;
+	int32_t					last_live;
+	int32_t					curr_lives_num;
+	int32_t					prev_lives_num;
 	uint8_t					*code;
 	struct s_champion		*next;
 }							t_champion;
@@ -85,6 +89,7 @@ typedef struct				s_vm
 	int32_t					check_num;
 	int32_t					lives_num;
 	int32_t					carriage_num;
+	t_champion				*last_alive;
 }							t_vm;
 
 
@@ -102,7 +107,7 @@ typedef struct				s_op
 
 typedef struct				s_op_func
 {
-	void					(*func)(uint8_t *arena, t_carriage *carriage);
+	void					(*func)(t_vm *vm, t_carriage *carriage);
 }							t_op_func;
 
 void				game(t_vm *vm);
@@ -158,25 +163,26 @@ int32_t				get_arg(uint8_t *arena, int16_t address, uint8_t type, t_op params);
 t_arg				*take_args(uint8_t *arena, t_carriage *carriage, int32_t num_arg);
 
 int32_t				calc_addr(int32_t addr);
+void				cycles_to_die_check(t_vm *vm);
 
 /* OPERATION */
 void				load_oper(uint8_t *arena, t_carriage *carriage);
 void				execute_oper(t_vm *vm, t_carriage *carriage);
-void				op_live(uint8_t *arena, t_carriage *carriage);
-void				op_ld(uint8_t *arena, t_carriage *carriage);
-void				op_st(uint8_t *arena, t_carriage *carriage);
-void				op_add(uint8_t *arena, t_carriage *carriage);
-void				op_sub(uint8_t *arena, t_carriage *carriage);
-void				op_and(uint8_t *arena, t_carriage *carriage);
-void				op_or(uint8_t *arena, t_carriage *carriage);
-void				op_xor(uint8_t *arena, t_carriage *carriage);
-void				op_zjmp(uint8_t *arena, t_carriage *carriage);
-void				op_ldi(uint8_t *arena, t_carriage *carriage);
-void				op_sti(uint8_t *arena, t_carriage *carriage);
-void				op_fork(uint8_t *arena, t_carriage *carriage);
-void				op_lld(uint8_t *arena, t_carriage *carriage);
-void				op_lldi(uint8_t *arena, t_carriage *carriage);
-void				op_lfork(uint8_t *arena, t_carriage *carriage);
-void				op_aff(uint8_t *arena, t_carriage *carriage);
+void				op_live(t_vm *vm, t_carriage *carriage);
+void				op_ld(t_vm *vm, t_carriage *carriage);
+void				op_st(t_vm *vm, t_carriage *carriage);
+void				op_add(t_vm *vm, t_carriage *carriage);
+void				op_sub(t_vm *vm, t_carriage *carriage);
+void				op_and(t_vm *vm, t_carriage *carriage);
+void				op_or(t_vm *vm, t_carriage *carriage);
+void				op_xor(t_vm *vm, t_carriage *carriage);
+void				op_zjmp(t_vm *vm, t_carriage *carriage);
+void				op_ldi(t_vm *vm, t_carriage *carriage);
+void				op_sti(t_vm *vm, t_carriage *carriage);
+void				op_fork(t_vm *vm, t_carriage *carriage);
+void				op_lld(t_vm *vm, t_carriage *carriage);
+void				op_lldi(t_vm *vm, t_carriage *carriage);
+void				op_lfork(t_vm *vm, t_carriage *carriage);
+void				op_aff(t_vm *vm, t_carriage *carriage);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 14:08:28 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/13 20:43:19 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 12:50:49 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void		op_st(uint8_t *arena, t_carriage *carriage)
+void		op_st(t_vm *vm, t_carriage *carriage)
 {
 	t_arg		*args;
 	int32_t		*regs;
@@ -28,7 +28,7 @@ void		op_st(uint8_t *arena, t_carriage *carriage)
 		i = 0;
 		while (i < 4)
 		{
-			*(arena + address + i) = (regs[args[FIRST].value - 1] >> ((3 - i) * CHAR_BIT)) & 0xFF;
+			*(vm->arena + address + i) = (regs[args[FIRST].value - 1] >> ((3 - i) * CHAR_BIT)) & 0xFF;
 			i++;
 		}
 	}

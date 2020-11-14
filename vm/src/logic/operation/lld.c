@@ -6,13 +6,13 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:10:18 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/13 20:42:15 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 12:50:35 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void		op_lld(uint8_t *arena, t_carriage *carriage)
+void		op_lld(t_vm *vm, t_carriage *carriage)
 {
 	t_arg		*args;
 	int32_t		i;
@@ -26,7 +26,7 @@ void		op_lld(uint8_t *arena, t_carriage *carriage)
 		if (args[i].type == IND_CODE)
 		{
 			address = carriage->program_counter + args[i].value % MEM_SIZE;
-			args[i].value = *(arena + address + (address > 0 ? 0 : MEM_SIZE));
+			args[i].value = *(vm->arena + address + (address > 0 ? 0 : MEM_SIZE));
 		}
 		i++;
 	}

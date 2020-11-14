@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   champ.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 17:00:59 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/09/30 14:28:17 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/14 14:04:25 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ static void		init_champ(t_champion *champ, int id)
 	champ->code = NULL;
 	champ->id = id;
 	champ->next = NULL;
+	champ->last_live = 0;
+	champ->curr_lives_num = 0;
+	champ->prev_lives_num = 0;
 }
 
 t_champion		*create_champ(int id)

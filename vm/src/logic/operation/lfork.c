@@ -6,13 +6,13 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 22:49:52 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/13 20:46:27 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 12:50:29 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void		op_lfork(uint8_t *arena, t_carriage *carriage)
+void		op_lfork(t_vm *vm, t_carriage *carriage)
 {
 	t_arg		*args;
 	t_carriage	*copy;
@@ -22,7 +22,7 @@ void		op_lfork(uint8_t *arena, t_carriage *carriage)
 	copy = carriage;
 	while (copy->next != NULL)
 		copy = copy->next;
-	(void)arena;
+	(void)vm->arena;
 	copy->next = copy_carriage(carriage);
 	copy->next->prev = copy;
 	copy = copy->next;

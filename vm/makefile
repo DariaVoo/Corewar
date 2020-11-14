@@ -58,7 +58,8 @@ SRC_LOGIC = operation \
 			op \
 			arg \
 			calc \
-			exec_oper
+			exec_oper \
+			check
 
 SRC_LOGIC := $(addsuffix .c, $(SRC_LOGIC))
 

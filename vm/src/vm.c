@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 17:00:59 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/13 23:12:09 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 14:02:52 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ void		init_vm(t_vm *vm, t_champion *champ[], \
 	vm->carriage = carriage;
 	vm->count_champs = get_number_of_players();
 	vm->cycle_dump = get_number_dump_cycle();
-	vm->cycle_after_check = 0;
 	vm->cycle_to_die = CYCLE_TO_DIE;
+	vm->iter_from_start = 0;
+	vm->cycle_after_check = 0;
 	vm->check_num = 0;
+	vm->lives_num = 0;
+	vm->carriage_num = vm->count_champs;
+	vm->last_alive = NULL;
 }

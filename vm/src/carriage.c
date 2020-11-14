@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   carriage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 16:37:12 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/10 21:18:59 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/14 16:56:27 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ static void	init_carriage(t_carriage *carriage, uint8_t *arena, uint8_t id)
 	carriage->opcode = *(arena + carriage->program_counter);
 	ft_memset(carriage->regs, 0, REG_NUMBER);
 	carriage->regs[0] = -id;
+	carriage->player_id = -id;
 	carriage->cycle_to_die = 0;
 	carriage->carry = 0;
 	carriage->live = 0;
+	carriage->last_live = 0;
 	carriage->next = NULL;
 	carriage->prev = NULL;
 }
@@ -54,15 +56,13 @@ void		add_carriage(t_carriage **carriage, uint8_t *arena, uint8_t id)
 
 void		set_starter_kit_carriage(t_carriage **carriage, uint8_t *arena)
 {
-	uint8_t	i;
 	uint8_t	count_champ;
 
-	i = 0;
 	count_champ = get_number_of_players();
-	while (i < count_champ)
+	while (count_champ > 0)
 	{
-		add_carriage(carriage, arena, i + 1);
-		i++;
+		add_carriage(carriage, arena, count_champ);
+		count_champ--;
 	}
 }
 

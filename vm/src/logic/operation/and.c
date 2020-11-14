@@ -6,13 +6,13 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:12:08 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/13 20:46:03 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 16:08:45 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void	op_and(uint8_t *arena, t_carriage *carriage)
+void	op_and(t_vm *vm, t_carriage *carriage)
 {
 	t_arg		*args;
 	int32_t		*regs;
@@ -20,13 +20,9 @@ void	op_and(uint8_t *arena, t_carriage *carriage)
 
 	args = carriage->args;
 	regs = carriage->regs;
-	(void)arena;
-	take_args(arena, carriage, THIRD);
-	ft_putstr("args: ");
-	ft_putnbr(args[FIRST].value);
-	ft_putnbr(args[SECOND].value);
-	ft_putnbr(args[THIRD].value);
+	take_args(vm->arena, carriage, THIRD);
+	ft_printf("args %d %d %d\n", args[FIRST].value, args[SECOND].value, args[THIRD].value);
 	regs[args[THIRD].value - 1] = args[FIRST].value & args[SECOND].value;
-	ft_printf("\nregs = %d \n", regs[args[THIRD].value - 1]);
 	carriage->carry = regs[args[THIRD].value - 1] == 0 ? 1 : 0;
+	(void)vm;
 }

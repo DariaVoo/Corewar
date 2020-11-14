@@ -6,11 +6,50 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 15:59:31 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/10/31 17:57:18 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 17:20:26 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
+
+static void		intro(t_vm *vm)
+{
+	int32_t		i;
+	t_champion	**champ;
+
+	i = 0;
+	champ = vm->champ;
+	while (i < vm->count_champs)
+	{
+		ft_printf("* Player %d, weighing %d bytes, %s %s\n", champ[i]->id, \
+					champ[i]->header.prog_size, champ[i]->header.prog_name, \
+													champ[i]->header.comment);
+		i++;
+	}
+}
+
+static void		outro(t_vm *vm)
+{
+	int32_t		num;
+	int32_t		i;
+	t_champion	**champ;
+	t_carriage	*carriage;
+
+	i = 0;
+	carriage = vm->carriage;
+	champ = vm->champ;
+	num = -carriage->regs[0];
+	if (num < 1 || num > vm->count_champs)
+		num = carriage->player_id;
+	while (i < vm->count_champs)
+	{
+		if (num == champ[i]->id)
+			break ;
+		i++;
+	}
+	
+	ft_printf("Contestant %d, %s, has won !\n", num, champ[num]->header.prog_name);
+}
 
 static void		initialization(char *champ_names[], t_champion *champ[], \
 								uint8_t *arena, t_carriage **carriage)
@@ -38,8 +77,9 @@ int				main(int argc, char **argv)
 	init_arena(arena, champ);
 	set_starter_kit_carriage(&carriage, arena);
 	init_vm(vm, champ, arena, carriage);
+	intro(vm);
 	game(vm);
-
+	outro(vm);
 	/* free */
 	free_arrptr((void *)champ_names);
 	free_champ(champ);

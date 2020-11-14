@@ -6,14 +6,31 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:13:26 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 12:37:17 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 16:38:45 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
+static void		reset_lives_num(t_vm *vm)
+{
+	int32_t		i;
+
+	i = 0;
+	while (i < vm->count_champs)
+	{
+		vm->champ[i]->prev_lives_num = vm->champ[i]->curr_lives_num;
+		vm->champ[i]->curr_lives_num = 0;
+		i++;
+	}
+	vm->lives_num = 0;
+}
+
 static int8_t	is_died(t_vm *vm, t_carriage *carriage)
 {
+	ft_printf("vm->cycle_to_die %d\n", vm->cycle_to_die);
+	ft_printf("carriage->last_live %d\n", carriage->last_live);
+	ft_printf("cariage : %d\n", carriage->regs[0]);
 	return (vm->cycle_to_die <= 0
 			|| vm->iter_from_start - carriage->last_live >= vm->cycle_to_die);
 }
@@ -26,12 +43,13 @@ static void	delete_died_carriage(t_vm *vm)
 
 	prev = NULL;
 	curr = vm->carriage;
+	// удаляет сразу две
 	while (curr)
 	{
-		if (is_died(vm, (del = curr)) && vm->carriage_num--)
+		if (is_died(vm, (del = curr)) && --vm->carriage_num)
 		{
 			curr = curr->next;
-			if (vm->carriage = del)
+			if (vm->carriage == del)
 				vm->carriage = curr;
 			if (prev)
 				prev->next = curr;
@@ -44,9 +62,10 @@ static void	delete_died_carriage(t_vm *vm)
 			curr = curr->next;
 		}
 	}
+	ft_printf("after carriage num = %d\n", vm->carriage_num);
 }
 
-int32_t		cycles_to_die_check(t_vm *vm)
+void		cycles_to_die_check(t_vm *vm)
 {
 	vm->check_num++;
 	delete_died_carriage(vm);
@@ -55,6 +74,6 @@ int32_t		cycles_to_die_check(t_vm *vm)
 		vm->cycle_to_die -= CYCLE_TO_DIE;
 		vm->check_num = 0;
 	}
-	
+	reset_lives_num(vm);
 	vm->cycle_after_check = 0;
 }

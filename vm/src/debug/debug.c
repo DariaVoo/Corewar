@@ -51,7 +51,7 @@ void			debug_print_carriage(t_vm *vm)
 				ft_printf("[%2d]", copy->regs[i]);
 		}
 		ft_printf("\n");
-		ft_printf("live: %d\n", copy->live);
+		ft_printf("player id: %d\n", copy->player_id);
 		ft_printf("program_counter: %d\n", copy->program_counter);
 		ft_printf("cycle_to_die: %d\n", copy->cycle_to_die);
 		ft_printf("opcode: [%.2x]\n", copy->opcode);

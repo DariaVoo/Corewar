@@ -6,13 +6,13 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 17:14:29 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/13 20:42:27 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 12:50:46 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void		op_or(uint8_t *arena, t_carriage *carriage)
+void		op_or(t_vm *vm, t_carriage *carriage)
 {
 	t_arg		*args;
 	int32_t		*regs;
@@ -20,7 +20,7 @@ void		op_or(uint8_t *arena, t_carriage *carriage)
 
 	args = carriage->args;
 	regs = carriage->regs;
-	take_args(arena, carriage, THIRD);
+	take_args(vm->arena, carriage, THIRD);
 	regs[args[THIRD].value - 1] = args[FIRST].value | args[SECOND].value;
 	carriage->carry = regs[args[THIRD].value - 1] == 0 ? 1 : 0;
 }

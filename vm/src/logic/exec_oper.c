@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 14:48:38 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/13 22:24:28 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 17:01:18 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static int8_t	is_args_valid(t_carriage *carriage, uint8_t *arena)
 
 	args = carriage->args;
 	shift = get_args(args, arena, carriage, g_optab);
+	ft_printf("opcode : %d \targs %d %d %d\n", carriage->opcode, args[FIRST].value, args[SECOND].value, args[THIRD].value);
 	index = carriage->opcode - 1;
 	i = 0;
 	while (i < g_optab[index].col_args)
@@ -78,6 +79,7 @@ void			execute_oper(t_vm *vm, t_carriage *carriage)
 {
 	t_op_func	*param;
 	int32_t		shift;
+	extern t_op	g_optab[17];
 
 	shift = 0;
 	if (carriage->cycle_to_die == 0)
@@ -92,11 +94,13 @@ void			execute_oper(t_vm *vm, t_carriage *carriage)
 		if (param)
 		{
 			if ((shift = is_args_valid(carriage, vm->arena)) != 0)
-				param->func(vm->arena, carriage);
+				param->func(vm, carriage);
 			else
 				shift = calc_step(carriage);
+			ft_printf("TYT\n");
 			if (!(carriage->opcode == OPCODE_ZJMP && carriage->carry == 1))
 				carriage->program_counter = calc_addr(carriage->program_counter + OPCODE_SIZE + shift);
+
 		}
 		else
 			carriage->program_counter = calc_addr(carriage->program_counter + OPCODE_SIZE);
