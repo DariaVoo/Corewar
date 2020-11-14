@@ -33,8 +33,8 @@
 # define YELLOW			"\033[33m"
 # define PURPLE			"\033[35;1m"
 # define EOC			"\e[0m"
-# define LEN_N			sizeof(NAME_CMD_STRING)
-# define LEN_C			sizeof(COMMENT_CMD_STRING)
+# define LEN_N			sizeof(N_CMD_STR)
+# define LEN_C			sizeof(C_CMD_STR)
 # define TOO_MANY_ARGS	2
 # define FEW_ARGS		3
 # define INVALID_TYPE	4
@@ -158,5 +158,8 @@ int						writing_header_to_file(char *str, int size, int fd, \
 																		int f);
 void					write_magic_fd(long nb, int fd);
 void					write_hex_fd(long nbr, int fd);
+int						ft_skip(char *line, int id);
+
+
 
 #endif
