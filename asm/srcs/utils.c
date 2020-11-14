@@ -76,18 +76,21 @@ int				get_number_of_lines(t_data *data)
 	int		num;
 	char	*label;
 	int		sym;
+	char	*str;
 
 	num = 0;
+	str = NULL;
 	label = ft_strdup(" ");
 	while (get_next_line(data->read_fd, &string))
 	{
 		sym = 0;
 		if (ft_strchr(string, LABEL_CHAR))
 		{
-			if (ft_parse_label(string, &sym) != NULL)
+			if ((str = ft_parse_label(string, &sym)) != NULL)
 			{
 				sym = 0;
 				label = ft_custom_strjoin(label, ft_parse_label(string, &sym));
+				ft_strdel(&str);
 			}
 		}
 		num++;
