@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:47:36 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 20:22:17 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 21:14:51 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	extract_number(char *arg, t_data *data, int num_arg)
 	int number;
 
 	if (arg[0] != DIRECT_CHAR)
-		free_close_fd_put_error("Invalid direct arg without label", \
+		free_fd_put_error("Invalid direct arg without label", \
 									data->split, data, (*data->symbol_number));
 	number = ft_atoi(&arg[1]);
 	if (!ft_is_number(&arg[1]))
-		free_close_fd_put_error("Invalid direct arg without label", \
+		free_fd_put_error("Invalid direct arg without label", \
 									data->split, data, (*data->symbol_number));
 	data->instrs[data->instr_num].args[num_arg].value = number;
 }

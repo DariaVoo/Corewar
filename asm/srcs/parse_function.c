@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:49:02 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 20:54:44 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 21:14:51 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,5 @@ void		ft_parse_function(char *split, int *i, t_data *data)
 		(*i) += ft_strlen(name);
 	}
 	else
-		free_close_fd_put_error("Invalid function name", split, data, *i);
+		free_fd_put_error("Invalid function name", split, data, *i);
 }

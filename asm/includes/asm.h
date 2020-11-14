@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   asm.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 20:39:03 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 20:54:40 by rretta           ###   ########.fr       */
+/*   Updated: 2020/11/14 21:14:51 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define LOL			"Invalid indirect arg, it is not a number"
+# define FT_PARSE_ARGS1	"Invalid number of args(too many)"
+# define FT_PARSE_ARGS2	"Invalid number of args(few)"
 # define MAX_ARGS		3
 # define MAX_OP			17
 # define BUFF			4096
@@ -119,7 +122,7 @@ t_sort					*add_block(char *label);
 void					push_end(char *label, t_sort **sort);
 void					sort_del(t_sort **sort);
 void					ft_exit(char *str);
-void					free_close_fd_put_error(char *err, char *line, \
+void					free_fd_put_error(char *err, char *line, \
 													t_data *data, int ind_str);
 char					*ft_saved_name(char *str);
 void					ft_close_fd(int a, int b);
