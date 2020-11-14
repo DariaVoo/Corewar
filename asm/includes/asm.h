@@ -129,7 +129,7 @@ void					ft_close_fd(int a, int b, char *filename);
 void					skip_spaces(char *split, int *i);
 int						ft_is_number(char *name);
 int						massiv_len(char **args);
-int						get_number_of_lines(t_data *data);
+int						get_number_of_lines(t_data *data, int num);
 void					ft_init_structs(t_data *data, int instr_num);
 int						ft_line_parser(char *str, t_data *data);
 int						ft_is_comment(char *str);

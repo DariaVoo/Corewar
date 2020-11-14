@@ -30,7 +30,7 @@ int		main(int ac, char **av)
 		close(cw.read_fd);
 		ft_exit("Bad file read\n");
 	}
-	ft_init_structs(&cw, get_number_of_lines(&cw));
+	ft_init_structs(&cw, get_number_of_lines(&cw, -1));
 	lseek(cw.read_fd, 0, 0);
 	ft_read_file(&cw);
 	ft_cor_extension(av[ac - 1], &cw);

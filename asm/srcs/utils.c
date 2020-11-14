@@ -70,18 +70,16 @@ static char		*ft_custom_strjoin(char *s1, char *s2)
 	return (ans);
 }
 
-int				get_number_of_lines(t_data *data)
+int				get_number_of_lines(t_data *data, int num)
 {
 	char	*string;
-	int		num;
 	char	*label;
 	int		sym;
 	char	*str;
 
-	num = 0;
 	str = NULL;
 	label = ft_strdup(" ");
-	while (get_next_line(data->read_fd, &string))
+	while (get_next_line(data->read_fd, &string) && (num = num + 1) > -10)
 	{
 		sym = 0;
 		if (ft_strchr(string, LABEL_CHAR))
@@ -93,7 +91,6 @@ int				get_number_of_lines(t_data *data)
 				ft_strdel(&str);
 			}
 		}
-		num++;
 		ft_strdel(&string);
 	}
 	data->all_labels = ft_strdup(label);
