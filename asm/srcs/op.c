@@ -12,7 +12,7 @@
 
 #include "asm.h"
 
-const t_op		g_optab[17] =
+const t_op		g_optab[MAX_OP] =
 {
 	{"live", 1, {T_DIR}, 1, 10, "alive", 0, 0},
 	{"ld", 2, {T_DIR | T_IND, T_REG}, 2, 5, "load", 1, 0},
@@ -35,6 +35,5 @@ const t_op		g_optab[17] =
 	{"lldi", 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 14, 50, \
 		"long load index", 1, 1},
 	{"lfork", 1, {T_DIR}, 15, 1000, "long fork", 0, 1},
-	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0},
-	{0, 0, {0}, 0, 0, 0, 0, 0}
+	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0}
 };

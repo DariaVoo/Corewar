@@ -19,7 +19,7 @@ int			check_valid_function(char *func, t_data *data)
 	i = 0;
 	while (i < 16)
 	{
-		if (ft_strcmp(func, g_op_tab[i].name_oper) == 0)
+		if (func && g_op_tab[i].name_oper && ft_strcmp(func, g_op_tab[i].name_oper) == 0)
 		{
 			data->instrs[data->instr_num].id_instr = i;
 			return (1);

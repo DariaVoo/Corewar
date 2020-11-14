@@ -20,7 +20,7 @@ void	sin_err(char *line, int i, int num_line)
 			line[i] != ALT_COMMENT_CHAR && line[i] != '\0')
 	{
 		if (line[i] != ' ' && line[i] != '\t')
-			ft_error(SYN_ERR, (line + i), num_lin, i + 1);
+			ft_error(SYN_ERR, (line + i), num_line, i + 1);
 		i++;
 	}
 }
@@ -87,7 +87,9 @@ int		ft_parse_header(t_header *head, char *ln, int num_line)
 
 	id = 0;
 	s = 0;
-	id = ft_skip(ln, id);
+//	id = ft_skip(ln, id);
+	while (ln[id] == ' ' || ln[id] == '\t')
+		id++;
 	if (!head->is_name && !ft_strncmp((ln + id), N_CMD_STR, (LEN_N - 1)))
 	{
 		s = parse_line_header(ln, N_CMD_STR, (id + LEN_N), num_line);

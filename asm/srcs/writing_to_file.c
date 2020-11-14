@@ -41,7 +41,7 @@ int		code_operation(char *name)
 	i = 0;
 	while (i < 17)
 	{
-		if (!ft_strcmp(name, g_op_tab[i].name_oper))
+		if (name && !ft_strcmp(name, g_op_tab[i].name_oper))
 			return (g_op_tab[i].opcode);
 		i++;
 	}
