@@ -48,11 +48,25 @@ void	ft_error_length(int f)
 	exit(1);
 }
 
+void	ft_error_parse_body(char *err, char *line, int line_count, int ind_str)
+{
+	ft_putstr_fd(err, 2);
+	ft_putstr_fd(", [", 2);
+	ft_putnbr_fd(line_count, 2);
+	ft_putstr_fd(":", 2);
+	ft_putnbr_fd(ind_str, 2);
+	ft_putstr_fd("]", 2);
+	ft_putstr_fd(", line:'", 2);
+	ft_putstr_fd(line, 2);
+	ft_putendl_fd("'", 2);
+	exit(1);
+}
+
 void	free_close_fd_put_error(char *err, char *line, t_data *data, int ind_str)
 {
 	int line_count;
 
 	line_count = data->line_count;
 	free_data(data);
-	ft_error(err, line, line_count , ind_str);
+	ft_error_parse_body(err, line, line_count, ind_str);
 }

@@ -200,6 +200,7 @@ char	*ft_parse_label(char *split, int *i);
 void	ft_parse_function(char *split, int *i, t_data *data);
 void	ft_parse_args(char *split, int *i, t_data *data);
 void	ft_count_size(t_data *data);
+void	extract_number(char *arg, t_data *data, int num_arg);
 
 /*
  ** check functions
