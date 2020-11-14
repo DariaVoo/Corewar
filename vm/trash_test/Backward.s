@@ -1,16 +1,14 @@
 .name    "Back"
 .comment "sebc"
 
-	live	%1
-	sti	r1, 1, %0
 	ld	%4, r3
+	sti	r1, 1, %0
 l1:	live	%1
 	ld	%:l1, r2
 l3:	ldi	%:l2, r2, r4
 	sti	r4, %:l2, r2
 	add	r2, r3, r2
-live:	zjmp	%:l1
+live:
 	xor	r4, r4, r4
-	zjmp	%:l3
 l2:
 	add	r2, r3, r2

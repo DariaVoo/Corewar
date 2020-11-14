@@ -89,50 +89,27 @@ int8_t		del_carriage(t_carriage **carriage)
 // 	// arena_print(vm->arena);
 // }
 
-void		game(t_vm *vm)
+void		exec_cycle(t_vm *vm)
 {
 	t_carriage	*carriage;
-	uint8_t		*arena;
 
-	arena = vm->arena;
+	vm->iter_from_start++;
+	vm->cycle_after_check++;
 	carriage = vm->carriage;
 	while (carriage)
 	{
-		load_oper(arena, carriage);
+		execute_oper(vm, carriage);
 		carriage = carriage->next;
 	}
-	// debug_print_carriage(vm);
-	int i = 0;
-	int flag = 0;
-	// операция выполняется позднее, чем в оригинале (перед sti была только одна функции)
-	while (i < 139)
+}
+
+void		game(t_vm *vm)
+{
+	while (vm->carriage_num)
 	{
-		carriage = vm->carriage;
-		while (carriage)
-		{
-			if (carriage->cycle_to_die == 0)
-			{
-				if (execute_oper(arena, carriage) == 0)
-				{
-					flag = -1;
-					break;
-				}
-				load_oper(arena, carriage);
-			}
-			else
-			{
-				carriage->cycle_to_die--;
-			}
-			carriage = carriage->next;
-		}
-		if (flag == -1)
-			break;
-		ft_printf("cycle = %d\n", i);
-		debug_print_carriage(vm);
-		// int l;
-		// scanf("%d", &l);
-		i++;
+		// условие для dump
+		exec_cycle(vm);
+		// if (vm->cycle_to_die == vm->cycle_after_check || vm->cycle_to_die <= 0)
+		// 	cycles_to_die_check(vm);
 	}
-		// arena_print(vm->arena);
-	arena_print(vm->arena);
 }

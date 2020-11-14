@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   vm.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 17:00:59 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/09/30 14:28:17 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/13 23:12:09 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,7 @@ void		init_vm(t_vm *vm, t_champion *champ[], \
 	vm->carriage = carriage;
 	vm->count_champs = get_number_of_players();
 	vm->cycle_dump = get_number_dump_cycle();
+	vm->cycle_after_check = 0;
+	vm->cycle_to_die = CYCLE_TO_DIE;
+	vm->check_num = 0;
 }

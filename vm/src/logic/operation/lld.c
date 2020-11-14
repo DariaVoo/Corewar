@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   lld.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:10:18 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/10 23:31:00 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/13 20:42:15 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int		op_lld(uint8_t *arena, t_carriage *carriage)
+void		op_lld(uint8_t *arena, t_carriage *carriage)
 {
-	int32_t		shift;
 	t_arg		*args;
 	int32_t		i;
 	int32_t		address;
@@ -22,9 +21,6 @@ int		op_lld(uint8_t *arena, t_carriage *carriage)
 
 	i = 0;
 	args = carriage->args;
-	shift = get_args(args, arena, carriage, g_optab);
-	if (shift == 0)
-		return (0);
 	while (i < g_optab[carriage->opcode - 1].col_args)
 	{
 		if (args[i].type == IND_CODE)
@@ -36,5 +32,4 @@ int		op_lld(uint8_t *arena, t_carriage *carriage)
 	}
 	carriage->regs[args[SECOND].value - 1] = args[FIRST].value;
 	carriage->carry = carriage->regs[args[SECOND].value - 1] == 0 ? 1 : 0;
-	return (shift);
 }

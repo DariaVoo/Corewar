@@ -6,26 +6,12 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 20:50:52 by dima              #+#    #+#             */
-/*   Updated: 2020/11/12 21:51:13 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/13 21:48:54 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-
-static int		kek(int kek)
-{
-	static int lol = 0;
-
-	if (kek == 1)
-		lol = 1;
-	else if (lol == 1)
-	{
-		lol = 0;
-		return(1);
-	}
-	return (lol);
-}
 
 static int32_t	ft_size(int32_t code,  uint8_t tdir_size)
 {
@@ -52,8 +38,8 @@ int32_t		get_arg(uint8_t *arena, int16_t address, uint8_t type, t_op params)
 		size = (params.type_arg[0] == T_IND) ? IND_SIZE_BYTE : size;
 		size = (params.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE - 2 * params.tdir_size : size;
 	}
-	else if ((size = ft_size(type, params.tdir_size)) == 0)
-		kek(1);
+	else
+		size = ft_size(type, params.tdir_size);
 	while (i < size)
 	{
 		arg |= *(arena + (address + i) % MEM_SIZE);
@@ -80,8 +66,6 @@ int32_t		arguments(t_arg *args, uint8_t *arena, int32_t pc, t_op param)
 		args[i].type = *(arena + address % MEM_SIZE);
 		args[i].type = (args[i].type >> (CHAR_BIT - (i + 1) * 2)) & THR_BITS;
 		args[i].value = get_arg(arena, address + shift, args[i].type, param);
-		if (kek(3) == 1)
-			return (0);
 		shift += ft_size(args[i].type, param.tdir_size);
 		i++;
 	}
@@ -101,8 +85,6 @@ int32_t		get_args(t_arg *args, uint8_t *arena, t_carriage *carriage, t_op *g_opt
 		shift = (param.type_arg[0] == T_IND) ? IND_SIZE_BYTE : shift;
 		shift = (param.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE - 2 * param.tdir_size : shift;
 	}
-	if (shift == 0)
-		return (0);
 	return (shift);
 }
 

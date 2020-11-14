@@ -6,15 +6,14 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 15:54:42 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/11 17:48:33 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/13 20:40:54 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int		op_ld(uint8_t *arena, t_carriage *carriage)
+void		op_ld(uint8_t *arena, t_carriage *carriage)
 {
-	int32_t		shift;
 	t_arg		*args;
 	int32_t		i;
 	int32_t		address;
@@ -22,9 +21,6 @@ int		op_ld(uint8_t *arena, t_carriage *carriage)
 
 	i = 0;
 	args = carriage->args;
-	shift = get_args(args, arena, carriage, g_optab);
-	if (shift == 0)
-		return (0);
 	while (i < g_optab[carriage->opcode - 1].col_args)
 	{
 		if (args[i].type == IND_CODE)
@@ -36,5 +32,4 @@ int		op_ld(uint8_t *arena, t_carriage *carriage)
 	}
 	carriage->regs[args[SECOND].value - 1] = args[FIRST].value;
 	carriage->carry = carriage->regs[args[SECOND].value - 1] == 0 ? 1 : 0;
-	return (shift);
 }

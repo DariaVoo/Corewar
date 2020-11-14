@@ -56,7 +56,9 @@ SRC_PARSE := $(addsuffix .c, $(SRC_PARSE))
 
 SRC_LOGIC = operation \
 			op \
-			arg
+			arg \
+			calc \
+			exec_oper
 
 SRC_LOGIC := $(addsuffix .c, $(SRC_LOGIC))
 

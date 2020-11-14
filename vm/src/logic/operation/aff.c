@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   aff.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dima <dima@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 23:29:29 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/10 20:54:20 by dima             ###   ########.fr       */
+/*   Updated: 2020/11/13 21:30:18 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int		op_aff(uint8_t *arena, t_carriage *carriage)
+void		op_aff(uint8_t *arena, t_carriage *carriage)
 {
 	(void)arena;
 	(void)carriage;
-	return (0);
 }
