@@ -1,22 +1,30 @@
-//
-// Created by pbelo on 12.09.2020.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/14 21:48:06 by rretta            #+#    #+#             */
+/*   Updated: 2020/11/14 21:50:39 by rretta           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/asm.h"
-#include "../libft/includes/libftprintf.h"
 
-void    ft_exit(char *str)
+void			ft_exit(char *str)
 {
-    ft_putstr(str);
-    exit(1);
+	ft_putstr(str);
+	exit(1);
 }
 
-void    ft_close_fd(int a, int b)
+void			ft_close_fd(int a, int b)
 {
-    close(a);
-    close(b);
+	close(a);
+	close(b);
 }
 
-void 	skip_spaces(char *split, int *i)
+void			skip_spaces(char *split, int *i)
 {
 	while (split[*i] && (split[*i] == ' ' || split[*i] == '\t'))
 	{
@@ -24,12 +32,12 @@ void 	skip_spaces(char *split, int *i)
 	}
 }
 
-int		ft_is_number(char *name)
+int				ft_is_number(char *name)
 {
 	int i;
 
 	i = 0;
-	while(name[i])
+	while (name[i])
 	{
 		if (i == 0 && (name[i] == '+' || name[i] == '-'))
 		{
@@ -43,7 +51,7 @@ int		ft_is_number(char *name)
 	return (1);
 }
 
-int		massiv_len(char **args)
+int				massiv_len(char **args)
 {
 	int i;
 
@@ -74,10 +82,10 @@ static char		*ft_custom_strjoin(char *s1, char *s2)
 	return (ans);
 }
 
-int			get_number_of_lines(t_data *data)
+int				get_number_of_lines(t_data *data)
 {
 	char	*string;
-	int 	num;
+	int		num;
 	char	*label;
 	int		sym;
 
