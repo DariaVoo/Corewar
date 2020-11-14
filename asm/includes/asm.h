@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 20:39:03 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 21:14:51 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 21:39:04 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,10 @@ int						writing_header_to_file(char *str, int size, int fd, \
 void					write_magic_fd(long nb, int fd);
 void					write_hex_fd(long nbr, int fd);
 int						ft_skip(char *line, int id);
-
-
+void					sum_size(t_data *data);
+void					write_hex_fd(long nbr, int fd);
+void					write_magic_fd(long nb, int fd);
+int						writing_to_file(t_data *data, int fd);
+void					write_size_fd(long nb, int fd);
 
 #endif
