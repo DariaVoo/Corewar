@@ -7,16 +7,9 @@ int		main(int ac, char **av)
 
 // "NEW LEAF, have you?"
     t_data  all_data;
-    char    *saved_file;
 
-    //if (!(all_data = (t_data*)malloc(sizeof(t_data))))
-     //   ft_exit(MALLOC_ERR);
     if (ac == 1)
         ft_exit(USAGE);
-    //all_data = 0;
-    // ft_init_structs(&all_data, get_number_of_lines(av[ac-1], &all_data));
-    
-    ft_printf("START: %s\n", av[ac - 1]);
 
 	ft_check_filename(av[ac - 1]); //проверка имени файла (заканчивается на .s)
 	if ((all_data.read_fd = open(av[ac - 1], O_RDONLY)) < 3)
@@ -30,15 +23,7 @@ int		main(int ac, char **av)
 		ft_exit("Bad file read\n");
 	}  
     ft_init_structs(&all_data, get_number_of_lines(&all_data));
-
-    // ОБРАБОТКА ОШИБОК ОТКРЫТИЯ (НОМЕР ФД И КОЛ-ВО СЧИТАННЫХ БАЙТ)
-	// if (all_data.read_fd < 3)
-	// 	ft_exit("Bad file read");
-
-    ft_read_file(&all_data);
-    ft_check_all_data(&all_data);
-    saved_file = ft_saved_name(saved_file); // ДАЕМ ИМЯ НОВОМУ ФАЙЛУ
-    
+	ft_read_file(&all_data);
     // СОЗДАТЬ ФАЙЛ
     int fd;
     if ((fd = open(ft_cor_extension(av[ac - 1]), O_RDWR | O_CREAT | O_TRUNC, 0666)) == -1)
@@ -52,10 +37,6 @@ int		main(int ac, char **av)
 
     // ЗАПИСАТЬ В СОЗДАННЫЙ ФАЙЛ
     writing_to_file(&all_data, fd);
-    // ОБРАБОТКА ФЛАГОВ
-    if ((ac - 1) > 1)
-        ft_check_flags(&av, ac - 1);
-
 
     ft_close_fd(all_data.read_fd, all_data.write_fd);
 
@@ -88,7 +69,7 @@ int		main(int ac, char **av)
 	// TODO Заменить заглушку
 	// ft_parse_body(split, i, 1000);
 	// ft_create_body
-    ft_printf("FINISH\n");
+//    ft_printf("FINISH\n");
     free_data(&all_data);
 	return (0);
 }

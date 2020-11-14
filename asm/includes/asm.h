@@ -187,7 +187,6 @@ void	ft_init_structs(t_data *data, int instr_num);
 /*
  ** read functions
  */
-char	**ft_file_read(char **split, char *filename);
 int		ft_line_parser(char *str, t_data *data);
 int		ft_is_comment(char *str);
 /*
