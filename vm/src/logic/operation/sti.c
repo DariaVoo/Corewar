@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:04:57 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 14:58:24 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 17:35:41 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void			op_sti(t_vm *vm, t_carriage *carriage)
 	args = carriage->args;
 	regs = carriage->regs;
 	take_args(vm->arena, carriage, FIRST);
-	ft_printf("args %d %d %d\n", args[FIRST].value, args[SECOND].value, args[THIRD].value);
+	// ft_printf("args %d %d %d\n", args[FIRST].value, args[SECOND].value, args[THIRD].value);
 	address = carriage->program_counter + (args[SECOND].value + args[THIRD].value) % MEM_SIZE;
 	address = address < 0 ? MEM_SIZE + address : address;
 	i = 0;
