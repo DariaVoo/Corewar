@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 20:39:03 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 21:40:56 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 21:43:28 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,5 +170,6 @@ int						code_args(t_arg *args);
 int						write_code_dir(int args, int type, int fd, int tdir_size);
 int						code_operation(char *name);
 int						write_header_to_file(char *str, int size, int fd, int f);
+void					write_instrs_to_fd(t_data *data, int fd);
 
 #endif
