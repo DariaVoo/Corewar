@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sweet-cacao <sweet-cacao@student.42.fr>    +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:48:28 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 19:48:28 by sweet-cacao      ###   ########.fr       */
+/*   Updated: 2020/11/14 21:19:52 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "asm.h"
 
 t_sort		*get_next(t_sort *map)
@@ -32,8 +33,7 @@ t_sort		*add_block(char *label)
 	return (sort);
 }
 
-
-void	push_end(char *label, t_sort **sort)
+void		push_end(char *label, t_sort **sort)
 {
 	t_sort	*last;
 	t_sort	*tmp;
@@ -50,7 +50,7 @@ void	push_end(char *label, t_sort **sort)
 	}
 }
 
-void	sort_del(t_sort **sort)
+void		sort_del(t_sort **sort)
 {
 	t_sort *next;
 
