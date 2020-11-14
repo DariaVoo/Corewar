@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   free_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sweet-cacao <sweet-cacao@student.42.fr>    +#+  +:+       +#+        */
+/*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:50:02 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 19:50:02 by sweet-cacao      ###   ########.fr       */
+/*   Updated: 2020/11/14 21:02:05 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "asm.h"
 
 void	free_massiv(char **massiv)
@@ -60,6 +61,7 @@ void	free_data(t_data *data)
 //	if (data->split != NULL)
 //		ft_strdel(&data->split);
 	ft_strdel(&data->all_labels);
+	ft_strdel(&data->file_name);
 	if (data->label != NULL)
 		free(data->label);
 	if (data->instrs != NULL)
