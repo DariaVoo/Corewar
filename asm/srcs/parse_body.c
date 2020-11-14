@@ -1,36 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_body.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sweet-cacao <sweet-cacao@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/14 19:47:36 by sweet-cacao       #+#    #+#             */
+/*   Updated: 2020/11/14 19:47:36 by sweet-cacao      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "asm.h"
 
-char *get_label_string(t_sort *sort)
+void extract_number(char *arg, t_data *data, int num_arg)
 {
-	t_sort *tmp = sort;
-	char *str = " ";
-	while(tmp)
-	{
-		str = ft_strjoin(str, tmp->label);
-		str = ft_strjoin(str, " ");
-		tmp = tmp->next;
-	}
-	return str;
-}
+	int number;
 
-void print_args_struct(t_arg arg[3])
-{
-	int i = 0;
-	while(i < 3) {
-		ft_printf("arg_number = '%d', type = '%d', "
-				  "label = '%s', value = '%d'\n",
-				  arg[i].arg_number, arg[i].type, arg[i].label,
-				  arg[i].value);
-		i++;
-	}
+	if (arg[0] != DIRECT_CHAR)
+		free_close_fd_put_error("Invalid direct arg without label", data->split, data, (*data->symbol_number));
+	number = ft_atoi(&arg[1]);
+	if (!ft_is_number(&arg[1]))
+		free_close_fd_put_error("Invalid direct arg without label", data->split, data, (*data->symbol_number));
+	data->instrs[data->instr_num].args[num_arg].value = number;
 }
 
 void	skip_comment(char *str_init, char **str)
 {
 	char **str_lines;
 
-	str_lines = NULL;
-//	str = NULL;
 	if (ft_strchr(str_init, COMMENT_CHAR))
 	{
 		str_lines = ft_strsplit(str_init, COMMENT_CHAR);
@@ -100,11 +96,6 @@ void	ft_parse_body(char *str_init, t_data *data)
 	ft_parse_function(str, &symbol_number, data);
 	ft_parse_args(str, &symbol_number, data);
 	ft_count_size(data);
-//	if (data->instr_num < 3)
-//	{
-		ft_printf("----instr_number---- %d\nlabels = '%s', label = '%s', name = '%s', id = '%d', id_instr = '%d', size = '%d'\n", data->instr_num, get_label_string(data->instrs[data->instr_num].labels), data->instrs[data->instr_num].label, data->instrs[data->instr_num].name, data->instrs[data->instr_num].id, data->instrs[data->instr_num].id_instr, data->instrs[data->instr_num].size);
-		print_args_struct(data->instrs[data->instr_num].args);
-//	}
 	data->instr_num += 1;
 	ft_strdel(&str);
 }

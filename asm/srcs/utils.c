@@ -48,6 +48,8 @@ int		massiv_len(char **args)
 	int i;
 
 	i = 0;
+	if (!args)
+		return (0);
 	while (args[i])
 		i++;
 	return (i);
