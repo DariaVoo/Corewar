@@ -1,10 +1,9 @@
-NAME = asm
+NAME := asm
 #CFLAGS := -Wall -Wextra -Werror
-CFLAGS :=
 
 LIBFT_DIR = libft/
-LIBFT = $(LIBFT_DIR)libft.a
-LIBFT_HEADERS_DIR = $(LIBFT_DIR)includes/
+LIBFT := $(LIBFT_DIR)libft.a
+LIBFT_HEADERS_DIR := $(LIBFT_DIR)includes/
 LIB_FLAG := -L./$(LIBFT_DIR) -lft
 
 HEADERS_DIR = includes/
@@ -39,25 +38,26 @@ OBJ	= $(addprefix $(OBJ_DIR), $(OBJ_LST))
 all: lib $(NAME)
 
 lib:
-	make -sC $(LIBFT_DIR)
+	@MAKE -sC $(LIBFT_DIR)
 
 $(NAME): $(LIBFT) $(OBJ_DIR) $(OBJ)
-	gcc $(CFLAGS) $(OBJ) $(INCLUDES) $(LIB_FLAG) -o $(NAME)
+	@gcc $(CFLAGS) $(OBJ) $(INCLUDES) $(LIB_FLAG) -o $(NAME)
+	@echo "assembly compiled!"
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR) $(OBJ_DIRS)
+	@mkdir -p $(OBJ_DIR) $(OBJ_DIRS)
 
 objects/%.o : srcs/%.c $(HEADERS)
-	gcc $(CFLAGS) -c $(INCLUDES) $< -o $@
+	@gcc $(CFLAGS) -c $(INCLUDES) $< -o $@
 
 clean:
-	make -sC $(LIBFT_DIR) clean
-	rm -rf $(OBJ_DIR)
+	@make -sC $(LIBFT_DIR) clean
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	make -sC $(LIBFT_DIR) fclean
-	rm -f $(NAME)
-	rm -f $(LIBFT)
+	@make -sC $(LIBFT_DIR) fclean
+	@rm -f $(NAME)
+	@rm -f $(LIBFT)
 
 re: fclean all
 

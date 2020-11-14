@@ -62,20 +62,21 @@ OBJ	= $(addprefix $(OBJ_DIR), $(OBJ_LIST))
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJ)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo "libft compiled!"
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR) $(OBJ_DIRS)
+	@mkdir -p $(OBJ_DIR) $(OBJ_DIRS)
 
 objects/%.o: srcs/%.c $(HEADERS)
-	gcc $(CFLAGS) -c -I $(INCLUDES) $< -o $@
+	@gcc $(CFLAGS) -c -I $(INCLUDES) $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
