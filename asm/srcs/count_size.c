@@ -3,25 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   count_size.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-<<<<<<< HEAD
 /*   By: pkingsbl <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 19:38:41 by pkingsbl          #+#    #+#             */
-/*   Updated: 2020/11/14 19:38:45 by pkingsbl         ###   ########.fr       */
+/*   Created: 2020/11/14 20:33:15 by pkingsbl          #+#    #+#             */
+/*   Updated: 2020/11/14 20:33:18 by pkingsbl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-#include "libftprintf.h"
-=======
-/*   By: sweet-cacao <sweet-cacao@student.42.fr>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/14 19:50:32 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 19:50:32 by sweet-cacao      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-#include "asm.h"
->>>>>>> cfcf2b8a0bba82cd00fe3fb823f17e53eb483132
 
 void	ft_count_size(t_data *data)
 {
