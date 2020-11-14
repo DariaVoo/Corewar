@@ -1,14 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/14 21:20:57 by qjosmyn           #+#    #+#             */
+/*   Updated: 2020/11/14 21:21:29 by qjosmyn          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/asm.h"
 #include "../../vm/libft/includes/libftprintf.h"
 
-
-
-void    ft_read_file(t_data *data)
+void	ft_read_file(t_data *data)
 {
-	char *str;
+	char	*str;
+
 	while (get_next_line(data->read_fd, &str))
 	{
-		data->line_count++; //номер строки для вывода ошибки
+		data->line_count++;
 		ft_line_parser(str, data);
 		ft_strdel(&str);
 	}
@@ -17,7 +28,7 @@ void    ft_read_file(t_data *data)
 
 int		ft_line_parser(char *str, t_data *data)
 {
-	if (ft_is_comment(str) == 1) //пропуск комментариев
+	if (ft_is_comment(str) == 1)
 		return (-1);
 	if (data->header->is_comment == 0 || data->header->is_name == 0)
 		ft_parse_header(data->header, str, data->line_count);
@@ -39,6 +50,3 @@ int		ft_is_comment(char *str)
 		return (1);
 	return (0);
 }
-
-
-
