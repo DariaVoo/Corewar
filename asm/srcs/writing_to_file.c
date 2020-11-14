@@ -169,7 +169,7 @@ int		size_to_label(t_data *data, t_arg *args, int cur_size, int tdir_size)
 	{
 		if (instrs[i].label && args->label && ft_strcmp(instrs[i].label, args->label) == 0)
 		{
-			size = instrs[i - 1].sum_size - cur_size;
+			size = instrs[i].sum_size - instrs[i].size - cur_size;
 			return (size);
 		}
 		i++;
@@ -194,7 +194,7 @@ void	write_args_to_fd(t_data *data, int ind_instr, int code_op, int fd)
 			ft_putchar_fd(args[i].value, fd);
 		else
 		{
-			size = size_to_label(data, &args[i], data->instrs[ind_instr - 1].sum_size, g_op_tab[code_op - 1].tdir_size);
+			size = size_to_label(data, &args[i], data->instrs[ind_instr].sum_size - data->instrs[ind_instr].size, g_op_tab[code_op - 1].tdir_size);
 			write_code_dir(size, args[i].type, fd, g_op_tab[code_op - 1].tdir_size);
 		}
 		i++;
