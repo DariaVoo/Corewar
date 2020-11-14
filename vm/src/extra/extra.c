@@ -1,12 +1,5 @@
 #include "vm.h"
 
-void		exit_error(const char *str)
-{
-	ft_fprintf(STDERR_FILENO, "%s%s\n", E_ERR, str);
-	exit (0);
-	// exit(EXIT_FAILURE);
-}
-
 void		free_champ(t_champion *champ[])
 {
 	uint8_t	i;
@@ -61,10 +54,10 @@ void		free_arrptr(void *array[])
 }
 
 /*
-	функция для инициализации массива указателей на что-либо
+** функция для инициализации массива указателей на что-либо
 */
 
-void			init_arrptr(void **array, uint32_t size)
+void		init_arrptr(void **array, uint32_t size)
 {
 	uint32_t	i;
 

@@ -27,7 +27,7 @@ static void	init_carriage(t_carriage *carriage, uint8_t *arena, uint8_t id)
 	carriage->prev = NULL;
 }
 
-t_carriage	*create_carriage()
+t_carriage	*create_carriage(void)
 {
 	t_carriage	*carriage;
 
@@ -66,7 +66,10 @@ void		set_starter_kit_carriage(t_carriage **carriage, uint8_t *arena)
 	}
 }
 
-// не все копирует
+/*
+** не все копирует
+*/
+
 t_carriage	*copy_carriage(t_carriage *carriage)
 {
 	t_carriage	*copy;

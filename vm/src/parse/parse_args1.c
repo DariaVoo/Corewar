@@ -12,10 +12,14 @@
 
 #include "vm.h"
 
-static void	check_missed_pos_order(void)
+/*
+**  СПАСИБО НОРМЕ ЗА ЭТО, ХУЛИ. ПРИЯТНЫЙ КОД-СТИЛЬ
+*/
+
+static void		check_missed_pos_order(void)
 {
-	uint8_t	i;
-	int8_t	n;
+	uint8_t		i;
+	int8_t		n;
 
 	i = MAX_PLAYERS - 1;
 	n = update_n_flag(-1);
@@ -29,7 +33,8 @@ static void	check_missed_pos_order(void)
 	}
 }
 
-static void	merge_champ_names(char **champ_names, char **unranking_champ_names)
+static void		merge_champ_names(char **champ_names, \
+									char **unranking_champ_names)
 {
 	uint8_t	i;
 	uint8_t	n;
@@ -56,6 +61,32 @@ static void	merge_champ_names(char **champ_names, char **unranking_champ_names)
 	}
 }
 
+static size_t	parse_set_splited_argv(char ***splited_argv, char **argv)
+{
+	size_t	i;
+
+	i = 0;
+	if (argv[1])
+		*splited_argv = argv;
+	else
+	{
+		*splited_argv = ft_strsplit(argv[0], ' ');
+		if (!*splited_argv || !*splited_argv[0])
+			exit_error(E_SSPLIT);
+	}
+	if (parse_dump_flag(*splited_argv))
+		i = 2;
+	return (i);
+}
+
+static void		parse_initialization(char *unranking_champ_names[], \
+										uint8_t *n, uint8_t *possible_pos)
+{
+	init_arrptr((void *)unranking_champ_names, MAX_PLAYERS + 1);
+	*n = 0;
+	*possible_pos = 0;
+}
+
 /*
 **	аргументы могут придти двумя способами:
 **	./corewar -dump nbr_cycles -n number champion1.cor
@@ -69,46 +100,28 @@ static void	merge_champ_names(char **champ_names, char **unranking_champ_names)
 **	проверяем игрока (должно быть 'расширение' .cor)
 */
 
-void		parse_args(char *champ_names[], char **argv)
+void			parse_args(char *champ_names[], char **argv)
 {
-	char	*unranking_champ_names[MAX_PLAYERS + 1];
-	char	**splited_argv;
-	size_t	i;
-	uint8_t	n;
-	uint8_t	limit;
-	uint8_t	possible_pos;
+	char		*unranking_champ_names[MAX_PLAYERS + 1];
+	char		**splited_argv;
+	size_t		i;
+	uint8_t		n;
+	uint8_t		possible_pos;
 
-	i = 0;
-	n = 0;
-	limit = 0;
-	init_arrptr((void *)unranking_champ_names, MAX_PLAYERS + 1);
-	if (argv[1])
-		splited_argv = argv;
-	else
+	parse_initialization(unranking_champ_names, &n, &possible_pos);
+	i = parse_set_splited_argv(&splited_argv, argv);
+	while (splited_argv[i++])
 	{
-		splited_argv = ft_strsplit(argv[0], ' ');
-		if (!splited_argv || !splited_argv[0])
-			exit_error(E_SSPLIT);
-	}
-	if (parse_dump_flag(splited_argv))
-		i = 2;
-	while (splited_argv[i])
-	{
-		if (limit > MAX_PLAYERS - 1)
+		if (update_limit_number(0) > MAX_PLAYERS - 1)
 			exit_error(E_ARGV_LIMIT_PLAYERS);
-		possible_pos = 0;
-		if ((possible_pos = parse_n_flag(splited_argv + i)))
-		{
-			i = i + 2;
+		if ((possible_pos = parse_n_flag(splited_argv + i)) && i++ && i++)
 			parse_champ_name(splited_argv[i], &champ_names[possible_pos - 1]);
-		}
 		else
 		{
 			parse_champ_name(splited_argv[i], &unranking_champ_names[n]);
 			n++;
 		}
-		i++;
-		limit++;
+		update_limit_number(1);
 	}
 	merge_champ_names(champ_names, unranking_champ_names);
 	check_missed_pos_order();

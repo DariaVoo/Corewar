@@ -109,7 +109,6 @@ typedef struct			s_op_func
 	void				(*func)(t_vm *vm, t_carriage *carriage);
 }						t_op_func;
 
-void					game(t_vm *vm);
 
 /*
 ** VIRTUAL MACHINE
@@ -117,6 +116,9 @@ void					game(t_vm *vm);
 void					init_vm(t_vm *vm, t_champion *champ[], uint8_t *arena, \
 								t_carriage *carriage);
 void					init_arena(uint8_t *arena, t_champion *champ[]);
+void					game(t_vm *vm);
+void					game_intro_msg(t_vm *vm);
+void					game_outro_msg(t_vm *vm);
 
 /*
 ** CARRIAGE
@@ -144,6 +146,8 @@ uint8_t					parse_n_flag(char **splited_argv);
 int8_t					update_n_flag(const int8_t shift);
 void					parse_champ_name(const char *argv_name, \
 											char *champ_name[]);
+uint8_t					update_limit_number(uint8_t i);
+
 
 /*
 ** EXTRA FUNC

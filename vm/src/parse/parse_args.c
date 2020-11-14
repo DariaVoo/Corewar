@@ -34,6 +34,7 @@ uint8_t		get_number_of_players(void)
 /*
 **	возвращает номер цикла, на котором дампим память
 */
+
 int32_t		get_number_dump_cycle(void)
 {
 	return (update_dump_flag(-1));
@@ -56,4 +57,11 @@ int8_t		update_n_flag(const int8_t shift)
 		return (-1);
 	n_positions = n_positions | 1 << shift;
 	return (n_positions);
+}
+
+uint8_t		update_limit_number(uint8_t i)
+{
+	static uint8_t	limit = 0;
+
+	return (i ? ++limit : limit);
 }
