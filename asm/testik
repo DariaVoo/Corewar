@@ -1,0 +1,15 @@
+find
+asm_our/find.s
+asm_good/find.s
+Bad file read
+Can't read source file asm_good/find.s
+name
+asm_our/name.s
+asm_good/name.s
+Bad file read
+Can't read source file asm_good/name.s
+\*
+asm_our/\*.s
+asm_good/\*.s
+Bad file read
+Can't read source file asm_good/\*.s

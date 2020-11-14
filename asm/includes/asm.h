@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 20:39:03 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 20:47:51 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 20:49:21 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define MAX_ARGS		3
+# define MAX_OP			17
+# define BUFF			4096
+# define RED			"\033[31m"
+# define GREEN			"\033[32m"
+# define YELLOW			"\033[33m"
+# define PURPLE			"\033[35;1m"
+# define EOC			"\e[0m"
+# define LEN_N			sizeof(NAME_CMD_STRING)
+# define LEN_C			sizeof(COMMENT_CMD_STRING)
+# define TOO_MANY_ARGS	2
+# define FEW_ARGS		3
+# define INVALID_TYPE	4
 # define MAX_ARGS		3
 # define MAX_OP			17
 # define BUFF 			4096
