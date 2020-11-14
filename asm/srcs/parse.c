@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 21:20:57 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 21:21:29 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 22:22:38 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,8 @@ int		ft_line_parser(char *str, t_data *data)
 		return (-1);
 	if (data->header->is_comment == 0 || data->header->is_name == 0)
 		ft_parse_header(data->header, str, data->line_count);
-	else if (data->header->is_comment == 1 && data->header->is_name == 1) {
+	else if (data->header->is_comment == 1 && data->header->is_name == 1)
 		ft_parse_body(str, data);
-	}
 	return (1);
 }
 

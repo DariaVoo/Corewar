@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:49:02 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 21:14:51 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 22:22:49 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int			check_valid_function(char *func, t_data *data)
 	i = 0;
 	while (i < 16)
 	{
-		if (func && g_op_tab[i].name_oper && ft_strcmp(func, g_op_tab[i].name_oper) == 0)
+		if (func && g_op_tab[i].name_oper && \
+									ft_strcmp(func, g_op_tab[i].name_oper) == 0)
 		{
 			data->instrs[data->instr_num].id_instr = i;
 			return (1);

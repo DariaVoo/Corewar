@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_header.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:46:38 by pkingsbl          #+#    #+#             */
-/*   Updated: 2020/11/14 21:26:22 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 22:24:03 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "error.h"
 #include "libftprintf.h"
 
-void	sin_err(char *line, int i, int num_line)
+void			sin_err(char *line, int i, int num_line)
 {
 	while (line[i] != COMMENT_CHAR && \
 			line[i] != ALT_COMMENT_CHAR && line[i] != '\0')
@@ -25,7 +25,7 @@ void	sin_err(char *line, int i, int num_line)
 	}
 }
 
-int		valid_quotes(char *line, int ind, int num_line)
+int				valid_quotes(char *line, int ind, int num_line)
 {
 	int		i;
 	int		quotes;
@@ -66,7 +66,7 @@ static size_t	ft_strlen_char(const char *str, char ch)
 	return (i);
 }
 
-int		parse_line_header(char *line, char *def, int ind, int num_line)
+int				parse_line_header(char *line, char *def, int ind, int num_line)
 {
 	int		i;
 	int		j;
@@ -80,7 +80,7 @@ int		parse_line_header(char *line, char *def, int ind, int num_line)
 	return (-1);
 }
 
-int		ft_parse_header(t_header *head, char *ln, int num_line)
+int				ft_parse_header(t_header *head, char *ln, int num_line)
 {
 	int		id;
 	int		s;
