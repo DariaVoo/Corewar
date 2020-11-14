@@ -6,7 +6,7 @@
 /*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 21:48:06 by rretta            #+#    #+#             */
-/*   Updated: 2020/11/14 21:50:39 by rretta           ###   ########.fr       */
+/*   Updated: 2020/11/14 22:30:38 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,5 @@ int				get_number_of_lines(t_data *data)
 	data->all_labels = ft_strdup(label);
 	ft_strdel(&string);
 	ft_strdel(&label);
-	lseek(data->read_fd, 0, 0);
 	return (num);
 }

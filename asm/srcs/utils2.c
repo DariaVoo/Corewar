@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkingsbl <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 21:28:24 by pkingsbl          #+#    #+#             */
-/*   Updated: 2020/11/14 21:28:27 by pkingsbl         ###   ########.fr       */
+/*   Updated: 2020/11/14 22:33:37 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void	ft_exit(char *str)
 	exit(1);
 }
 
-void	ft_close_fd(int a, int b)
+void	ft_close_fd(int a, int b, char *filename)
 {
 	close(a);
 	close(b);
+	ft_printf("Writing output program to %s\n", filename);
 }

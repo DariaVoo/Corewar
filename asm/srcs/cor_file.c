@@ -6,12 +6,11 @@
 /*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 23:00:36 by rretta            #+#    #+#             */
-/*   Updated: 2020/11/14 22:01:43 by rretta           ###   ########.fr       */
+/*   Updated: 2020/11/14 22:25:42 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-#include "../libft/includes/libftprintf.h"
 
 void	ft_cor_extension(char *file, t_data *data)
 {

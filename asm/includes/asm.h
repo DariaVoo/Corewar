@@ -6,7 +6,7 @@
 /*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 20:39:03 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 22:01:35 by rretta           ###   ########.fr       */
+/*   Updated: 2020/11/14 22:33:20 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void					ft_exit(char *str);
 void					free_fd_put_error(char *err, char *line, \
 													t_data *data, int ind_str);
 char					*ft_saved_name(char *str);
-void					ft_close_fd(int a, int b);
+void					ft_close_fd(int a, int b, char *filename);
 void					skip_spaces(char *split, int *i);
 int						ft_is_number(char *name);
 int						massiv_len(char **args);
