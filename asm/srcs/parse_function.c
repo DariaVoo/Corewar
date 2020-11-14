@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse_function.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sweet-cacao <sweet-cacao@student.42.fr>    +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:49:02 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 19:49:02 by sweet-cacao      ###   ########.fr       */
+/*   Updated: 2020/11/14 20:54:44 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "asm.h"
 
-int		check_valid_function(char *func, t_data *data)
+int			check_valid_function(char *func, t_data *data)
 {
 	int i;
 
@@ -28,15 +29,17 @@ int		check_valid_function(char *func, t_data *data)
 	return (0);
 }
 
-char		*split_and_get_function_name(char *split, char split_char, t_data *data)
+char		*split_and_get_function_name(char *split, char split_char, \
+																t_data *data)
 {
-	char 	**function;
+	char	**function;
 	char	*name;
 
 	function = NULL;
 	if (split[0])
 		function = ft_strsplit(split, split_char);
-	if (function != NULL && function[0] != NULL && check_valid_function(function[0], data))
+	if (function != NULL && function[0] != NULL && \
+										check_valid_function(function[0], data))
 	{
 		name = ft_strtrim(function[0]);
 		free_massiv(function);
@@ -44,7 +47,7 @@ char		*split_and_get_function_name(char *split, char split_char, t_data *data)
 	}
 	if (function != NULL)
 		free_massiv(function);
-	return NULL;
+	return (NULL);
 }
 
 char		*ft_get_function_name(char *split, int *i, t_data *data)
@@ -52,7 +55,7 @@ char		*ft_get_function_name(char *split, int *i, t_data *data)
 	char	*name;
 
 	skip_spaces(split, i);
-	name = split_and_get_function_name(&split[*i], ' ', data);//посмотреть будет ли работать если конец строки
+	name = split_and_get_function_name(&split[*i], ' ', data);
 	if (name == NULL)
 		name = split_and_get_function_name(&split[*i], '\t', data);
 	if (name == NULL && ft_strchr(split, DIRECT_CHAR))
@@ -62,7 +65,7 @@ char		*ft_get_function_name(char *split, int *i, t_data *data)
 
 void		ft_parse_function(char *split, int *i, t_data *data)
 {
-	char 	*name;
+	char	*name;
 
 	name = ft_get_function_name(split, i, data);
 	if (name != NULL)
