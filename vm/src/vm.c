@@ -27,8 +27,8 @@ void		init_arena(uint8_t *arena, t_champion *champ[])
 	}
 }
 
-void		init_vm(t_vm *vm, t_champion *champ[], \
-					uint8_t *arena, t_carriage *carriage)
+void		init_vm(t_vm *vm, t_champion *champ[], uint8_t *arena, \
+					t_carriage *carriage)
 {
 	vm->champ = champ;
 	vm->arena = arena;

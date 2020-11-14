@@ -85,8 +85,8 @@ SRC_LOGIC_OP := $(addsuffix .c, $(SRC_LOGIC_OP))
 SRC_EXTRA = extra
 SRC_EXTRA := $(addsuffix .c, $(SRC_EXTRA))
 
-SRC_VISUAL = visual
-SRC_VISUAL := $(addsuffix .c, $(SRC_VISUAL))
+# SRC_VISUAL = visual
+# SRC_VISUAL := $(addsuffix .c, $(SRC_VISUAL))
 
 SRC_DEBUG = debug
 SRC_DEBUG := $(addsuffix .c, $(SRC_DEBUG))

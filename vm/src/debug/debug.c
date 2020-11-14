@@ -39,26 +39,28 @@ void		arena_print(uint8_t *arena)
 	}
 }
 
-void			debug_print_carriage(t_vm *vm)
-{
-	t_carriage	*copy;
-
-	copy = vm->carriage;
-	while (copy)
-	{
-		for (int i = 0; i < REG_NUMBER; i++)
-		{
-			if (copy->regs[i])
-				ft_printf("[%2d]", copy->regs[i]);
-			else
-				ft_printf("[%2d]", copy->regs[i]);
-		}
-		ft_printf("\n");
-		ft_printf("player id: %d\n", copy->player_id);
-		ft_printf("program_counter: %d\n", copy->program_counter);
-		ft_printf("cycle_to_die: %d\n", copy->cycle_to_die);
-		ft_printf("opcode: [%.2x]\n", copy->opcode);
-		ft_printf("-------------------------------------\n");
-		copy = copy->next;
-	}
-}
+/*
+** void		debug_print_carriage(t_vm *vm)
+**{
+**	t_carriage	*copy;
+**
+**	copy = vm->carriage;
+**	while (copy)
+**	{
+**		for (int i = 0; i < REG_NUMBER; i++)
+**		{
+**			if (copy->regs[i])
+**				ft_printf("[%2d]", copy->regs[i]);
+**			else
+**				ft_printf("[%2d]", copy->regs[i]);
+**		}
+**		ft_printf("\n");
+**		ft_printf("player id: %d\n", copy->player_id);
+**		ft_printf("program_counter: %d\n", copy->program_counter);
+**		ft_printf("cycle_to_die: %d\n", copy->cycle_to_die);
+**		ft_printf("opcode: [%.2x]\n", copy->opcode);
+**		ft_printf("-------------------------------------\n");
+**		copy = copy->next;
+**	}
+** }
+*/

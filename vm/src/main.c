@@ -12,30 +12,10 @@
 
 #include "vm.h"
 
-static void		intro(t_vm *vm)
+void			exit_error(const char *str)
 {
-	int32_t		i;
-	t_champion	**champ;
-
-	i = 0;
-	champ = vm->champ;
-	while (i < vm->count_champs)
-	{
-		ft_printf("* Player %d, weighing %d bytes, \"%s\" \"%s\"\n", \
-		champ[i]->id, champ[i]->header.prog_size, champ[i]->header.prog_name, \
-													champ[i]->header.comment);
-		i++;
-	}
-}
-
-static void		outro(t_vm *vm)
-{
-	t_champion	*champ;
-
-	champ = vm->last_alive;
-	if (champ)
-		ft_printf("Contestant %d, \"%s\", has won !\n", champ->id, \
-											champ->header.prog_name);
+	ft_fprintf(STDERR_FILENO, "%s%s\n", E_ERR, str);
+	exit(EXIT_FAILURE);
 }
 
 static void		initialization(char *champ_names[], t_champion *champ[], \
@@ -64,9 +44,7 @@ int				main(int argc, char **argv)
 	init_arena(arena, champ);
 	set_starter_kit_carriage(&carriage, arena);
 	init_vm(vm, champ, arena, carriage);
-	intro(vm);
 	game(vm);
-	outro(vm);
 	free_arrptr((void *)champ_names);
 	free_champ(champ);
 	free_carriage_list(&(vm->carriage));
