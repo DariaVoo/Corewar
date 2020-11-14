@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/31 14:52:46 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 16:45:03 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 21:03:57 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ typedef struct			s_op_func
 	void				(*func)(t_vm *vm, t_carriage *carriage);
 }						t_op_func;
 
-
 /*
 ** VIRTUAL MACHINE
 */
@@ -147,7 +146,6 @@ int8_t					update_n_flag(const int8_t shift);
 void					parse_champ_name(const char *argv_name, \
 											char *champ_name[]);
 uint8_t					update_limit_number(uint8_t i);
-
 
 /*
 ** EXTRA FUNC
