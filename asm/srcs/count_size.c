@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   count_size.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pkingsbl <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/14 19:38:41 by pkingsbl          #+#    #+#             */
+/*   Updated: 2020/11/14 19:38:45 by pkingsbl         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "asm.h"
-#include "../libft/includes/libftprintf.h"
+#include "libftprintf.h"
 
 void	ft_count_size(t_data *data)
 {
@@ -17,9 +29,9 @@ void	ft_count_size(t_data *data)
 	while (i < g_op_tab[data->instrs[data->instr_num].id_instr].col_args)
 	{
 		if (data->instrs[data->instr_num].args[i].type == T_DIR)
-			size+=t_dir_size;
+			size += t_dir_size;
 		else if (data->instrs[data->instr_num].args[i].type == T_IND)
-			size+=2;
+			size += 2;
 		else if (data->instrs[data->instr_num].args[i].type == T_REG)
 			size++;
 		i++;

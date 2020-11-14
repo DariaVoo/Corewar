@@ -22,7 +22,8 @@
 # define YELLOW		"\033[33m"
 # define PURPLE		"\033[35;1m"
 # define EOC		"\e[0m"
-
+# define LEN_N		sizeof(NAME_CMD_STRING)
+# define LEN_C		sizeof(COMMENT_CMD_STRING)
 /*
  ** Error codes
  */
