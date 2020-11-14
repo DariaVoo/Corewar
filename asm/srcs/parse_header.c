@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_header.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pkingsbl <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:46:38 by pkingsbl          #+#    #+#             */
-/*   Updated: 2020/11/14 19:46:52 by pkingsbl         ###   ########.fr       */
+/*   Updated: 2020/11/14 21:26:22 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void 	sin_err(char *line, int i, int num_lin)
 			line[i] != ALT_COMMENT_CHAR && line[i] != '\0')
 	{
 		if (line[i] != ' ' && line[i] != '\t')
-			ft_error(SYN_ERR, (line + i), num_line, i + 1);
+			ft_error(SYN_ERR, (line + i), num_lin, i + 1);
 		i++;
 	}
 }
