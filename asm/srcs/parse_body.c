@@ -3,23 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   parse_body.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sweet-cacao <sweet-cacao@student.42.fr>    +#+  +:+       +#+        */
+/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:47:36 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 19:47:36 by sweet-cacao      ###   ########.fr       */
+/*   Updated: 2020/11/14 20:22:17 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "asm.h"
 
-void extract_number(char *arg, t_data *data, int num_arg)
+void	extract_number(char *arg, t_data *data, int num_arg)
 {
 	int number;
 
 	if (arg[0] != DIRECT_CHAR)
-		free_close_fd_put_error("Invalid direct arg without label", data->split, data, (*data->symbol_number));
+		free_close_fd_put_error("Invalid direct arg without label", \
+									data->split, data, (*data->symbol_number));
 	number = ft_atoi(&arg[1]);
 	if (!ft_is_number(&arg[1]))
-		free_close_fd_put_error("Invalid direct arg without label", data->split, data, (*data->symbol_number));
+		free_close_fd_put_error("Invalid direct arg without label", \
+									data->split, data, (*data->symbol_number));
 	data->instrs[data->instr_num].args[num_arg].value = number;
 }
 
@@ -45,14 +48,15 @@ void	skip_comment(char *str_init, char **str)
 
 void	go_to_start_if_label_in_arg(char *str, int *symbol_number, t_data *data)
 {
-	if (*symbol_number != 0 && data->instrs[data->instr_num].label == NULL) //пустая строка или : в другом месте
+	if (*symbol_number != 0 && data->instrs[data->instr_num].label == NULL)
 	{
 		*symbol_number = 0;
 		skip_spaces(str, symbol_number);
 	}
 }
 
-void	ft_parse_label_init(char *str, t_data *data, int *symbol_number, char **label1)
+void	ft_parse_label_init(char *str, t_data *data, int *symbol_number, \
+																char **label1)
 {
 	char	*label;
 
@@ -65,7 +69,8 @@ void	ft_parse_label_init(char *str, t_data *data, int *symbol_number, char **lab
 			if (data->instrs[data->instr_num].label == NULL)
 			{
 				data->instrs[data->instr_num].label = label;
-				data->instrs[data->instr_num].labels = add_block(ft_strdup(label));
+				data->instrs[data->instr_num].labels = \
+													add_block(ft_strdup(label));
 			}
 			else
 				push_end(label, &data->instrs[data->instr_num].labels);
@@ -75,9 +80,9 @@ void	ft_parse_label_init(char *str, t_data *data, int *symbol_number, char **lab
 
 void	ft_parse_body(char *str_init, t_data *data)
 {
-	int 	symbol_number;
+	int		symbol_number;
 	char	*str;
-	char *label;
+	char	*label;
 
 	skip_comment(str_init, &str);
 	symbol_number = 0;
@@ -91,7 +96,7 @@ void	ft_parse_body(char *str_init, t_data *data)
 	if (str[symbol_number] == '\0')
 	{
 		ft_strdel(&str);
-		return;
+		return ;
 	}
 	ft_parse_function(str, &symbol_number, data);
 	ft_parse_args(str, &symbol_number, data);
