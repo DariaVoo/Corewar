@@ -15,7 +15,7 @@
 
 # include "vm.h"
 
-t_op_func	g_opfunc[17] = 
+t_op_func	g_opfunc[17] =
 {
 	{op_live},
 	{op_ld},

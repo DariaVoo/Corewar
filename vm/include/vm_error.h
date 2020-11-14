@@ -13,21 +13,28 @@
 #ifndef VM_ERROR_H
 # define VM_ERROR_H
 
-/* number of errors */
+/*
+** number of errors
+*/
 # define NOE_FD 2
 
-
-/* corewar */
+/*
+** corewar
+*/
 # define E_ERR "Error: "
 # define E_USAGE "usage: bla-bla-bla"
 
-/* functions */
+/*
+** functions
+*/
 # define E_READ "couldn't read bytecode"
 # define E_MALLOC "in malloc"
 # define E_SSPLIT "in ft_strsplit"
 # define E_STRSUB "in strsub"
 
-/* parse files */
+/*
+** parse files
+*/
 # define E_PAR_MAGIC_HEADER "Error magic header"
 # define E_PAR_NAME "Read name"
 # define E_PAR_CHAMP_SIZE "Read champ size"
