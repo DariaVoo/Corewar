@@ -87,9 +87,7 @@ int		ft_parse_header(t_header *head, char *ln, int num_line)
 
 	id = 0;
 	s = 0;
-//	id = ft_skip(ln, id);
-	while (ln[id] == ' ' || ln[id] == '\t')
-		id++;
+	id = ft_skip(ln, id);
 	if (!head->is_name && !ft_strncmp((ln + id), N_CMD_STR, (LEN_N - 1)))
 	{
 		s = parse_line_header(ln, N_CMD_STR, (id + LEN_N), num_line);

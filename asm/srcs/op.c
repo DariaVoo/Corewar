@@ -12,7 +12,7 @@
 
 #include "asm.h"
 
-const t_op		g_optab[MAX_OP] =
+const t_op		g_op_tab[MAX_OP] =
 {
 	{"live", 1, {T_DIR}, 1, 10, "alive", 0, 0},
 	{"ld", 2, {T_DIR | T_IND, T_REG}, 2, 5, "load", 1, 0},

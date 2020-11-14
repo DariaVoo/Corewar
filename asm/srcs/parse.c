@@ -34,7 +34,6 @@ int		ft_line_parser(char *str, t_data *data)
 		ft_parse_header(data->header, str, data->line_count);
 	else if (data->header->is_comment == 1 && data->header->is_name == 1) {
 		ft_parse_body(str, data);
-
 	}
 	return (1);
 }
