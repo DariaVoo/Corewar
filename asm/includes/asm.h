@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   asm.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 20:39:03 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 20:49:21 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 20:54:40 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ typedef struct			s_data
 	int					*symbol_number;
 	char				*split;
 	char				*all_labels;
+	char				*file_name;
 }						t_data;
 
 typedef struct			s_op
@@ -148,7 +149,7 @@ void					ft_check_flags(char ***av, int ac);
 int						valid_args(t_data *data);
 void					free_massiv(char **massiv);
 void					free_data(t_data *data);
-char					*ft_cor_extension(char *file);
+void					ft_cor_extension(char *file, t_data *data);
 int						writing_to_file(t_data *data, int fd);
 int						writing_header_to_file(char *str, int size, int fd, \
 																		int f);

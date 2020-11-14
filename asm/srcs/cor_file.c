@@ -6,21 +6,22 @@
 /*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 23:00:36 by rretta            #+#    #+#             */
-/*   Updated: 2020/11/04 18:19:54 by rretta           ###   ########.fr       */
+/*   Updated: 2020/11/14 20:53:00 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 #include "../libft/includes/libftprintf.h"
 
-char	*ft_cor_extension(char *file)
+void	ft_cor_extension(char *file, t_data *data)
 {
 	char	*filename;
 
 	filename = ft_strsub(file, 0, ft_strlen(file) - 2);
 	file = ft_strjoin(filename, ".cor");
 	ft_strdel(&filename);
-	return (file);
+	data->file_name = ft_strdup(file);
+	ft_strdel(&file);
 }
 
 void	ft_check_filename(char *name)

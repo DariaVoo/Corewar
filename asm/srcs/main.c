@@ -24,9 +24,9 @@ int		main(int ac, char **av)
 	}  
     ft_init_structs(&all_data, get_number_of_lines(&all_data));
 	ft_read_file(&all_data);
+    ft_cor_extension(av[ac - 1], &all_data);
     // СОЗДАТЬ ФАЙЛ
-    int fd;
-    if ((fd = open(ft_cor_extension(av[ac - 1]), O_RDWR | O_CREAT | O_TRUNC, 0666)) == -1)
+    if ((all_data.write_fd = open(all_data.file_name, O_RDWR | O_CREAT | O_TRUNC, 0666)) == -1)
         return (-1);
 
     // ОБРАБОТАТЬ ОШИБКИ СОЗДАНИЯ (НОМЕР ФД)
@@ -36,12 +36,12 @@ int		main(int ac, char **av)
 
 
     // ЗАПИСАТЬ В СОЗДАННЫЙ ФАЙЛ
-    writing_to_file(&all_data, fd);
+    writing_to_file(&all_data, all_data.write_fd);
 
     ft_close_fd(all_data.read_fd, all_data.write_fd);
 
 	// TODO Заменить заглушку
-//    ft_printf("FINISH\n");
+    ft_printf("Writing output program to %s\n", all_data.file_name);
     free_data(&all_data);
 	return (0);
 }

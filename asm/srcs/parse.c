@@ -9,20 +9,10 @@ void    ft_read_file(t_data *data)
 	while (get_next_line(data->read_fd, &str))
 	{
 		data->line_count++; //номер строки для вывода ошибки
-		// ft_putnbr(data->line_count);
-		// ft_putchar('\n');
 		ft_line_parser(str, data);
 		ft_strdel(&str);
-		//сама ошибка выводится и обрабатывается непосредственно внутри функций
-		/*
-		if (col_error != -1) //-1 когда ошибок нет, любое другое число - ошибка есть и она находится на позиции этого числа (колонка)
-			ft_error(str, "error_msg", data->line_count, col_error); */
 	}
 	ft_strdel(&str);
-	/*
-	name != NULL, comment != NULL, instr != NULL
-	name >< DEFINED_BYTES, comment >< DEFINED_BYTES
-	*/
 }
 
 int		ft_line_parser(char *str, t_data *data)
