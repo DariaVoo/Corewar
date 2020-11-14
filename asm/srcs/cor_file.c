@@ -6,7 +6,7 @@
 /*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 23:00:36 by rretta            #+#    #+#             */
-/*   Updated: 2020/11/14 21:53:35 by rretta           ###   ########.fr       */
+/*   Updated: 2020/11/14 22:01:43 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_cor_extension(char *file, t_data *data)
 	filename = ft_strsub(file, 0, ft_strlen(file) - 2);
 	file = ft_strjoin(filename, ".cor");
 	ft_strdel(&filename);
-	data->file_name = ft_strdup(file);
+	data->file = ft_strdup(file);
 	ft_strdel(&file);
 }
 

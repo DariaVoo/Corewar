@@ -6,7 +6,7 @@
 /*   By: rretta <rretta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 19:50:02 by sweet-cacao       #+#    #+#             */
-/*   Updated: 2020/11/14 21:52:44 by rretta           ###   ########.fr       */
+/*   Updated: 2020/11/14 22:01:54 by rretta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	free_data(t_data *data)
 		i++;
 	}
 	ft_strdel(&data->all_labels);
-	ft_strdel(&data->file_name);
+	ft_strdel(&data->file);
 	if (data->label != NULL)
 		free(data->label);
 	if (data->instrs != NULL)
