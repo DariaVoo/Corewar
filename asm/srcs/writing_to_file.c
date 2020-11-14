@@ -121,7 +121,6 @@ int		write_code_dir(int args, int type, int fd, int tdir_size)
 {
 	// t_dir, t_ind, t_reg
 	int		size;
-	int		count;
 	int8_t	buf;
 
 	if (type == T_DIR)
@@ -130,7 +129,6 @@ int		write_code_dir(int args, int type, int fd, int tdir_size)
 		size = 2;
 	else
 		size = 1;
-	count = 0;
 	while (size > 0)
 	{
 		buf = (args >> ((size - 1) * CHAR_BIT)) & 0xFF;
@@ -160,17 +158,24 @@ int		size_to_label(t_data *data, t_arg *args, int cur_size, int tdir_size)
 {
 	int		i;
 	int		size;
+	t_sort	*lab;
 	t_instr *instrs;
 
 	i = 0;
 	size = 0;
+	lab = NULL;
 	instrs = data->instrs;
 	while (i < data->instr_num)
 	{
-		if (instrs[i].label && args->label && ft_strcmp(instrs[i].label, args->label) == 0)
+		lab = instrs[i].labels;
+		while (lab)
 		{
-			size = instrs[i].sum_size - instrs[i].size - cur_size;
-			return (size);
+			if (lab->label && args->label && ft_strcmp(lab->label, args->label) == 0)
+			{
+				size = instrs[i].sum_size - instrs[i].size - cur_size;
+				return (size);
+			}
+			lab = lab->next;
 		}
 		i++;
 	}
@@ -181,12 +186,12 @@ void	write_args_to_fd(t_data *data, int ind_instr, int code_op, int fd)
 {
 	int		i;
 	int		size;
-	int		sz_dir;
 	t_arg	*args;
+	t_instr *instrs;
 
 	i = 0;
 	size = 0;
-	sz_dir = 2;
+	instrs = &data->instrs[ind_instr];
 	args = data->instrs[ind_instr].args;
 	while (i < g_op_tab[code_op - 1].col_args)
 	{
@@ -194,7 +199,7 @@ void	write_args_to_fd(t_data *data, int ind_instr, int code_op, int fd)
 			ft_putchar_fd(args[i].value, fd);
 		else
 		{
-			size = size_to_label(data, &args[i], data->instrs[ind_instr].sum_size - data->instrs[ind_instr].size, g_op_tab[code_op - 1].tdir_size);
+			size = size_to_label(data, &args[i], instrs->sum_size - instrs->size, g_op_tab[code_op - 1].tdir_size);
 			write_code_dir(size, args[i].type, fd, g_op_tab[code_op - 1].tdir_size);
 		}
 		i++;
