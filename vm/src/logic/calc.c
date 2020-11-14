@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 20:21:58 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/13 20:33:12 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:50:31 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ uint32_t	calc_step(t_carriage *carriage)
 	step += OPCODE_SIZE + (g_optab[carriage->opcode - 1].bit_type ? 1 : 0);
 	while (i < g_optab[carriage->opcode - 1].col_args)
 	{
-		step += step_size(carriage->args[i].type, g_optab[carriage->opcode - 1]);
+		step += step_size(carriage->args[i].type, g_optab[carriage->opcode \
+																		- 1]);
 		i++;
 	}
 	return (step);

@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 18:13:26 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 17:35:26 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:46:34 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,11 @@ static void		reset_lives_num(t_vm *vm)
 
 static int8_t	is_died(t_vm *vm, t_carriage *carriage)
 {
-	// ft_printf("vm->cycle_to_die %d\n", vm->cycle_to_die);
-	// ft_printf("carriage->last_live %d\n", carriage->last_live);
-	// ft_printf("cariage : %d\n", carriage->regs[0]);
 	return (vm->cycle_to_die <= 0
 			|| vm->iter_from_start - carriage->last_live >= vm->cycle_to_die);
 }
 
-static void	delete_died_carriage(t_vm *vm)
+static void		delete_died_carriage(t_vm *vm)
 {
 	t_carriage	*prev;
 	t_carriage	*curr;
@@ -43,7 +40,6 @@ static void	delete_died_carriage(t_vm *vm)
 
 	prev = NULL;
 	curr = vm->carriage;
-	// удаляет сразу две
 	while (curr)
 	{
 		if (is_died(vm, (del = curr)) && --vm->carriage_num)
@@ -53,7 +49,6 @@ static void	delete_died_carriage(t_vm *vm)
 				vm->carriage = curr;
 			if (prev)
 				prev->next = curr;
-			// мб утечка
 			ft_memdel((void**)&del);
 		}
 		else
@@ -62,14 +57,13 @@ static void	delete_died_carriage(t_vm *vm)
 			curr = curr->next;
 		}
 	}
-	// ft_printf("after carriage num = %d\n", vm->carriage_num);
 }
 
-void		cycles_to_die_check(t_vm *vm)
+void			cycles_to_die_check(t_vm *vm)
 {
 	vm->check_num++;
 	delete_died_carriage(vm);
-	if(vm->check_num == MAX_CHECKS || vm->lives_num >= NBR_LIVE)
+	if (vm->check_num == MAX_CHECKS || vm->lives_num >= NBR_LIVE)
 	{
 		vm->cycle_to_die -= CYCLE_TO_DIE;
 		vm->check_num = 0;

@@ -6,14 +6,13 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/10 20:50:52 by dima              #+#    #+#             */
-/*   Updated: 2020/11/13 21:48:54 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:40:24 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-
-static int32_t	ft_size(int32_t code,  uint8_t tdir_size)
+static	int32_t	ft_size(int32_t code, uint8_t tdir_size)
 {
 	if (code == REG_CODE)
 		return (REG_SIZE_BYTE);
@@ -24,7 +23,8 @@ static int32_t	ft_size(int32_t code,  uint8_t tdir_size)
 	return (0);
 }
 
-int32_t		get_arg(uint8_t *arena, int16_t address, uint8_t type, t_op params)
+int32_t			get_arg(uint8_t *arena, int16_t address, uint8_t type, \
+																	t_op params)
 {
 	int32_t	arg;
 	int32_t	i;
@@ -36,7 +36,8 @@ int32_t		get_arg(uint8_t *arena, int16_t address, uint8_t type, t_op params)
 	{
 		size = (params.type_arg[0] == T_REG) ? REG_SIZE_BYTE : 0;
 		size = (params.type_arg[0] == T_IND) ? IND_SIZE_BYTE : size;
-		size = (params.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE - 2 * params.tdir_size : size;
+		size = (params.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE - 2 * \
+														params.tdir_size : size;
 	}
 	else
 		size = ft_size(type, params.tdir_size);
@@ -52,7 +53,7 @@ int32_t		get_arg(uint8_t *arena, int16_t address, uint8_t type, t_op params)
 	return (arg);
 }
 
-int32_t		arguments(t_arg *args, uint8_t *arena, int32_t pc, t_op param)
+int32_t			arguments(t_arg *args, uint8_t *arena, int32_t pc, t_op param)
 {
 	int32_t		i;
 	int16_t		address;
@@ -72,7 +73,8 @@ int32_t		arguments(t_arg *args, uint8_t *arena, int32_t pc, t_op param)
 	return (shift);
 }
 
-int32_t		get_args(t_arg *args, uint8_t *arena, t_carriage *carriage, t_op *g_optab)
+int32_t			get_args(t_arg *args, uint8_t *arena, t_carriage *carriage, \
+																t_op *g_optab)
 {
 	int32_t	shift;
 	t_op	param;
@@ -83,12 +85,14 @@ int32_t		get_args(t_arg *args, uint8_t *arena, t_carriage *carriage, t_op *g_opt
 	{
 		shift = (param.type_arg[0] == T_REG) ? REG_SIZE_BYTE : shift;
 		shift = (param.type_arg[0] == T_IND) ? IND_SIZE_BYTE : shift;
-		shift = (param.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE - 2 * param.tdir_size : shift;
+		shift = (param.type_arg[0] == T_DIR) ? DIR_SIZE_BYTE - 2 * \
+														param.tdir_size : shift;
 	}
 	return (shift);
 }
 
-t_arg	*take_args(uint8_t *arena, t_carriage *carriage, int32_t num_arg)
+t_arg			*take_args(uint8_t *arena, t_carriage *carriage, \
+																int32_t num_arg)
 {
 	int32_t		i;
 	int32_t		address;
@@ -99,9 +103,8 @@ t_arg	*take_args(uint8_t *arena, t_carriage *carriage, int32_t num_arg)
 	args = carriage->args;
 	while (i < MAX_ARGS)
 	{
-		if (args[i].type == REG_CODE && i != num_arg){
+		if (args[i].type == REG_CODE && i != num_arg)
 			args[i].value = carriage->regs[args[i].value - 1];
-		}
 		else if (args[i].type == IND_CODE && i != num_arg)
 		{
 			address = carriage->program_counter + args[i].value % IDX_MOD;

@@ -50,12 +50,12 @@ SRC_MAIN =  main \
 SRC_MAIN := $(addsuffix .c, $(SRC_MAIN))
 
 SRC_PARSE = parse_args \
+			parse_args1 \
 			parse_args_flags \
 			parse_files
 SRC_PARSE := $(addsuffix .c, $(SRC_PARSE))
 
-SRC_LOGIC = operation \
-			op \
+SRC_LOGIC = op \
 			arg \
 			calc \
 			exec_oper \

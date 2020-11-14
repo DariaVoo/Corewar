@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/07 18:10:18 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 12:50:35 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:33:48 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void		op_lld(t_vm *vm, t_carriage *carriage)
 		if (args[i].type == IND_CODE)
 		{
 			address = carriage->program_counter + args[i].value % MEM_SIZE;
-			args[i].value = *(vm->arena + address + (address > 0 ? 0 : MEM_SIZE));
+			args[i].value = *(vm->arena + address + (address > 0 ? 0 : \
+																	MEM_SIZE));
 		}
 		i++;
 	}

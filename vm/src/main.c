@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/27 15:59:31 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 17:40:17 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:51:23 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static void		outro(t_vm *vm)
 	t_champion	*champ;
 
 	champ = vm->last_alive;
-	ft_printf("Contestant %d, \"%s\", has won !\n", champ->id, \
+	if (champ)
+		ft_printf("Contestant %d, \"%s\", has won !\n", champ->id, \
 											champ->header.prog_name);
 }
 
@@ -66,10 +67,8 @@ int				main(int argc, char **argv)
 	intro(vm);
 	game(vm);
 	outro(vm);
-	/* free */
 	free_arrptr((void *)champ_names);
 	free_champ(champ);
 	free_carriage_list(&(vm->carriage));
-	// visualisation();
 	return (0);
 }

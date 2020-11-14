@@ -6,12 +6,11 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 17:14:52 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 12:51:00 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:34:48 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
-
 
 void		op_xor(t_vm *vm, t_carriage *carriage)
 {

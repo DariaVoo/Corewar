@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/09 16:37:12 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 17:35:45 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:30:47 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_champion		*parse_champ_file(const char *champ_name, uint8_t id)
 	if (fd < 0)
 	{
 		perror(champ_name);
-		exit(NOE_FD);	
+		exit(NOE_FD);
 	}
 	champ = create_champ(id);
 	champ->header = init_champ_header(fd);
@@ -86,7 +86,7 @@ t_champion		*parse_champ_file(const char *champ_name, uint8_t id)
 	return (champ);
 }
 
-void		parse_files(t_champion *champ[], char *champ_names[])
+void			parse_files(t_champion *champ[], char *champ_names[])
 {
 	uint8_t	i;
 

@@ -18,8 +18,12 @@ void		game(t_vm *vm)
 {
 	while (vm->carriage_num)
 	{
-		// условие для dump
-		
+		if (vm->cycle_dump == vm->iter_from_start)
+		{
+			arena_print(vm->arena);
+			break ;
+		}
+		// ft_printf("cycle %d\n", vm->iter_from_start);
 		exec_cycle(vm);
 		if (vm->cycle_to_die == vm->cycle_after_check || vm->cycle_to_die <= 0)
 			cycles_to_die_check(vm);

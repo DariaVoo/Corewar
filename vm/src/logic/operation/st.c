@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 14:08:28 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 12:50:49 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:34:25 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void		op_st(t_vm *vm, t_carriage *carriage)
 		i = 0;
 		while (i < 4)
 		{
-			*(vm->arena + address + i) = (regs[args[FIRST].value - 1] >> ((3 - i) * CHAR_BIT)) & 0xFF;
+			*(vm->arena + address + i) = (regs[args[FIRST].value - 1] >> \
+												((3 - i) * CHAR_BIT)) & 0xFF;
 			i++;
 		}
 	}

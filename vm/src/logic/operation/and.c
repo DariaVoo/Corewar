@@ -6,7 +6,7 @@
 /*   By: qjosmyn <qjosmyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 16:12:08 by qjosmyn           #+#    #+#             */
-/*   Updated: 2020/11/14 17:35:36 by qjosmyn          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:31:58 by qjosmyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	op_and(t_vm *vm, t_carriage *carriage)
 	args = carriage->args;
 	regs = carriage->regs;
 	take_args(vm->arena, carriage, THIRD);
-	// ft_printf("args %d %d %d\n", args[FIRST].value, args[SECOND].value, args[THIRD].value);
 	regs[args[THIRD].value - 1] = args[FIRST].value & args[SECOND].value;
 	carriage->carry = regs[args[THIRD].value - 1] == 0 ? 1 : 0;
 	(void)vm;
