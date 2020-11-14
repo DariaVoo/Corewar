@@ -12,18 +12,6 @@
 
 #include "../includes/asm.h"
 
-void			ft_exit(char *str)
-{
-	ft_putstr(str);
-	exit(1);
-}
-
-void			ft_close_fd(int a, int b)
-{
-	close(a);
-	close(b);
-}
-
 void			skip_spaces(char *split, int *i)
 {
 	while (split[*i] && (split[*i] == ' ' || split[*i] == '\t'))

@@ -20,3 +20,15 @@ int		ft_skip(char *line, int id)
 		id++;
 	return (id);
 }
+
+void	ft_exit(char *str)
+{
+	ft_putstr(str);
+	exit(1);
+}
+
+void	ft_close_fd(int a, int b)
+{
+	close(a);
+	close(b);
+}
